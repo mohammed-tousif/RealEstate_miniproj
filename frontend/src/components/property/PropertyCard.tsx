@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { PropertySummary } from "@/lib/types";
 import { acresAndGuntas, formatArea, formatINRShort, formatSqft } from "@/lib/format";
 import { label, useCompare, useMeta } from "@/lib/providers";
-import { Badge, SyntheticBadge, cx } from "@/components/ui";
+import { Badge, OriginBadge, cx } from "@/components/ui";
 import { DocMeter } from "./DocMeter";
 import { PropertyVisual } from "./PropertyVisual";
 
@@ -44,7 +44,7 @@ export function PropertyCard({ p, extra }: { p: PropertySummary; extra?: React.R
         <DocMeter provided={p.documents_provided} applicable={p.documents_applicable} score={p.documentation_completeness} compact />
         {extra}
         <div className="mt-auto flex items-center justify-between gap-2 pt-1">
-          {p.is_synthetic ? <SyntheticBadge /> : <span />}
+          {p.is_synthetic || p.source_url ? <OriginBadge p={p} /> : <span />}
           <label className="flex cursor-pointer items-center gap-1.5 text-xs text-slate-600">
             <input type="checkbox" checked={inCompare} onChange={() => compare.toggle(p.id)} className="h-3.5 w-3.5 rounded border-slate-300 text-brand-700 focus:ring-brand-500" />
             Compare

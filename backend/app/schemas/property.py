@@ -180,6 +180,8 @@ class PropertySummary(BaseModel):
     documents_applicable: int
     cover_image_url: str | None
     is_synthetic: bool
+    data_source: str
+    source_url: str | None = None
     created_at: datetime
 
 
@@ -196,7 +198,7 @@ class PropertyDetail(PropertySummary):
     restriction_notes: str | None
     additional_notes: str | None
     relevant_authorities: str | None
-    data_source: str
+    source_retrieved_on: date | None = None
     last_verified_on: date | None
     updated_at: datetime
     images: list[ImageOut]

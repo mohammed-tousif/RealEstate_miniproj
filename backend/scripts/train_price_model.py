@@ -28,7 +28,10 @@ from app.ml.training import METADATA_FILE, train  # noqa: E402
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--data", type=Path, default=REPO_DIR / "data" / "raw" / "synthetic_properties_v1.csv")
+    ap.add_argument("--data", type=Path, nargs="+",
+                    default=[REPO_DIR / "data" / "raw" / "synthetic_properties_v1.csv",
+                             REPO_DIR / "data" / "raw" / "real_listings_1acre_v1.csv"],
+                    help="one or more raw CSVs (default: synthetic + real listings)")
     ap.add_argument("--out", type=Path, default=REPO_DIR / "ml" / "artifacts" / "price_model")
     ap.add_argument("--reports", type=Path, default=REPO_DIR / "ml" / "reports")
     ap.add_argument("--seed", type=int, default=42)
@@ -36,10 +39,12 @@ def main() -> None:
     ap.add_argument("--no-register", action="store_true", help="do not write the model_metadata row")
     args = ap.parse_args()
 
-    try:
-        source = args.data.resolve().relative_to(REPO_DIR).as_posix()
-    except ValueError:
-        source = args.data.name
+    def rel(p: Path) -> str:
+        try:
+            return p.resolve().relative_to(REPO_DIR).as_posix()
+        except ValueError:
+            return p.name
+    source = " + ".join(rel(p) for p in args.data)
     print(f"Cleaning {source} ...")
     c = clean(args.data)
     detection = detection_check(load_raw(args.data), c.flagged)

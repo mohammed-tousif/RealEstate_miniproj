@@ -161,6 +161,8 @@ def compare(db: Session, req: CompareRequest, user: User | None) -> CompareRespo
         warnings.append("The listings are in different cities.")
     if any(c.ref[0].is_synthetic for c in cands):
         warnings.append("Synthetic demonstration listings; prices are not market data.")
+    if any(not c.ref[0].is_synthetic and c.ref[0].source_url for c in cands):
+        warnings.append("Real listings copied from a public site: unverified asking prices, not sale prices.")
     matches = match_details(db, props, req.preferences) if req.preferences else [(None, None)] * len(props)
     items = [CompareItem(property=ps.summary(*c.ref), match=m, excluded_reason=reason)
              for c, (m, reason) in zip(cands, matches)]

@@ -11,8 +11,9 @@ export function Footer() {
         <div>
           <p className="font-semibold text-slate-900">About the data</p>
           <p className="mt-1">
-            Listings shown in this demo are <strong>synthetic</strong>. They are not real properties for sale and their
-            prices are not market data.
+            Most listings in this demo are <strong>synthetic</strong>: not real properties, and their prices are not market
+            data. A few are marked <strong>real</strong>: land listings copied from a public website with their source link,
+            not verified by PropWise.
           </p>
         </div>
         <div>

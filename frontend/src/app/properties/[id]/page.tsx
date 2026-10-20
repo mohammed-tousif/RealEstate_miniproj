@@ -7,7 +7,7 @@ import { api, ApiError, mediaUrl } from "@/lib/api";
 import { acresAndGuntas, formatArea, formatDate, formatINR, formatINRShort, formatSqft } from "@/lib/format";
 import { label, useAuth, useCompare, useMeta } from "@/lib/providers";
 import type { DocumentInfo, PropertyDetail, SimilarResponse } from "@/lib/types";
-import { Alert, Badge, Button, Card, EmptyState, ErrorState, LinkButton, Skeleton, SyntheticBadge, Textarea, cx } from "@/components/ui";
+import { Alert, Badge, Button, Card, EmptyState, ErrorState, LinkButton, OriginBadge, Skeleton, Textarea, cx } from "@/components/ui";
 import { DocMeter } from "@/components/property/DocMeter";
 import { MapView } from "@/components/property/MapView";
 import { PropertyCard } from "@/components/property/PropertyCard";
@@ -155,7 +155,7 @@ export default function PropertyDetailPage() {
         <div>
           <div className="flex flex-wrap gap-2">
             <Badge tone="brand">{label(meta, "PropertyType", p.property_type)}</Badge>
-            {p.is_synthetic && <SyntheticBadge />}
+            <OriginBadge p={p} />
             {p.listing_status !== "approved" && <Badge tone="amber">{label(meta, "ListingStatus", p.listing_status)}</Badge>}
           </div>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">{p.title}</h1>
@@ -180,6 +180,19 @@ export default function PropertyDetailPage() {
 
       {p.is_synthetic && (
         <div className="mt-4"><Alert tone="blue">This is a synthetic demonstration listing. It is not a real property for sale and its price is not market data.</Alert></div>
+      )}
+      {!p.is_synthetic && p.source_url && (
+        <div className="mt-4">
+          <Alert tone="green" title="Real listing from a public website">
+            Copied from{" "}
+            <a href={p.source_url} target="_blank" rel="noopener noreferrer nofollow" className="font-medium underline">
+              {new URL(p.source_url).hostname}
+            </a>
+            {p.source_retrieved_on && <> on {formatDate(p.source_retrieved_on)}</>}. PropWise does not represent the seller and has
+            not verified any detail; the price is the seller&apos;s asking price. Contact the seller and check the current status
+            through the source listing.
+          </Alert>
+        </div>
       )}
 
       <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_380px]">
@@ -304,7 +317,7 @@ export default function PropertyDetailPage() {
               {p.is_corner_plot !== null && <Fact k="Corner plot" v={p.is_corner_plot ? "Yes" : "No"} />}
               <Fact k="Locality" v={`${p.locality.locality_name}, ${p.locality.city}`} />
               <Fact k="Listed on" v={formatDate(p.created_at)} />
-              <Fact k="Data source" v={p.is_synthetic ? "Synthetic generator" : p.data_source.replace(/_/g, " ")} />
+              <Fact k="Data source" v={p.is_synthetic ? "Synthetic generator" : p.source_url ? `Real listing, ${new URL(p.source_url).hostname}` : p.data_source.replace(/_/g, " ")} />
             </dl>
           </Card>
           <Card className="p-4">

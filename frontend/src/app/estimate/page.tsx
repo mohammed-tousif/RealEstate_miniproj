@@ -109,8 +109,8 @@ export default function EstimatePage() {
         subtitle="A machine-learning estimate of a typical asking price for a property like this, with a range and comparable listings. It is not a valuation."
       />
       <Alert tone="blue">
-        The model was trained on synthetic demonstration data, so it reflects the rules used to generate that data, not the real
-        Hubballi–Dharwad market. See the Methodology page for how it was tested.
+        The model was trained mostly on synthetic demonstration data (plus a few real asking prices), so it mainly reflects the
+        rules used to generate that data, not the real Hubballi–Dharwad market. See the Methodology page for how it was tested.
       </Alert>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-[380px_1fr]">

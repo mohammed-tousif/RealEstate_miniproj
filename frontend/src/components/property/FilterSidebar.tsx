@@ -90,6 +90,13 @@ export function FilterSidebar({ initial, onApply, onReset }: { initial: Filters;
           <Input id="bmax" placeholder="e.g. 25 lakh" value={budgetMax} onChange={(e) => setBudgetMax(e.target.value)} />
         </Field>
       </div>
+      <Field label="Data origin" htmlFor="origin">
+        <Select id="origin" value={str(f.is_synthetic)} onChange={(e) => set("is_synthetic", e.target.value)}>
+          <option value="">All listings</option>
+          <option value="false">Real listings only</option>
+          <option value="true">Synthetic demo listings only</option>
+        </Select>
+      </Field>
       <Field label="City" htmlFor="city">
         <Select id="city" value={city} onChange={(e) => setF((p) => ({ ...p, city: e.target.value, locality_id: "" }))}>
           <option value="">Hubballi and Dharwad</option>

@@ -287,3 +287,18 @@ SYN-0297,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_appli
 SYN-0298,Hubballi,Navanagar,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.2078598714324755,3.0,,4.0,7.89,0.0,0.0,1.0,3150000.0,SYN-0298
 SYN-0299,Hubballi,Unkal,residential_plot,non_agricultural_residential,not_converted,approved_layout_claimed,7.60092355931948,2.0,40.0,4.0,2.82,0.0,0.0,0.0,2790000.0,SYN-0299
 SYN-0300,Hubballi,Vidyanagar,independent_house,non_agricultural_residential,conversion_in_progress,not_applicable,7.78323614126253,2.0,,2.0,0.98,0.0,0.0,1.0,11670000.0,SYN-0300
+REAL-1ACRE-4040,Hubballi,Keshwapur,residential_plot,unknown,unknown,unknown,7.1853870155804165,,,0.0,5.28,0.0,1.0,1.0,5016000.0,REAL-1ACRE-4040
+REAL-1ACRE-3710,Hubballi,Kusugal,residential_plot,unknown,unknown,unknown,7.25487067570183,2.0,,0.0,7.84,0.0,0.0,1.0,2830000.0,REAL-1ACRE-3710
+REAL-1ACRE-14253,Hubballi,Karadikop,agricultural_land,unknown,not_applicable,not_applicable,13.568090963532581,1.0,,0.0,14.49,0.0,0.0,1.0,66300000.0,REAL-1ACRE-14253
+REAL-1ACRE-2066,Hubballi,Hubballi (village not named),residential_plot,unknown,unknown,unknown,7.080026499922591,,,0.0,3.93,0.0,1.0,1.0,1467000.0,REAL-1ACRE-2066
+REAL-1ACRE-10315,Hubballi,Tirumalkoppa,agricultural_land,unknown,not_applicable,not_applicable,10.681894577046897,3.0,,0.0,21.1,0.0,0.0,1.0,8000000.0,REAL-1ACRE-10315
+REAL-1ACRE-9728,Hubballi,Halliyala,agricultural_land,unknown,not_applicable,not_applicable,11.136149849324493,3.0,,0.0,9.64,0.0,0.0,1.0,12600000.0,REAL-1ACRE-9728
+REAL-1ACRE-1838,Hubballi,Hubballi (village not named),residential_plot,unknown,unknown,unknown,8.1886891244442,,,0.0,3.13,0.0,1.0,1.0,12600000.0,REAL-1ACRE-1838
+REAL-1ACRE-1396,Hubballi,Hubballi (village not named),residential_plot,unknown,unknown,unknown,7.784473235736469,2.0,,0.0,5.47,0.0,0.0,1.0,8651000.0,REAL-1ACRE-1396
+REAL-1ACRE-1262,Hubballi,Hubballi (village not named),residential_plot,unknown,unknown,unknown,8.602453035367061,,,0.0,8.17,0.0,1.0,1.0,20000000.0,REAL-1ACRE-1262
+REAL-1ACRE-13602,Dharwad,Mangalagatti,agricultural_land,unknown,not_applicable,not_applicable,10.777204756851221,3.0,,0.0,10.66,0.0,0.0,1.0,7700000.0,REAL-1ACRE-13602
+REAL-1ACRE-2079,Dharwad,Manasur–Sanna Somapur,residential_plot,unknown,unknown,unknown,8.602453035367061,,,0.0,5.46,0.0,1.0,1.0,4000000.0,REAL-1ACRE-2079
+REAL-1ACRE-10191,Dharwad,Hebballi,agricultural_land,unknown,not_applicable,not_applicable,12.984479670040942,3.0,,0.0,20.3,0.0,0.0,1.0,100000000.0,REAL-1ACRE-10191
+REAL-1ACRE-1890,Dharwad,Navalur,residential_plot,unknown,unknown,unknown,9.143238568435446,4.0,,0.0,4.44,0.0,0.0,1.0,42100000.0,REAL-1ACRE-1890
+REAL-1ACRE-8974,Dharwad,Kalakeri,agricultural_land,unknown,not_applicable,not_applicable,10.630601282659347,1.0,,0.0,6.85,0.0,0.0,1.0,10100000.0,REAL-1ACRE-8974
+REAL-1ACRE-1324,Dharwad,Dharwad (village not named),residential_plot,unknown,unknown,unknown,8.825265953515752,3.0,,0.0,0.99,0.0,0.0,1.0,40800000.0,REAL-1ACRE-1324

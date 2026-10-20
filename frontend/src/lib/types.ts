@@ -51,6 +51,8 @@ export interface PropertySummary {
   documents_applicable: number;
   cover_image_url: string | null;
   is_synthetic: boolean;
+  data_source: string;
+  source_url: string | null;
   created_at: string;
 }
 
@@ -87,7 +89,7 @@ export interface PropertyDetail extends PropertySummary {
   restriction_notes: string | null;
   additional_notes: string | null;
   relevant_authorities: string | null;
-  data_source: string;
+  source_retrieved_on: string | null;
   last_verified_on: string | null;
   updated_at: string;
   images: { id: number; url: string; ordering: number }[];

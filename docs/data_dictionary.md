@@ -5,6 +5,7 @@
 | Path | Stage | Contents |
 |---|---|---|
 | `data/raw/synthetic_properties_v1.csv` | Raw | Output of `generate_synthetic_data.py --n 300 --seed 42`: 306 rows (300 generated + 6 injected near-duplicates). **Synthetic.** |
+| `data/raw/real_listings_1acre_v1.csv` | Raw | 22 **real** land/plot listings copied from public 1acre.in pages on 2026-10-20 by `backend/scripts/build_real_listings.py`. Same columns plus `source_url`, `source_retrieved_on` |
 | `data/processed/` | Processed | Cleaned, normalised data (created by the Milestone 3 pipeline) |
 | `data/training/` | Training | Model-ready snapshots, versioned by content hash (Milestone 3) |
 
@@ -57,4 +58,25 @@ Seed data never contains `verified`.
 1. Every synthetic row has `is_synthetic=true` and `data_source` set; the API returns `is_synthetic` on every listing.
 2. Demo owners are demo accounts (`…@demo.propwise.example`), never real people.
 3. Synthetic prices are produced by a stated formula with invented base rates; they say nothing about the real market.
-4. Genuine data, if added later, uses the same columns with `is_synthetic=false` and a real `data_source`.
+4. Genuine data uses the same columns with `is_synthetic=false` and a real `data_source` (see below).
+
+## Real listings
+
+`data/raw/real_listings_1acre_v1.csv`, rows `REAL-1ACRE-<listing id>`, `data_source = 1acre_public_listing`.
+
+- **Source and rules.** Public listing pages under `https://1acre.in/lands-for-sale/`, whose robots.txt allows them.
+  Each page was read once on 2026-10-20. Only property facts were copied: no seller or agent names, phone numbers,
+  e-mails or survey numbers. The builder script holds the transcribed values and the mapping rules.
+- **Provenance per row.** `source_url` (the listing page), `source_retrieved_on` (2026-10-20), `listed_on` (the date
+  the source says the listing was posted). Stored in the `properties` table as `source_url` and
+  `source_retrieved_on` (migration `0002`).
+- **Unknown stays unknown.** `land_classification`, `conversion_status` and `layout_approval_status` are `unknown`
+  for plots (`not_applicable` conversion/layout for land); every applicable document is `unknown`; dimensions,
+  frontage, corner and amenities are empty. "Plot" listings use `property_type=residential_plot` with
+  `intended_land_use=unknown`; "land" listings use `agricultural_land` (the source files them as agricultural).
+- **Road access** comes from the published approach-road text (kept in the description): highway → `highway`,
+  blacktop ≥ 40 ft → `main_road`, narrower blacktop → `paved_internal`, kacha → `unpaved`, otherwise `unknown`.
+- **Coordinates** are the source's published point rounded to 3 decimals (about 100 m), `coordinates_approximate=True`.
+- **Price** is the asking price as displayed (the site rounds lakh/crore figures). Not a sale price or valuation.
+- **Owner.** In PropWise these listings belong to a non-login account, "Public listings import (not the seller)".
+- **Scope.** 25 Dharwad-district listings were read; 3 outside the Hubballi and Dharwad taluks were left out.

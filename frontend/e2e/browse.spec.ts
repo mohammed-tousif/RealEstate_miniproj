@@ -44,3 +44,14 @@ test("compare two listings", async ({ page }) => {
   await expect(page.locator("table thead th")).toHaveCount(3);
   await expect(page.getByRole("rowheader", { name: "Price per sq ft" })).toBeVisible();
 });
+
+test("real listings can be filtered and show their source", async ({ page }) => {
+  await page.goto("/properties?is_synthetic=false");
+  await expect(page.getByText(/listings? match/)).toBeVisible();
+  await expect(page.getByText("Real listing · unverified").first()).toBeVisible();
+  await expect(page.getByText("Synthetic demo listing", { exact: true })).toHaveCount(0);
+  await page.locator("article").filter({ hasText: "Real listing · unverified" }).first().locator("a").first().click();
+  const alert = page.getByRole("status").filter({ hasText: "Real listing from a public website" });
+  await expect(alert).toBeVisible();
+  await expect(alert.getByRole("link", { name: "1acre.in" })).toHaveAttribute("href", /^https:\/\/1acre\.in\/lands-for-sale\//);
+});

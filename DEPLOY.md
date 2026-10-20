@@ -5,7 +5,7 @@
 | Resource | What it runs |
 |---|---|
 | `propwise-db` | Render PostgreSQL 16 |
-| `propwise-api` | FastAPI on Python 3.11. Each start runs `alembic upgrade head`, loads the synthetic demo data if it is missing, then starts uvicorn (`backend/scripts/render_start.sh`). Health check: `/api/v1/health` |
+| `propwise-api` | FastAPI on Python 3.11. Each start runs `alembic upgrade head`, loads the synthetic demo data and the 22 real imported listings if they are missing, then starts uvicorn (`backend/scripts/render_start.sh`). Health check: `/api/v1/health` |
 | `propwise-web` | Next.js (`next start`). The browser only talks to this service; it forwards `/api/v1/*` and `/media/*` to the API (`frontend/src/lib/proxy.ts`) |
 
 Because the frontend proxies the API on the same origin, there is no CORS setting and no API URL baked into the build.

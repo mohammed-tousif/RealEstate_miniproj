@@ -27,8 +27,8 @@ KNN only stores standardised listing vectors.
 
 **Q: Why was Random Forest chosen?**
 It was a candidate, not the final choice. Random Forest, Gradient Boosting and Linear Regression were all tuned and
-compared on the validation set. Linear Regression on log price had the lowest validation MAE (₹7.85 lakh, against
-₹10.32 lakh for GBR and ₹12.88 lakh for RF), so it was selected. Random Forest would be the natural choice on real
+compared on the validation set. Linear Regression on log price had the lowest validation MAE (₹13.21 lakh, against
+₹16.58 lakh for GBR and ₹19.67 lakh for RF), so it was selected. Random Forest would be the natural choice on real
 data with non-linear effects; the pipeline keeps it, so retraining on genuine data could pick it.
 
 **Q: How was the dataset collected?**
@@ -110,15 +110,16 @@ gunta = 43,560 sq ft; 1 gunta = 1,089 sq ft; 1 sq m = 10.7639 sq ft). Money is s
 
 **Q: Which models did you try, and which won?**
 Two baselines (overall median; locality + type median ₹/sq ft × area), Linear Regression, Random Forest and Gradient
-Boosting, all on log(price). Linear Regression had the lowest validation MAE (₹7.85 lakh against ₹10.32 lakh for GBR
-and ₹12.88 lakh for RF), so it was selected before the test set was touched.
+Boosting, all on log(price). Linear Regression had the lowest validation MAE (₹13.21 lakh against ₹16.58 lakh for GBR
+and ₹19.67 lakh for RF), so it was selected before the test set was touched.
 
 **Q: Why would Linear Regression beat Random Forest?**
 The generator multiplies factors, and taking logs makes that a sum, which is exactly what a linear model fits. Trees
-must approximate it in steps from only 200 training rows. On real data the ranking could change.
+must approximate it in steps from only 211 training rows. On real data the ranking could change.
 
 **Q: What are the test results?**
-On 44 test rows: MAE ₹7.59 lakh, MAPE 15.2%, R² 0.963. The baselines had MAPE 91.9% and 46.1%. R² is on rupee values,
+On 46 test rows: MAE ₹10.81 lakh, MAPE 19.4%, R² 0.875. The baselines had MAPE 80.7% and 31.6%. (Before the 22 real
+listings were added the figures were MAPE 15.2% and R² 0.963: real prices do not follow the generator's formula.) R² is on rupee values,
 so a few large farmland prices dominate it; MAPE is easier to read across ₹5 lakh plots and ₹1 crore farms.
 
 **Q: How did you avoid data leakage?**
@@ -126,12 +127,12 @@ Near-duplicate listings share a `dup_group_id`, and the 70/15/15 split is a `Gro
 land on both sides. Preprocessing is fitted inside the pipeline on training data only. The test set was used once.
 
 **Q: How does the model do on a locality it has never seen?**
-Badly, and we report it. With GroupKFold by locality, MAE was ₹36.82 lakh against ₹21.19 lakh for the baseline. The
+Badly, and we report it. With GroupKFold by locality, MAE was ₹46.02 lakh against ₹27.60 lakh for the baseline. The
 model only knows the city and distance to the centre for a new locality, so the API warns in that case.
 
 **Q: What does the price range mean?**
-It is the 10th–90th percentile of validation errors, so nominally 80%. On the test set it covered 84.1% of rows. With
-44 rows that figure is itself uncertain.
+It is the 10th–90th percentile of validation errors, so nominally 80%. On the test set it covered 76.1% of rows. With
+46 rows that figure is itself uncertain.
 
 **Q: Is the estimate a valuation?**
 No. It is an indicative asking-price estimate from a demonstration model, and every response says so.
@@ -217,3 +218,16 @@ See `DEPLOY.md`.
 **Q: What are the main limitations?**
 See `limitations.md`. In short: synthetic data, weak generalisation to unseen localities, expert-set weights, and
 nothing legally verified.
+
+**Q: Is any of the data real?**
+Yes, a small part. 22 land and plot listings in the Hubballi and Dharwad taluks were copied by hand from public listing
+pages on 1acre.in on 20 Oct 2026 (its robots rules allow those pages). Each keeps its source URL and retrieval date, is
+stored with `is_synthetic=false` and `data_source=1acre_public_listing`, and is marked "Real listing · unverified" in
+the UI. Only property facts were copied, never seller names or phone numbers. Fields the source does not state stay
+unknown. They are asking prices, not sale prices, and nothing was verified.
+
+**Q: What did the real data show?**
+That the synthetic farmland prices are far too low. Real farmland near Hubballi–Dharwad was listed at about
+₹35 lakh–₹2 crore per acre (₹160–₹460 per sq ft), several times the generator's rates, so 7 of the 22 real rows were
+excluded as "extreme outliers" against the synthetic rows. Test MAPE rose from 15.2% to 19.4% once real rows were mixed
+in. A larger real dataset, not more synthetic rows, is what would make the model meaningful.

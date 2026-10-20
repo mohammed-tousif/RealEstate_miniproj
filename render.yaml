@@ -17,7 +17,7 @@ services:
     runtime: python
     plan: free
     buildCommand: cd backend && pip install -r requirements.txt
-    # Runs `alembic upgrade head`, loads the synthetic demo data once, then starts uvicorn.
+    # Runs `alembic upgrade head`, loads the synthetic demo data and the real imported listings once, then starts uvicorn.
     startCommand: bash backend/scripts/render_start.sh
     healthCheckPath: /api/v1/health
     envVars:

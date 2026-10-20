@@ -57,7 +57,7 @@ function Admin() {
               ["Total listings", stats.total_listings],
               ["Awaiting review", stats.listings_by_status.pending ?? 0],
               ["Synthetic", stats.listings_by_origin.synthetic ?? 0],
-              ["Genuine", stats.listings_by_origin.genuine ?? 0],
+              ["Real / user-submitted", stats.listings_by_origin.genuine ?? 0],
             ].map(([k, v]) => (
               <Card key={k} className="p-4"><p className="text-sm text-slate-500">{k}</p><p className="mt-1 text-2xl font-semibold">{v}</p></Card>
             ))}

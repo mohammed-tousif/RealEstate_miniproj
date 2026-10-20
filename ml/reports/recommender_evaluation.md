@@ -14,9 +14,9 @@ Engine `weighted-v1`, 15 scripted scenarios, 275 approved **synthetic** listings
 |---|---|---|---|
 | Available ideal listings that reached the top 5 | 100% | 0% | 13% |
 | Share of top 5 that is rule-derived ideal (capped by how many exist) | 31% | 0% | 3% |
-| Documentation completeness | 76% | 62% | 58% |
+| Documentation completeness | 76% | 61% | 58% |
 | Road access known | 100% | 96% | 94% |
-| Purpose suitability (engine's own table, so partly circular) | 0.86 | 0.75 | 0.68 |
+| Purpose suitability (engine's own table, so partly circular) | 0.86 | 0.76 | 0.68 |
 
 The baselines rank the same listings that pass the strict filters, so they never violate constraints either; the comparison is about what rises to the top.
 

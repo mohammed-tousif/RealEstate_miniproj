@@ -1,8 +1,12 @@
-"""Load reference data, demo accounts and the SYNTHETIC listings into the database.
+"""Load reference data, demo accounts, the SYNTHETIC listings and the REAL imported listings.
 
 Run after `alembic upgrade head`:
-    python scripts/seed_db.py            # idempotent: skips listings if already loaded
-    python scripts/seed_db.py --reset    # removes previously seeded synthetic listings first
+    python scripts/seed_db.py            # idempotent: skips each dataset if already loaded
+    python scripts/seed_db.py --reset    # removes previously seeded synthetic and real listings first
+
+Real listings (data/raw/real_listings_1acre_v1.csv, built by build_real_listings.py) are
+third-party listings copied from public pages for reference. They are owned in PropWise by a
+non-login import account, never by a demo seller, and keep their source URL and retrieval date.
 
 Demo accounts use the password from SEED_DEMO_PASSWORD (default shown below). They are
 demo-only identities (…@demo.propwise.example), never real people.
@@ -12,8 +16,9 @@ from __future__ import annotations
 import argparse
 import csv
 import os
+import secrets
 import sys
-from datetime import datetime, time, timezone
+from datetime import date, datetime, time, timezone
 from decimal import Decimal
 from pathlib import Path
 
@@ -29,10 +34,16 @@ from app.models.enums import (DocumentAvailability, DocumentType, ListingStatus,
                               VerificationStatus)
 from app.schemas.property import DocumentIn, PropertyCreate  # noqa: E402
 from app.services import property_service as ps  # noqa: E402
-from app.services.reference_data import AMENITIES, DISTRICT, LOCALITIES, STATE  # noqa: E402
+from app.services.reference_data import (AMENITIES, DISTRICT, LOCALITIES,  # noqa: E402
+                                         REAL_LISTING_LOCALITY_IS_RURAL, STATE)
 
 DEFAULT_CSV = Path(__file__).resolve().parents[2] / "data" / "raw" / "synthetic_properties_v1.csv"
+REAL_CSV = Path(__file__).resolve().parents[2] / "data" / "raw" / "real_listings_1acre_v1.csv"
 DEFAULT_DEMO_PASSWORD = "DemoPass123"
+SYNTHETIC_SOURCE = "synthetic_generator_v1"
+REAL_SOURCE = "1acre_public_listing"
+# Owner of imported real listings. It cannot sign in (random password, never printed).
+IMPORT_ACCOUNT = ("Public listings import (not the seller)", "public-listings-import@demo.propwise.example")
 
 DEMO_USERS = [
     ("Demo Admin", "admin@demo.propwise.example", UserRole.admin),
@@ -70,6 +81,77 @@ def upsert_users(db: Session, password: str) -> dict[str, User]:
         users[email] = u
     db.flush()
     return users
+
+
+def upsert_import_account(db: Session) -> User:
+    name, email = IMPORT_ACCOUNT
+    u = db.execute(select(User).where(User.email == email)).scalar_one_or_none()
+    if u is None:
+        u = User(name=name, email=email, role=UserRole.seller, password_hash=hash_password(secrets.token_urlsafe(32)),
+                 is_demo_account=True)
+        db.add(u)
+        db.flush()
+    return u
+
+
+def add_localities_from_csv(db: Session, csv_path: Path, localities) -> None:
+    """Create localities that real listings use but the reference list does not have. The centre is
+    the mean of the listings' (rounded, approximate) published coordinates."""
+    with csv_path.open(encoding="utf-8") as fh:
+        rows = list(csv.DictReader(fh))
+    for key in dict.fromkeys((r["locality"], r["city"]) for r in rows):
+        if key in localities:
+            continue
+        pts = [(float(r["latitude"]), float(r["longitude"])) for r in rows if (r["locality"], r["city"]) == key]
+        loc = Locality(locality_name=key[0], city=key[1], district=DISTRICT, state=STATE,
+                       center_lat=Decimal(f"{sum(p[0] for p in pts) / len(pts):.4f}"),
+                       center_lng=Decimal(f"{sum(p[1] for p in pts) / len(pts):.4f}"),
+                       coordinates_approximate=True, is_rural=REAL_LISTING_LOCALITY_IS_RURAL.get(key[0], True))
+        db.add(loc)
+        localities[key] = loc
+    db.flush()
+
+
+def load_real_listings(db: Session, csv_path: Path, localities, owner: User) -> int:
+    add_localities_from_csv(db, csv_path, localities)
+    count = 0
+    with csv_path.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            loc = localities[(row["locality"], row["city"])]
+            docs = [DocumentIn(document_type=t, availability=DocumentAvailability(row[f"doc_{t.value}"]))
+                    for t in DocumentType if row.get(f"doc_{t.value}")]
+            data = PropertyCreate(
+                title=row["title"], description=row["description"], property_type=row["property_type"],
+                intended_land_use=row["intended_land_use"], land_classification=row["land_classification"],
+                conversion_status=row["conversion_status"], layout_approval_status=row["layout_approval_status"],
+                asking_price_inr=Decimal(row["asking_price_inr"]), area_value=Decimal(row["area_value"]),
+                area_unit=row["area_unit"], road_access=row["road_access"], locality_id=loc.id,
+                general_address=row["general_address"], latitude=Decimal(row["latitude"]),
+                longitude=Decimal(row["longitude"]), documents=docs, consent_to_store=True,
+                additional_notes=f"Source: {row['source_url']} (copied {row['source_retrieved_on']}). "
+                                 "Contact the seller through the source listing; PropWise does not hold their "
+                                 "contact details.")
+            prop = ps.create_property(db, owner, data, status=ListingStatus(row["listing_status"]),
+                                      is_synthetic=False, data_source=row["data_source"],
+                                      source_record_id=row["source_record_id"], coordinates_approximate=True)
+            prop.source_url = row["source_url"]
+            prop.source_retrieved_on = date.fromisoformat(row["source_retrieved_on"])
+            listed = datetime.combine(date.fromisoformat(row["listed_on"]), time(10, 0), tzinfo=timezone.utc)
+            prop.created_at = prop.updated_at = listed
+            count += 1
+    return count
+
+
+def _delete_source(db: Session, source: str) -> None:
+    ids = select(Property.id).where(Property.data_source == source)
+    for model in (PropertyAmenity, PropertyDocument):
+        db.execute(delete(model).where(model.property_id.in_(ids)))
+    db.execute(delete(Property).where(Property.data_source == source))
+    db.flush()
+
+
+def _loaded(db: Session, source: str) -> bool:
+    return db.execute(select(Property.id).where(Property.data_source == source).limit(1)).first() is not None
 
 
 def _opt_dec(v: str) -> Decimal | None:
@@ -126,7 +208,9 @@ def load_listings(db: Session, csv_path: Path, localities, sellers: list[User]) 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", type=Path, default=DEFAULT_CSV)
-    ap.add_argument("--reset", action="store_true", help="delete previously seeded synthetic listings first")
+    ap.add_argument("--real-csv", type=Path, default=REAL_CSV)
+    ap.add_argument("--no-real", action="store_true", help="skip the real imported listings")
+    ap.add_argument("--reset", action="store_true", help="delete previously seeded synthetic and real listings first")
     args = ap.parse_args()
     password = os.environ.get("SEED_DEMO_PASSWORD", DEFAULT_DEMO_PASSWORD)
 
@@ -134,19 +218,21 @@ def main() -> None:
         localities = upsert_reference(db)
         users = upsert_users(db, password)
         if args.reset:
-            ids = select(Property.id).where(Property.data_source == "synthetic_generator_v1")
-            for model in (PropertyAmenity, PropertyDocument):
-                db.execute(delete(model).where(model.property_id.in_(ids)))
-            db.execute(delete(Property).where(Property.data_source == "synthetic_generator_v1"))
-            db.flush()
-        already = db.execute(select(Property.id).where(Property.data_source == "synthetic_generator_v1")
-                             .limit(1)).first()
-        if already:
+            _delete_source(db, SYNTHETIC_SOURCE)
+            _delete_source(db, REAL_SOURCE)
+        if _loaded(db, SYNTHETIC_SOURCE):
             print("Synthetic listings already loaded; use --reset to reload.")
         else:
             sellers = [u for u in users.values() if u.role == UserRole.seller]
             n = load_listings(db, args.csv, localities, sellers)
             print(f"Loaded {n} SYNTHETIC demo listings from {args.csv.name}")
+        if args.no_real or not args.real_csv.exists():
+            pass
+        elif _loaded(db, REAL_SOURCE):
+            print("Real listings already loaded; use --reset to reload.")
+        else:
+            n = load_real_listings(db, args.real_csv, localities, upsert_import_account(db))
+            print(f"Loaded {n} REAL listings (third-party, unverified) from {args.real_csv.name}")
         db.commit()
     print("Demo accounts (password from SEED_DEMO_PASSWORD, default 'DemoPass123'):")
     for name, email, role in DEMO_USERS:

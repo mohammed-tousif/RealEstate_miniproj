@@ -32,7 +32,9 @@ from app.services import property_service as ps
 from app.services.risk_flags import risk_flags
 
 City = Literal["Hubballi", "Dharwad"]
-SYNTHETIC_NOTE = "All listings are synthetic demonstration data, not real properties or market prices."
+SYNTHETIC_NOTE = ("Listings with is_synthetic=true are synthetic demonstration data, not real properties or market "
+                  "prices. Listings with is_synthetic=false and a source_url are real third-party listings copied "
+                  "from a public site: unverified asking prices, not sale prices.")
 
 
 @dataclass
@@ -66,6 +68,7 @@ def _card(ctx: ToolContext, s: PropertySummary) -> dict:
         "documents_declared": f"{s.documents_provided} of {s.documents_applicable} applicable",
         "documentation_completeness": round(s.documentation_completeness, 2),
         "is_synthetic": s.is_synthetic,
+        **({"source_url": s.source_url} if s.source_url else {}),
     }
 
 

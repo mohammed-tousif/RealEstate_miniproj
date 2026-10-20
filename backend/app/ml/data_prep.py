@@ -60,12 +60,20 @@ class SchemaError(ValueError):
     pass
 
 
-def file_sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def file_sha256(path: Path | list[Path]) -> str:
+    paths = path if isinstance(path, list) else [path]
+    if len(paths) == 1:
+        return hashlib.sha256(paths[0].read_bytes()).hexdigest()
+    # Several files (synthetic + real): hash of the per-file hashes, in the order given.
+    return hashlib.sha256("".join(file_sha256(p) for p in paths).encode()).hexdigest()
 
 
-def load_raw(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path, dtype=str, keep_default_na=False)
+def load_raw(path: Path | list[Path]) -> pd.DataFrame:
+    """Read one raw CSV, or several with the same core columns (e.g. synthetic + real listings).
+    Columns only some files have are filled with empty strings for the others."""
+    paths = path if isinstance(path, list) else [path]
+    df = pd.concat([pd.read_csv(p, dtype=str, keep_default_na=False) for p in paths],
+                   ignore_index=True).fillna("")
     missing_cols = [c for c in REQUIRED_COLUMNS if c not in df.columns]
     if missing_cols:
         raise SchemaError(f"CSV is missing required columns: {', '.join(missing_cols)}")
@@ -176,7 +184,7 @@ def price_outliers(df: pd.DataFrame) -> pd.Series:
     return level
 
 
-def clean(path: Path) -> CleaningResult:
+def clean(path: Path | list[Path]) -> CleaningResult:
     raw = load_raw(path)
     flags: list[dict] = []
     missing = pd.DataFrame({
@@ -220,6 +228,8 @@ def detection_check(raw: pd.DataFrame, flagged: pd.DataFrame) -> pd.DataFrame:
     Only meaningful for synthetic data (genuine data has no such column)."""
     if "injected_anomaly" not in raw.columns:
         return pd.DataFrame()
+    if "is_synthetic" in raw.columns:
+        raw = raw[raw["is_synthetic"].str.lower() == "true"]
     planted = raw[raw["injected_anomaly"] != ""][["source_record_id", "injected_anomaly"]].copy()
     planted["kind"] = planted["injected_anomaly"].str.replace(r"near_duplicate_of:.*", "near_duplicate", regex=True)
     planted["kind"] = planted["kind"].str.replace(r"price_outlier_x.*", "price_outlier", regex=True)

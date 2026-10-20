@@ -234,7 +234,7 @@ export default function AdvisorPage() {
                 {res.notes.length > 0 && <ul className="mt-1 list-disc pl-5 text-slate-500">{res.notes.map((n) => <li key={n}>{n}</li>)}</ul>}
                 <p className="mt-2 text-xs text-slate-500">{res.score_label} Engine {res.engine_version}.</p>
               </div>
-              {res.is_synthetic_data && <Alert tone="blue">All listings are synthetic demonstration data, so these matches are illustrations of the method, not real opportunities.</Alert>}
+              {res.is_synthetic_data && <Alert tone="blue">Listings marked synthetic are demonstration data, so matches among them illustrate the method, not real opportunities. Listings marked real are unverified third-party asking prices.</Alert>}
               {res.results.length === 0 ? (
                 <EmptyState title="No listings meet all of your strict requirements">
                   Relax the requirement with the most exclusions above, or untick its &ldquo;strict&rdquo; box so it is weighed instead of enforced.

@@ -13,8 +13,8 @@ PropWise AI is a web platform for property discovery in Hubballi–Dharwad, Karn
 houses, agricultural land and commercial property in one normalised schema. Land classification, conversion, layout
 approval and document declarations are kept as separate facts.
 
-On a reproducible synthetic dataset of 306 listings, a Linear Regression model on log price reached a test MAPE of
-15.2%, against 46.1% for a locality-median baseline, though it generalised poorly to unseen localities. A transparent
+On 306 reproducible synthetic listings plus 22 real land listings copied from a public site, a Linear Regression model
+on log price reached a test MAPE of 19.4%, against 31.6% for a locality-median baseline, though it generalised poorly to unseen localities. A transparent
 weighted recommender ranks listings against a buyer's preferences with per-factor explanations, and broke no strict
 requirement across 15 test scenarios. A Claude-based assistant answers questions only through read-only tools, with a
 check on the listings it cites, and a rule-based mode works without any API key.
@@ -198,7 +198,7 @@ documents". Columns are in `docs/data_dictionary.md`. Migrations are in `backend
 See BLUEPRINT Part E.
 
 ## 23. Model training methodology
-- `GroupShuffleSplit` on the near-duplicate group: 70/15/15, giving 200, 44 and 44 rows.
+- `GroupShuffleSplit` on the near-duplicate group: 70/15/15, giving 211, 46 and 46 rows (303 clean rows: 288 synthetic, 15 real).
 - Grid search with 5-fold group cross-validation on the training split.
 - The model was selected by validation MAE, and the test set was used once, after selection.
 - The 80% indicative range comes from the 10th–90th percentile of validation residuals.
@@ -208,15 +208,15 @@ See BLUEPRINT Part E.
 ## 24. Model evaluation
 From `ml/reports/model_evaluation.md`, with plots in `ml/reports/plots/`.
 
-| Test set (n=44) | MAE | MAPE | R² |
+| Test set (n=46) | MAE | MAPE | R² |
 |---|---|---|---|
-| Overall median baseline | ₹33.56 lakh | 91.9% | -0.003 |
-| Locality + type ₹/sq ft baseline | ₹19.59 lakh | 46.1% | 0.653 |
-| Linear Regression (selected) | ₹7.59 lakh | 15.2% | 0.963 |
+| Overall median baseline | ₹34.77 lakh | 80.7% | -0.114 |
+| Locality + type ₹/sq ft baseline | ₹20.03 lakh | 31.6% | 0.559 |
+| Linear Regression (selected) | ₹10.81 lakh | 19.4% | 0.875 |
 
-- **Validation MAE, used for selection:** LR ₹7.85 lakh, GBR ₹10.32 lakh, RF ₹12.88 lakh.
-- **Indicative 80% range:** covered 84.1% of the test rows.
-- **Unseen localities:** LR ₹36.82 lakh against ₹21.19 lakh for the baseline. The baseline wins here; say so.
+- **Validation MAE, used for selection:** LR ₹13.21 lakh, GBR ₹16.58 lakh, RF ₹19.67 lakh.
+- **Indicative 80% range:** covered 76.1% of the test rows.
+- **Unseen localities:** LR ₹46.02 lakh against ₹27.60 lakh for the baseline. The baseline wins here; say so.
 
 **Recommender**, from `ml/reports/recommender_evaluation.md` (15 scenarios, no relevance labels):
 - 0 strict-requirement violations.

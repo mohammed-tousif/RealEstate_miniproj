@@ -34,6 +34,16 @@ LOCALITIES: list[tuple[str, str, float, float, bool]] = [
     ("Amminabhavi", "Dharwad", 15.5300, 75.0700, True),
 ]
 
+# Localities that only the REAL imported listings use (scripts/build_real_listings.py). The seed
+# creates them with a centre at the mean of those listings' rounded published coordinates.
+# is_rural is a judgement from the place (village vs city area).
+REAL_LISTING_LOCALITY_IS_RURAL: dict[str, bool] = {
+    "Timmasagara": False, "Karadikop": True, "Hubballi (village not named)": False, "Tirumalkoppa": True,
+    "Anchatgeri": True, "Halliyala": True, "Tegur": True, "Mangalagatti": True,
+    "Manasur–Sanna Somapur": True, "Hebballi": True, "Navalur": False, "Kalakeri": True,
+    "Dharwad (village not named)": False,
+}
+
 AMENITIES: list[tuple[str, str, C]] = [
     ("school", "School", C.education),
     ("college", "College", C.education),

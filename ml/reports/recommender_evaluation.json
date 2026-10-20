@@ -117,9 +117,9 @@
         "n": 5,
         "ideal_recall": null,
         "ideal_share": 0.0,
-        "avg_doc_completeness": 0.6642600000000001,
+        "avg_doc_completeness": 0.61664,
         "road_known_share": 1.0,
-        "avg_purpose_score": 0.672
+        "avg_purpose_score": 0.76
       },
       "newest_top5": {
         "n": 5,
@@ -388,9 +388,9 @@
         "n": 5,
         "ideal_recall": 0.0,
         "ideal_share": 0.0,
-        "avg_doc_completeness": 0.6642600000000001,
+        "avg_doc_completeness": 0.61664,
         "road_known_share": 1.0,
-        "avg_purpose_score": 0.672
+        "avg_purpose_score": 0.76
       },
       "newest_top5": {
         "n": 5,
@@ -522,9 +522,9 @@
         "n": 5,
         "ideal_recall": 0.0,
         "ideal_share": 0.0,
-        "avg_doc_completeness": 0.6642600000000001,
+        "avg_doc_completeness": 0.61664,
         "road_known_share": 1.0,
-        "avg_purpose_score": 0.762
+        "avg_purpose_score": 0.731
       },
       "newest_top5": {
         "n": 5,

@@ -111,6 +111,9 @@ class Property(Base):
     is_synthetic: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
     data_source: Mapped[str] = mapped_column(String(80), default="user_submitted")
     source_record_id: Mapped[str | None] = mapped_column(String(80))
+    # Provenance of imported real listings (null for synthetic and user-submitted ones).
+    source_url: Mapped[str | None] = mapped_column(String(500))
+    source_retrieved_on: Mapped[date | None] = mapped_column(Date)
     last_verified_on: Mapped[date | None] = mapped_column(Date)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow, index=True)

@@ -7,7 +7,7 @@ import { loadPreferences } from "@/lib/advisor";
 import { api, ApiError } from "@/lib/api";
 import { formatINRShort } from "@/lib/format";
 import type { ChatResponse, ChatTurn, PropertySummary } from "@/lib/types";
-import { Badge, Button, PageHeader, Spinner, SyntheticBadge, cx } from "@/components/ui";
+import { Badge, Button, PageHeader, OriginBadge, Spinner, cx } from "@/components/ui";
 import { RichText } from "@/components/chat/RichText";
 
 type Message =
@@ -42,7 +42,7 @@ function MiniCard({ p }: { p: PropertySummary }) {
       </p>
       <p className="mt-0.5 line-clamp-2 font-medium text-slate-800">{p.title}</p>
       <p className="mt-1 text-xs text-slate-500">{p.locality.locality_name}, {p.locality.city}</p>
-      {p.is_synthetic && <div className="mt-2"><SyntheticBadge /></div>}
+      {(p.is_synthetic || p.source_url) && <div className="mt-2"><OriginBadge p={p} /></div>}
     </Link>
   );
 }
@@ -171,8 +171,8 @@ function ChatInner() {
         </form>
       </div>
       <p className={cx("mt-3 text-xs text-slate-500")}>
-        The assistant can only read listings and run the price model; it cannot change anything. Listings are synthetic
-        demonstration data. Not legal or financial advice.
+        The assistant can only read listings and run the price model; it cannot change anything. Most listings are synthetic
+        demonstration data; listings marked real are unverified third-party asking prices. Not legal or financial advice.
       </p>
     </div>
   );

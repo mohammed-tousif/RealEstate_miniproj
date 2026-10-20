@@ -135,7 +135,7 @@ def summary(p: Property, docs: tuple | None = None) -> PropertySummary:
         road_access=p.road_access, locality=LocalityOut.model_validate(p.locality), latitude=p.latitude,
         longitude=p.longitude, listing_status=p.listing_status, documentation_completeness=comp,
         documents_provided=n_prov, documents_applicable=n_app, cover_image_url=cover, is_synthetic=p.is_synthetic,
-        created_at=p.created_at)
+        data_source=p.data_source, source_url=p.source_url, created_at=p.created_at)
 
 
 def consistency_warnings(p: Property) -> list[str]:
@@ -173,7 +173,7 @@ def detail(p: Property, user: User | None) -> PropertyDetail:
         plot_length_ft=p.plot_length_ft, road_frontage_ft=p.road_frontage_ft, is_corner_plot=p.is_corner_plot,
         general_address=p.general_address, coordinates_approximate=p.coordinates_approximate,
         restriction_notes=p.restriction_notes, additional_notes=p.additional_notes,
-        relevant_authorities=p.relevant_authorities, data_source=p.data_source,
+        relevant_authorities=p.relevant_authorities, source_retrieved_on=p.source_retrieved_on,
         last_verified_on=p.last_verified_on, updated_at=p.updated_at,
         images=[ImageOut(id=i.id, url=media_url(i.storage_path), ordering=i.ordering) for i in p.images],
         documents=docs[0],

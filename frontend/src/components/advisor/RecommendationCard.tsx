@@ -4,7 +4,7 @@ import Link from "next/link";
 import { formatArea, formatINRShort, formatSqft } from "@/lib/format";
 import { label, useCompare, useMeta } from "@/lib/providers";
 import type { Recommendation } from "@/lib/types";
-import { Badge, Button, Card, SyntheticBadge } from "@/components/ui";
+import { Badge, Button, Card, OriginBadge } from "@/components/ui";
 import { Explanations, FactorBars, ScoreBadge } from "./MatchDetails";
 
 export function RecommendationCard({ r }: { r: Recommendation }) {
@@ -18,7 +18,7 @@ export function RecommendationCard({ r }: { r: Recommendation }) {
           <div className="flex flex-wrap items-center gap-2">
             <Badge tone="slate">#{r.rank}</Badge>
             <Badge tone="brand">{label(meta, "PropertyType", p.property_type)}</Badge>
-            {p.is_synthetic && <SyntheticBadge />}
+            <OriginBadge p={p} />
           </div>
           <div>
             <Link href={`/properties/${p.id}`} className="text-lg font-semibold text-slate-900 hover:text-brand-700">{p.title}</Link>

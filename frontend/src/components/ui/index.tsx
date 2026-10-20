@@ -92,6 +92,22 @@ export function SyntheticBadge() {
   );
 }
 
+/** Real third-party listing copied from a public site (is_synthetic false, with a source URL). */
+export function RealListingBadge() {
+  return (
+    <Badge tone="green" title="Real listing copied from a public website for reference. Not verified by PropWise; the price is the seller's asking price.">
+      Real listing · unverified
+    </Badge>
+  );
+}
+
+/** The badge for where a listing's data came from: synthetic demo data, a real imported listing, or none. */
+export function OriginBadge({ p }: { p: { is_synthetic: boolean; source_url?: string | null } }) {
+  if (p.is_synthetic) return <SyntheticBadge />;
+  if (p.source_url) return <RealListingBadge />;
+  return null;
+}
+
 export function Spinner({ className = "h-5 w-5" }: { className?: string }) {
   return (
     <svg className={cx("animate-spin text-current", className)} viewBox="0 0 24 24" fill="none" aria-hidden="true">

@@ -3,21 +3,35 @@
 These are stated plainly in the report and in the viva. The project is honest about each of them in the UI as well.
 
 ## Data
-- **All listings are synthetic.** They come from `generate_synthetic_data.py` (seed 42, 306 rows), using invented base
+- **Most listings are synthetic.** 306 come from `generate_synthetic_data.py` (seed 42), using invented base
   rates per locality multiplied by type, conversion, layout and road-access factors, a power of area, and log-normal
-  noise. No real Hubballi–Dharwad listing or transaction data was used, and no portal was scraped.
+  noise. No transaction data was used and no portal was bulk-scraped.
+- **Only 22 real listings, all land or plots.** They were copied by hand from public 1acre.in listing pages on
+  2026-10-20 (`data/raw/real_listings_1acre_v1.csv`, built by `backend/scripts/build_real_listings.py`). That source
+  had 27 Dharwad-district listings visible; 3 outside the Hubballi and Dharwad taluks were left out and a second results
+  page could not be read. There are no real houses or commercial properties. The source does not state land
+  classification, conversion, layout approval, documents, dimensions or amenities, so those stay unknown; "plot" listings
+  are stored as residential plots with use unknown. Five listings give only "Hubballi" or "Dharwad" as the village.
+  Asking prices are the site's rounded lakh/crore figures and may be stale; nothing was verified.
+- **Real farmland is priced far above the synthetic rates.** 7 of the 22 real rows were excluded from training as
+  extreme outliers against the synthetic rows (see `ml/reports/data_quality.md`). This says the generator's farmland
+  rates are too low, not that those listings are wrong.
+- **Other real sources were not used.** Official guidance values (Kaveri / IGR Karnataka) could not be opened from the
+  build environment, and only unofficial copies were found. Major portals (99acres, MagicBricks, Housing.com) were not
+  used because their terms do not permit copying listings.
 - **Asking price, not sale price.** The model's target is the asking price. Asking prices in India often differ from
   registered sale values and from the government guidance value.
-- **Coordinates are approximate.** Each listing is placed near a rough locality centre.
-- **21 localities in 2 cities.** The schema supports more cities, but the demo covers only Hubballi and Dharwad.
+- **Coordinates are approximate.** Each synthetic listing is placed near a rough locality centre; real listings use the
+  source's published point rounded to about 100 m.
+- **34 localities in 2 cities** (21 reference localities plus 13 that only real listings use). The schema supports more cities, but the demo covers only Hubballi and Dharwad.
 
 ## Price model
 - **Good test metrics mostly show the pipeline recovers the generator's formula.** Linear Regression on log(price)
   wins because the generator is multiplicative, which becomes additive after taking logs. Real prices need not follow
   this shape.
 - **Unseen localities are poorly predicted.** With localities held out (GroupKFold by locality), the model's MAE was
-  ₹36.82 lakh against ₹21.19 lakh for the simple baseline. The API warns when a locality was not in training.
-- **Small test set.** 44 test rows; per-locality errors rest on 1–5 rows each, and the 84.1% interval coverage is
+  ₹46.02 lakh against ₹27.60 lakh for the simple baseline. The API warns when a locality was not in training.
+- **Small test set.** 46 test rows; per-locality errors rest on 1–5 rows each, and the 76.1% interval coverage is
   itself uncertain.
 - **Feature importance is global.** It describes the model overall, not why one listing got its estimate.
 

@@ -122,8 +122,9 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-10">
         <Alert tone="blue" title="Demonstration data">
-          Every listing on this site is synthetic and generated for a college project. Nothing here is a real offer to
-          sell, a valuation, or legal or investment advice.
+          Most listings on this site are synthetic, generated for a college project. A few, marked &ldquo;Real listing&rdquo;,
+          are land listings copied from a public website with a link to the source; PropWise has not verified them and does
+          not represent their sellers. Nothing here is a valuation, or legal or investment advice.
         </Alert>
       </section>
     </>

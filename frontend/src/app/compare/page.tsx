@@ -8,7 +8,7 @@ import { label, useCompare, useMeta } from "@/lib/providers";
 import { loadPreferences } from "@/lib/advisor";
 import type { CompareResponse, PropertyDetail } from "@/lib/types";
 import { ScoreBadge } from "@/components/advisor/MatchDetails";
-import { Alert, Button, EmptyState, LinkButton, PageHeader, Skeleton, SyntheticBadge, cx } from "@/components/ui";
+import { Alert, Button, EmptyState, LinkButton, PageHeader, OriginBadge, Skeleton, cx } from "@/components/ui";
 
 type Row = { label: string; get: (p: PropertyDetail) => React.ReactNode; best?: (ps: PropertyDetail[]) => string | null };
 
@@ -111,7 +111,7 @@ export default function ComparePage() {
                     <th key={p.id} className="p-4 text-left align-top font-normal">
                       <Link href={`/properties/${p.id}`} className="font-semibold text-slate-900 hover:text-brand-700">{p.title}</Link>
                       <div className="mt-2 flex items-center gap-2">
-                        {p.is_synthetic && <SyntheticBadge />}
+                        <OriginBadge p={p} />
                         <button onClick={() => toggle(p.id)} className="text-xs text-slate-500 underline">Remove</button>
                       </div>
                     </th>

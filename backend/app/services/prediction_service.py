@@ -19,7 +19,7 @@ from app.services.area_units import to_sqft
 
 DISCLAIMER = ("Indicative estimate of an asking price from a demonstration model. It is not a valuation, "
               "not legal or financial advice, and must not be used to set or judge a real price.")
-SYNTHETIC_WARNING = "Demonstration model trained on synthetic data. Not a valuation."
+SYNTHETIC_WARNING = "Demonstration model trained mostly on synthetic data. Not a valuation."
 TWO = Decimal("0.01")
 
 
@@ -101,8 +101,8 @@ def estimate_price(db: Session, body: PriceEstimateIn, user: User | None) -> Pri
         record = _record_from_property(prop)
         quoted = quoted or prop.asking_price_inr
         exclude_id = prop.id
-        if prop.source_record_id and prop.is_synthetic:
-            extra_warnings.append("This synthetic listing may have been part of the model's training data, "
+        if prop.source_record_id:
+            extra_warnings.append(f"This {'synthetic' if prop.is_synthetic else 'imported real'} listing may have been part of the model's training data, "
                                   "so the estimate can look closer to the asking price than it would for a new listing.")
     else:
         record = _record_from_fields(db, body)

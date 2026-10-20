@@ -42,12 +42,18 @@ export default function AboutPage() {
 
       <Section title="Data sources">
         <p>
-          <strong>All listings currently in the system are synthetic.</strong> They come from a documented generator
+          <strong>Most listings in the system are synthetic.</strong> They come from a documented generator
           (fixed random seed) that uses invented base rates per locality and simple multipliers for land
           classification, conversion, layout approval and road access, plus random noise. Locality names are real
           places; their map positions are rough approximations.
         </p>
-        <p>No property portal was scraped. Genuine listings, if added later, will be stored with a clear source and marked as non-synthetic.</p>
+        <p>
+          <strong>A small set of real listings</strong> (land and plots in the Hubballi and Dharwad taluks) was copied by hand
+          from public listing pages on 1acre.in, whose robots rules allow those pages. Each keeps its source link and the date it
+          was copied, is marked &ldquo;Real listing&rdquo;, and is owned in PropWise by an import account, not by the seller. Only
+          property facts were copied: no seller names, phone numbers or e-mails. Anything the source does not state (land
+          classification, conversion, approvals, documents) is shown as unknown rather than guessed, and nothing was verified.
+        </p>
       </Section>
 
       <Section title="Land classification and documents">

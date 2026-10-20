@@ -122,7 +122,7 @@ function ListingsInner() {
             </>
           )}
           <div className="mt-6">
-            <Alert tone="blue">All listings in this demo are synthetic. Prices and documents are illustrative, not market data.</Alert>
+            <Alert tone="blue">Most listings in this demo are synthetic: prices and documents are illustrative, not market data. Listings marked &ldquo;Real listing&rdquo; are copied from a public website and link to their source; they are unverified asking prices.</Alert>
           </div>
         </section>
       </div>

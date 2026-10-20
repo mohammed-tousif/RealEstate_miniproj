@@ -21,7 +21,7 @@ def create_app() -> FastAPI:
         title="PropWise AI API",
         version="0.1.0",
         description="Property discovery, explainable recommendations, indicative price estimates and a grounded "
-                    "assistant for Hubballi–Dharwad. Demo listings are synthetic.",
+                    "assistant for Hubballi–Dharwad. Most demo listings are synthetic; a few are real third-party listings, labelled with their source.",
     )
     app.add_middleware(CORSMiddleware, allow_origins=s.cors_origins, allow_credentials=False,
                        allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],

@@ -1,102 +1,109 @@
 {
   "model_name": "linear_regression",
   "model_label": "Linear Regression",
-  "model_version": "20261014-f0c175ee-linear_regression",
-  "trained_at": "2026-10-14T09:08:13+00:00",
+  "model_version": "20261020-58e40f68-linear_regression",
+  "trained_at": "2026-10-20T13:52:52+00:00",
   "target": "asking_price_inr (observed asking price, modelled as log; not a transaction price)",
   "trained_on_synthetic": true,
+  "data_mix": {
+    "synthetic_rows": 288,
+    "real_rows": 15,
+    "real_sources": [
+      "1acre_public_listing"
+    ]
+  },
   "seed": 42,
   "tuned": true,
   "dataset": {
-    "file": "data/raw/synthetic_properties_v1.csv",
-    "sha256": "f0c175ee4fffda221b4db3aa36a8261590bdfce92f4eb8a0aa9dcf12cf884d07",
-    "raw_rows": 306,
-    "clean_rows": 288,
-    "excluded_rows": 18
+    "file": "data/raw/synthetic_properties_v1.csv + data/raw/real_listings_1acre_v1.csv",
+    "sha256": "58e40f6851d966fabbb346f8bcb683a0aa0c845071c9644d3c60d1ed68b1c5cc",
+    "raw_rows": 328,
+    "clean_rows": 303,
+    "excluded_rows": 25
   },
   "split": {
     "method": "GroupShuffleSplit on near-duplicate group, 70/15/15",
-    "train": 200,
-    "validation": 44,
-    "test": 44
+    "train": 211,
+    "validation": 46,
+    "test": 46
   },
   "selection": "lowest validation MAE (INR) among trained models; test set used once, after selection",
   "validation_metrics": {
     "baseline_median": {
-      "n": 44,
-      "mae_inr": 2873067.1898419345,
-      "rmse_inr": 3453188.0881565185,
-      "r2": -0.01025047176039573,
-      "mape": 0.9519121332533437,
-      "median_ape": 0.5849555299105009
+      "n": 46,
+      "mae_inr": 3727413.0434782607,
+      "rmse_inr": 6682113.878953602,
+      "r2": -0.07871233050289739,
+      "mape": 0.816738471113606,
+      "median_ape": 0.46435276964871963
     },
     "baseline_locality_type_ppsf": {
-      "n": 44,
-      "mae_inr": 1343955.9771334762,
-      "rmse_inr": 1964430.1742285062,
-      "r2": 0.6730647214458606,
-      "mape": 0.3877652815653555,
-      "median_ape": 0.23464350085208158
+      "n": 46,
+      "mae_inr": 1808903.3077209606,
+      "rmse_inr": 4030103.97321873,
+      "r2": 0.6076168051465041,
+      "mape": 0.23032267636761003,
+      "median_ape": 0.16170194398791465
     },
     "linear_regression": {
-      "n": 44,
-      "mae_inr": 785378.1984179768,
-      "rmse_inr": 1119823.135077894,
-      "r2": 0.8937601460872008,
-      "mape": 0.1703326066625197,
-      "median_ape": 0.14010768052777228
+      "n": 46,
+      "mae_inr": 1320720.0154267559,
+      "rmse_inr": 3025708.14505937,
+      "r2": 0.7788270725719357,
+      "mape": 0.16595984265958083,
+      "median_ape": 0.13406491263339698
     },
     "random_forest": {
-      "n": 44,
-      "mae_inr": 1287743.1186233687,
-      "rmse_inr": 1827605.463838931,
-      "r2": 0.7170214680707458,
-      "mape": 0.267509326891737,
-      "median_ape": 0.2221403252992477
+      "n": 46,
+      "mae_inr": 1966998.701509676,
+      "rmse_inr": 4748693.279065157,
+      "r2": 0.45521375242246176,
+      "mape": 0.2943055633848307,
+      "median_ape": 0.21465428934204758
     },
     "gradient_boosting": {
-      "n": 44,
-      "mae_inr": 1031756.0369266175,
-      "rmse_inr": 1536408.5670447457,
-      "r2": 0.8000128764444091,
-      "mape": 0.20502423451730645,
-      "median_ape": 0.14533272251821838
+      "n": 46,
+      "mae_inr": 1657928.9470626242,
+      "rmse_inr": 4064450.275290439,
+      "r2": 0.6009001844909269,
+      "mape": 0.2349756534889813,
+      "median_ape": 0.16563009294417932
     }
   },
   "test_metrics": {
     "baseline_median": {
-      "n": 44,
-      "mae_inr": 3356362.8648265554,
-      "rmse_inr": 6515868.003750853,
-      "r2": -0.003081341760596823,
-      "mape": 0.9185984388337026,
-      "median_ape": 0.5578210086750637
+      "n": 46,
+      "mae_inr": 3477043.4782608696,
+      "rmse_inr": 4776377.288280314,
+      "r2": -0.11397257889908752,
+      "mape": 0.8068603368697801,
+      "median_ape": 0.48948553212016116
     },
     "baseline_locality_type_ppsf": {
-      "n": 44,
-      "mae_inr": 1958994.2835403585,
-      "rmse_inr": 3833355.4830863555,
-      "r2": 0.6528239269677876,
-      "mape": 0.4609345988455186,
-      "median_ape": 0.20789055307540763
+      "n": 46,
+      "mae_inr": 2002631.1925781185,
+      "rmse_inr": 3005878.675433376,
+      "r2": 0.5588156014885214,
+      "mape": 0.31580795818421076,
+      "median_ape": 0.2445408869854618
     },
     "linear_regression": {
-      "n": 44,
-      "mae_inr": 758786.9498587138,
-      "rmse_inr": 1256721.2956286243,
-      "r2": 0.962686194347178,
-      "mape": 0.15199041437477848,
-      "median_ape": 0.11320780720458012
+      "n": 46,
+      "mae_inr": 1081012.3271436116,
+      "rmse_inr": 1599436.2104949572,
+      "r2": 0.8750860046554761,
+      "mape": 0.19354605475673878,
+      "median_ape": 0.131526829696576
     }
   },
   "tuning": {
     "random_forest": {
       "best_params": {
-        "max_depth": 12,
+        "max_depth": null,
         "max_features": 1.0,
-        "min_samples_leaf": 3
+        "min_samples_leaf": 1
       },
-      "cv_mae_inr": 1852467.164003998,
+      "cv_mae_inr": 2375106.8281530933,
       "grid_size": 8
     },
     "gradient_boosting": {
@@ -105,281 +112,267 @@
         "max_depth": 2,
         "n_estimators": 400
       },
-      "cv_mae_inr": 1499673.1696269985,
+      "cv_mae_inr": 1736432.317299353,
       "grid_size": 8
     }
   },
   "interval": {
     "method": "empirical 10th\u201390th percentile of validation log-residuals",
     "nominal": 0.8,
-    "log_residual_low": -0.26531702497690157,
-    "log_residual_high": 0.2723067908930821,
-    "measured_test_coverage": 0.8409090909090909,
-    "test_n": 44
+    "log_residual_low": -0.2390561769616566,
+    "log_residual_high": 0.3151887930394883,
+    "measured_test_coverage": 0.7608695652173914,
+    "test_n": 46
   },
   "error_by_property_type": [
     {
       "property_type": "residential_plot",
-      "n": 19,
-      "mae_inr": 701959.2134022648,
-      "mape": 0.18791184177400078,
-      "median_ape": 0.14828867164463966
+      "n": 21,
+      "mae_inr": 909584.4299111132,
+      "mape": 0.21450977008683797,
+      "median_ape": 0.13460963111827012
     },
     {
       "property_type": "agricultural_land",
-      "n": 13,
-      "mae_inr": 737825.5693696805,
-      "mape": 0.12485047483391888,
-      "median_ape": 0.06780350592175159
+      "n": 12,
+      "mae_inr": 1025803.4144674243,
+      "mape": 0.20708278964295748,
+      "median_ape": 0.1827830654267742
     },
     {
       "property_type": "independent_house",
-      "n": 6,
-      "mae_inr": 744047.0336438367,
-      "mape": 0.09420670080464309,
-      "median_ape": 0.08228153702351836
-    },
-    {
-      "property_type": "commercial_plot",
       "n": 5,
-      "mae_inr": 1073644.0601107005,
-      "mape": 0.17095944256904166,
-      "median_ape": 0.11917127190756842
+      "mae_inr": 842990.5661394286,
+      "mape": 0.136053767463436,
+      "median_ape": 0.057064008697151725
     },
     {
       "property_type": "commercial_building",
-      "n": 1,
-      "mae_inr": 625165.8349180035,
-      "mape": 0.07415964827022581,
-      "median_ape": 0.07415964827022581
+      "n": 4,
+      "mae_inr": 2153201.65661907,
+      "mape": 0.185905111605324,
+      "median_ape": 0.18700273072721965
+    },
+    {
+      "property_type": "commercial_plot",
+      "n": 4,
+      "mae_inr": 1371973.3974225577,
+      "mape": 0.12238264688310557,
+      "median_ape": 0.10798073192532771
     }
   ],
   "error_by_locality": [
     {
-      "locality": "Byahatti",
-      "n": 5,
-      "mae_inr": 741413.9423492379,
-      "mape": 0.2600025367239196,
-      "median_ape": 0.1852251726189417
-    },
-    {
       "locality": "Gokul Road",
-      "n": 4,
-      "mae_inr": 1263049.9481674025,
-      "mape": 0.1967462178920919,
-      "median_ape": 0.2243883059142617
+      "n": 7,
+      "mae_inr": 1484697.234281737,
+      "mape": 0.16080329278538086,
+      "median_ape": 0.1597973681258337
     },
     {
-      "locality": "Keshwapur",
+      "locality": "Byahatti",
       "n": 4,
-      "mae_inr": 678303.4591607098,
-      "mape": 0.1030784557121047,
-      "median_ape": 0.08206150909905807
+      "mae_inr": 478668.77603717725,
+      "mape": 0.11785238951121178,
+      "median_ape": 0.10503603190499221
     },
     {
-      "locality": "Unkal",
+      "locality": "Old Hubballi",
       "n": 4,
-      "mae_inr": 845373.0835194527,
-      "mape": 0.29505571529552693,
-      "median_ape": 0.2514963885279761
+      "mae_inr": 1101440.0710284547,
+      "mape": 0.18935029346120638,
+      "median_ape": 0.20454530632050968
     },
     {
       "locality": "Bhairidevarkoppa",
       "n": 3,
-      "mae_inr": 385293.26575917593,
-      "mape": 0.08902000608386453,
-      "median_ape": 0.07415964827022581
+      "mae_inr": 458475.4770950498,
+      "mape": 0.19085254108835414,
+      "median_ape": 0.057064008697151725
     },
     {
       "locality": "Garag",
       "n": 3,
-      "mae_inr": 207317.03529820114,
-      "mape": 0.09865432526866046,
-      "median_ape": 0.11246195961846174
+      "mae_inr": 327131.4639928112,
+      "mape": 0.15991111581907516,
+      "median_ape": 0.1632057904498887
     },
     {
-      "locality": "Kusugal",
+      "locality": "Hubballi (village not named)",
       "n": 3,
-      "mae_inr": 292937.7180408416,
-      "mape": 0.1321627779302174,
-      "median_ape": 0.1404007536173394
+      "mae_inr": 2827676.4111581445,
+      "mape": 0.5290055071888201,
+      "median_ape": 0.35989744730737394
     },
     {
-      "locality": "Mugad",
+      "locality": "Malmaddi",
       "n": 3,
-      "mae_inr": 243234.67280473272,
-      "mape": 0.11166413417715815,
-      "median_ape": 0.10534772165650585
+      "mae_inr": 1297797.0005834727,
+      "mape": 0.13924241855524433,
+      "median_ape": 0.13040464453795608
     },
     {
-      "locality": "Old Hubballi",
+      "locality": "Rayapur",
       "n": 3,
-      "mae_inr": 353314.29499862826,
-      "mape": 0.09834724627928722,
-      "median_ape": 0.09931070987510393
+      "mae_inr": 1659406.1402172267,
+      "mape": 0.29271842383126206,
+      "median_ape": 0.3121105344888111
+    },
+    {
+      "locality": "Unkal",
+      "n": 3,
+      "mae_inr": 1012333.018170789,
+      "mape": 0.28611310998440803,
+      "median_ape": 0.21726147601662446
+    },
+    {
+      "locality": "Amminabhavi",
+      "n": 2,
+      "mae_inr": 748535.5869004712,
+      "mape": 0.20082508756364087,
+      "median_ape": 0.20082508756364087
+    },
+    {
+      "locality": "Lakamanahalli",
+      "n": 2,
+      "mae_inr": 379305.86421354464,
+      "mape": 0.05774576002342541,
+      "median_ape": 0.05774576002342541
     },
     {
       "locality": "Navanagar",
       "n": 2,
-      "mae_inr": 3037620.75908179,
-      "mape": 0.10061861486159526,
-      "median_ape": 0.10061861486159526
+      "mae_inr": 801140.8440198118,
+      "mape": 0.09949178878929739,
+      "median_ape": 0.09949178878929739
     },
     {
-      "locality": "Rayapur",
+      "locality": "Saptapur",
       "n": 2,
-      "mae_inr": 173607.7711645153,
-      "mape": 0.04059186565327351,
-      "median_ape": 0.04059186565327351
+      "mae_inr": 1056568.0499363793,
+      "mape": 0.08072910460387539,
+      "median_ape": 0.08072910460387539
     },
     {
-      "locality": "Amminabhavi",
-      "n": 1,
-      "mae_inr": 57127.598777476116,
-      "mape": 0.06382971930444259,
-      "median_ape": 0.06382971930444259
-    },
-    {
-      "locality": "Gabbur",
-      "n": 1,
-      "mae_inr": 290466.4754247628,
-      "mape": 0.04617908989264909,
-      "median_ape": 0.04617908989264909
+      "locality": "Sattur",
+      "n": 2,
+      "mae_inr": 522701.1741289974,
+      "mape": 0.14843796057045033,
+      "median_ape": 0.14843796057045033
     },
     {
       "locality": "Kelgeri",
       "n": 1,
-      "mae_inr": 2131149.3797488874,
-      "mape": 0.32938939408792695,
-      "median_ape": 0.32938939408792695
+      "mae_inr": 858239.1261131177,
+      "mape": 0.13264901485519592,
+      "median_ape": 0.13264901485519592
     },
     {
-      "locality": "Lakamanahalli",
+      "locality": "Mugad",
       "n": 1,
-      "mae_inr": 1619201.4013528582,
-      "mape": 0.23988168908931232,
-      "median_ape": 0.23988168908931232
+      "mae_inr": 1738123.1671035322,
+      "mape": 0.401414126351855,
+      "median_ape": 0.401414126351855
     },
     {
-      "locality": "Malmaddi",
+      "locality": "Vidyanagar",
       "n": 1,
-      "mae_inr": 2023187.051334219,
-      "mape": 0.21409386786605492,
-      "median_ape": 0.21409386786605492
-    },
-    {
-      "locality": "Narayanpur",
-      "n": 1,
-      "mae_inr": 316110.14462592546,
-      "mape": 0.14049339761152244,
-      "median_ape": 0.14049339761152244
-    },
-    {
-      "locality": "Saptapur",
-      "n": 1,
-      "mae_inr": 949406.319299439,
-      "mape": 0.07718750563410073,
-      "median_ape": 0.07718750563410073
-    },
-    {
-      "locality": "Sattur",
-      "n": 1,
-      "mae_inr": 277253.7268860359,
-      "mape": 0.025022899538450893,
-      "median_ape": 0.025022899538450893
+      "mae_inr": 651927.1551039033,
+      "mape": 0.04663284371272555,
+      "median_ape": 0.04663284371272555
     }
   ],
   "locality_holdout": {
     "method": "GroupKFold (5 folds) by locality over all clean rows",
     "results": {
       "baseline_locality_type_ppsf": {
-        "n": 288,
-        "mae_inr": 2118689.7777682925,
-        "rmse_inr": 3557708.0182482656,
-        "r2": 0.49379863544712843,
-        "mape": 0.45694242579275535,
-        "median_ape": 0.2790281239172272
+        "n": 303,
+        "mae_inr": 2760469.7638980425,
+        "rmse_inr": 6343644.515842156,
+        "r2": 0.4545324801867705,
+        "mape": 0.48198976884679373,
+        "median_ape": 0.2831665398546225
       },
       "linear_regression": {
-        "n": 288,
-        "mae_inr": 3682276.389871496,
-        "rmse_inr": 5365545.422447106,
-        "r2": -0.1513581988246202,
-        "mape": 0.8465866385369751,
-        "median_ape": 0.42910669630691267
+        "n": 303,
+        "mae_inr": 4601557.681393863,
+        "rmse_inr": 7180745.515220862,
+        "r2": 0.301075457976248,
+        "mape": 1.0526651515533858,
+        "median_ape": 0.5338968198926847
       }
     }
   },
   "permutation_importance": [
     {
       "feature": "log_area_sqft",
-      "mae_increase_inr": 38014694.747399285,
-      "std_inr": 9522934.33133252
+      "mae_increase_inr": 51428673.13950082,
+      "std_inr": 8948238.294828592
     },
     {
       "feature": "conversion_status",
-      "mae_increase_inr": 5634517.046465321,
-      "std_inr": 1595980.8918417254
+      "mae_increase_inr": 5002830.170760177,
+      "std_inr": 890070.2613731697
     },
     {
       "feature": "property_type",
-      "mae_increase_inr": 4153177.5650568185,
-      "std_inr": 1364429.0481016533
+      "mae_increase_inr": 4013684.5690577338,
+      "std_inr": 758139.3585013521
     },
     {
       "feature": "locality",
-      "mae_increase_inr": 2874519.916343088,
-      "std_inr": 596493.388579731
+      "mae_increase_inr": 2038892.0945986216,
+      "std_inr": 226180.10440799088
     },
     {
       "feature": "road_access_ord",
-      "mae_increase_inr": 546064.8740208186,
-      "std_inr": 127683.82847495582
-    },
-    {
-      "feature": "distance_to_centre_km",
-      "mae_increase_inr": 392348.16864203755,
-      "std_inr": 108212.64061278907
+      "mae_increase_inr": 513079.0178427688,
+      "std_inr": 119870.20230740114
     },
     {
       "feature": "city",
-      "mae_increase_inr": 230592.04199809107,
-      "std_inr": 133851.78630414073
-    },
-    {
-      "feature": "layout_approval_status",
-      "mae_increase_inr": 171873.19297247316,
-      "std_inr": 56030.77496593897
+      "mae_increase_inr": 295834.7677719669,
+      "std_inr": 101235.06097240564
     },
     {
       "feature": "land_classification",
-      "mae_increase_inr": 50024.74756429605,
-      "std_inr": 60430.044680436054
+      "mae_increase_inr": 243669.76034887368,
+      "std_inr": 72776.35708909584
     },
     {
-      "feature": "road_frontage_missing",
-      "mae_increase_inr": 19633.424935636995,
-      "std_inr": 25189.87330411942
+      "feature": "layout_approval_status",
+      "mae_increase_inr": 177177.67795818546,
+      "std_inr": 72402.3910344868
     },
     {
-      "feature": "amenity_count",
-      "mae_increase_inr": 760.6551019869919,
-      "std_inr": 3451.6370330525183
-    },
-    {
-      "feature": "is_corner_plot",
-      "mae_increase_inr": 191.57561882576556,
-      "std_inr": 249.59368346428522
+      "feature": "distance_to_centre_km",
+      "mae_increase_inr": 9387.846460489865,
+      "std_inr": 51193.040687950765
     },
     {
       "feature": "road_access_unknown",
-      "mae_increase_inr": -1466.7811548439727,
-      "std_inr": 870.0600450619837
+      "mae_increase_inr": 4384.699047962134,
+      "std_inr": 16048.776344151753
+    },
+    {
+      "feature": "road_frontage_missing",
+      "mae_increase_inr": 3197.7559917346107,
+      "std_inr": 1973.6354872291984
+    },
+    {
+      "feature": "is_corner_plot",
+      "mae_increase_inr": -152.3448789714952,
+      "std_inr": 909.9297136646042
+    },
+    {
+      "feature": "amenity_count",
+      "mae_increase_inr": -11823.853967461491,
+      "std_inr": 15569.650251975343
     },
     {
       "feature": "road_frontage_ft",
-      "mae_increase_inr": -2680.175270975754,
-      "std_inr": 75600.4547409298
+      "mae_increase_inr": -45403.30306248552,
+      "std_inr": 51660.4070657039
     }
   ],
   "feature_schema": {
@@ -439,15 +432,22 @@
       "Amminabhavi",
       "Bhairidevarkoppa",
       "Byahatti",
+      "Dharwad (village not named)",
       "Gabbur",
       "Garag",
       "Gokul Road",
+      "Halliyala",
+      "Hebballi",
+      "Hubballi (village not named)",
       "Kalyan Nagar",
+      "Karadikop",
       "Kelgeri",
       "Keshwapur",
       "Kusugal",
       "Lakamanahalli",
       "Malmaddi",
+      "Manasur\u2013Sanna Somapur",
+      "Mangalagatti",
       "Mugad",
       "Narayanpur",
       "Navanagar",
@@ -455,34 +455,35 @@
       "Rayapur",
       "Saptapur",
       "Sattur",
+      "Tirumalkoppa",
       "Unkal",
       "Vidyanagar"
     ],
     "training_property_types": {
       "agricultural_land": {
-        "min_sqft": 22869.0,
-        "max_sqft": 349569.0,
-        "n": 56
+        "min_sqft": 28314.0,
+        "max_sqft": 780813.0,
+        "n": 63
       },
       "commercial_building": {
         "min_sqft": 800.0,
         "max_sqft": 2400.0291,
-        "n": 17
+        "n": 12
       },
       "commercial_plot": {
         "min_sqft": 1800.0,
         "max_sqft": 6000.0,
-        "n": 20
+        "n": 23
       },
       "independent_house": {
         "min_sqft": 599.9804,
         "max_sqft": 2400.0291,
-        "n": 27
+        "n": 26
       },
       "residential_plot": {
         "min_sqft": 599.9804,
-        "max_sqft": 4000.0,
-        "n": 80
+        "max_sqft": 6804.0,
+        "n": 87
       }
     }
   },
@@ -492,5 +493,5 @@
     "numpy": "2.3.5",
     "pandas": "2.3.3"
   },
-  "caveat": "Trained on synthetic data generated by a documented formula. Good metrics show that the pipeline recovers the generator's pricing rules, not that it knows the real Hubballi\u2013Dharwad market. Not a valuation."
+  "caveat": "Trained on 288 synthetic rows (a documented formula) plus 15 real asking prices copied from public listings. The synthetic rows dominate, so good metrics mostly show that the pipeline recovers the generator's pricing rules, not that it knows the real Hubballi\u2013Dharwad market. Asking prices are not sale prices. Not a valuation."
 }

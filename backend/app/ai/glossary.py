@@ -59,7 +59,7 @@ _TERMS: dict[str, tuple[str, str]] = {
                           "your stated preferences (budget, location, purpose, connectivity, documentation). It is "
                           "not a probability of investment success."),
     "price estimate": ("Price estimate", "An indicative asking-price range from a regression model trained on "
-                       "synthetic demo data. It is not a valuation."),
+                       "mostly synthetic demo data plus a few real asking prices. It is not a valuation."),
 }
 
 
