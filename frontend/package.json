@@ -1,0 +1,36 @@
+{
+  "name": "propwise-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "leaflet": "1.9.4",
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-leaflet": "4.2.1",
+    "recharts": "2.15.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/leaflet": "1.9.20",
+    "@types/node": "22.19.1",
+    "@types/react": "18.3.27",
+    "@types/react-dom": "18.3.7",
+    "autoprefixer": "10.4.22",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.35",
+    "postcss": "8.5.6",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}

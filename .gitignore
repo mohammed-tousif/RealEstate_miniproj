@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+backend/propwise.db
+backend/storage/
+node_modules/
+frontend/.next/
+frontend/out/
+*.log
+frontend/test-results/
+frontend/playwright-report/
+frontend/.env.local
+frontend/tsconfig.tsbuildinfo

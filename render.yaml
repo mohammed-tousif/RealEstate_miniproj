@@ -1,0 +1,71 @@
+# Render Blueprint for PropWise AI: free Postgres + FastAPI API + Next.js frontend.
+# Deploy: Render Dashboard -> New -> Blueprint -> pick this repository. See DEPLOY.md.
+#
+# The browser only talks to the frontend. The frontend forwards /api/v1/* and /media/* to the API
+# (frontend/src/lib/proxy.ts), so no CORS setup or build-time API URL is needed.
+
+databases:
+  - name: propwise-db
+    plan: free
+    databaseName: propwise
+    user: propwise
+    postgresMajorVersion: "16"
+
+services:
+  - type: web
+    name: propwise-api
+    runtime: python
+    plan: free
+    buildCommand: cd backend && pip install -r requirements.txt
+    # Runs `alembic upgrade head`, loads the synthetic demo data once, then starts uvicorn.
+    startCommand: bash backend/scripts/render_start.sh
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: propwise-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      # Password of the demo accounts (…@demo.propwise.example). Read it in the service's Environment tab.
+      - key: SEED_DEMO_PASSWORD
+        generateValue: true
+      # Requests arrive through the frontend proxy; read the client address from X-Forwarded-For.
+      - key: TRUST_PROXY_HEADERS
+        value: "true"
+      - key: AI_RATE_LIMIT_PER_MINUTE
+        value: "12"
+      # Optional. Leave empty to run the assistant in Basic search mode (no AI, no cost).
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: claude-opus-5-5
+      - key: LLM_EFFORT
+        value: low
+
+  - type: web
+    name: propwise-web
+    runtime: node
+    plan: free
+    buildCommand: cd frontend && npm ci && npm run build
+    startCommand: cd frontend && npx next start -p $PORT
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22.12.0"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      # "/" makes the browser call the frontend's own /api/v1 (same origin, proxied to the API).
+      - key: NEXT_PUBLIC_API_BASE_URL
+        value: /
+      # Public hostname of the API service, e.g. propwise-api.onrender.com.
+      # If this is ever empty, set API_PROXY_URL=https://<api-host> on this service by hand.
+      - key: API_HOST
+        fromService:
+          type: web
+          name: propwise-api
+          envVarKey: RENDER_EXTERNAL_HOSTNAME

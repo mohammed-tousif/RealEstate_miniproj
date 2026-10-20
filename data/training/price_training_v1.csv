@@ -1,0 +1,289 @@
+source_record_id,city,locality,property_type,land_classification,conversion_status,layout_approval_status,log_area_sqft,road_access_ord,road_frontage_ft,amenity_count,distance_to_centre_km,is_corner_plot,road_access_unknown,road_frontage_missing,asking_price_inr,dup_group_id
+SYN-0001,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,12.016895643779236,3.0,200.0,4.0,10.45,0.0,0.0,0.0,5030000.0,SYN-0001
+SYN-0002,Hubballi,Gokul Road,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,,40.0,4.0,2.9,0.0,1.0,0.0,10360000.0,SYN-0002
+SYN-0003,Hubballi,Old Hubballi,commercial_building,non_agricultural_commercial,unknown,not_applicable,7.090076835776092,3.0,30.0,3.0,3.29,0.0,0.0,0.0,5050000.0,SYN-0003
+SYN-0004,Hubballi,Unkal,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,8.294043815085063,1.0,,3.0,2.5,0.0,0.0,1.0,9700000.0,SYN-0004
+SYN-0005,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,12.152070422147489,2.0,,2.0,9.92,0.0,0.0,1.0,8390000.0,SYN-0005
+SYN-0006,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,11.362462975399982,1.0,,4.0,13.8,0.0,0.0,1.0,3040000.0,SYN-0006
+SYN-0007,Hubballi,Gokul Road,commercial_building,unknown,unknown,not_applicable,7.495541943884256,3.0,30.0,5.0,3.47,0.0,0.0,0.0,9510000.0,SYN-0007
+SYN-0008,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.136149849324493,1.0,150.0,3.0,8.1,0.0,0.0,0.0,3060000.0,SYN-0008
+SYN-0009,Hubballi,Unkal,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,6.684611727667927,3.0,20.0,2.0,2.38,0.0,0.0,0.0,8480000.0,SYN-0009
+SYN-0011,Hubballi,Unkal,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313187653221221,3.0,30.0,6.0,2.02,0.0,0.0,0.0,2750000.0,SYN-0011
+SYN-0012,Dharwad,Sattur,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.783224016336037,2.0,40.0,3.0,3.34,0.0,0.0,0.0,4580000.0,SYN-0012
+SYN-0013,Hubballi,Gokul Road,commercial_plot,non_agricultural_commercial,converted_claimed,unknown,7.78323614126253,2.0,40.0,3.0,2.85,0.0,0.0,0.0,9810000.0,SYN-0013
+SYN-0014,Dharwad,Mugad,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.600902459542082,1.0,,2.0,10.42,0.0,0.0,1.0,1370000.0,SYN-0014
+SYN-0015,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,12.276218851670949,1.0,80.0,4.0,13.5,0.0,0.0,0.0,6270000.0,SYN-0015
+SYN-0016,Dharwad,Malmaddi,residential_plot,non_agricultural_residential,converted_claimed,unknown,6.396929655216146,2.0,20.0,2.0,1.21,0.0,0.0,0.0,1780000.0,SYN-0016
+SYN-0017,Dharwad,Malmaddi,commercial_building,non_agricultural_commercial,unknown,not_applicable,7.090076835776092,3.0,,4.0,1.81,0.0,0.0,1.0,8020000.0,SYN-0017
+SYN-0018,Dharwad,Saptapur,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.783224016336037,2.0,40.0,5.0,0.32,0.0,0.0,0.0,5750000.0,SYN-0018
+SYN-0019,Hubballi,Old Hubballi,commercial_plot,unknown,not_converted,approved_layout_claimed,8.070906088787819,3.0,,6.0,3.17,1.0,0.0,1.0,8380000.0,SYN-0019
+SYN-0020,Dharwad,Lakamanahalli,commercial_plot,non_agricultural_commercial,converted_claimed,unapproved_layout,8.699514748210191,1.0,60.0,3.0,2.59,0.0,0.0,0.0,11900000.0,SYN-0020
+SYN-0021,Hubballi,Navanagar,agricultural_land,agricultural,not_applicable,not_applicable,12.068188938166788,3.0,,5.0,7.71,0.0,0.0,1.0,24600000.0,SYN-0021
+SYN-0022,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.458923241587545,1.0,,4.0,9.07,0.0,0.0,1.0,4330000.0,SYN-0022
+SYN-0023,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,10.944258841514388,4.0,,2.0,9.05,0.0,0.0,1.0,2550000.0,SYN-0023
+SYN-0024,Dharwad,Narayanpur,residential_plot,unknown,unknown,approved_layout_claimed,7.600902459542082,2.0,40.0,6.0,2.04,0.0,0.0,0.0,3330000.0,SYN-0024
+SYN-0025,Dharwad,Narayanpur,commercial_building,unknown,converted_claimed,not_applicable,7.78323614126253,3.0,,4.0,1.11,0.0,0.0,1.0,14230000.0,SYN-0025
+SYN-0026,Dharwad,Saptapur,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.783224016336037,3.0,40.0,5.0,0.39,0.0,0.0,0.0,15330000.0,SYN-0026
+SYN-0027,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,12.029967725346589,1.0,,2.0,15.47,0.0,0.0,1.0,6790000.0,SYN-0027
+SYN-0028,Hubballi,Byahatti,residential_plot,non_agricultural_residential,conversion_in_progress,approved_layout_claimed,7.313220387090301,3.0,30.0,3.0,9.85,0.0,0.0,0.0,1195000.0,SYN-0028
+SYN-0029,Dharwad,Lakamanahalli,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.207866982518302,4.0,,5.0,2.67,0.0,0.0,1.0,3460000.0,SYN-0029
+SYN-0030,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.783224016336037,2.0,40.0,2.0,1.06,0.0,0.0,0.0,5800000.0,SYN-0030
+SYN-0031,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.783224016336037,3.0,,2.0,5.1,0.0,0.0,1.0,6570000.0,SYN-0031
+SYN-0032,Hubballi,Gokul Road,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,7.090076835776092,2.0,30.0,6.0,3.66,0.0,0.0,0.0,8300000.0,SYN-0032
+SYN-0033,Hubballi,Unkal,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.207866982518302,2.0,30.0,6.0,2.89,0.0,0.0,0.0,3360000.0,SYN-0033
+SYN-0034,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,8.294049640102028,2.0,50.0,6.0,3.69,0.0,0.0,0.0,11960000.0,SYN-0034
+SYN-0035,Hubballi,Unkal,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.2078598714324755,2.0,30.0,6.0,3.03,0.0,0.0,0.0,2910000.0,SYN-0035
+SYN-0036,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,12.764456246062977,3.0,200.0,5.0,3.45,0.0,0.0,0.0,28760000.0,SYN-0036
+SYN-0037,Hubballi,Gokul Road,independent_house,non_agricultural_residential,not_converted,not_applicable,6.396929655216146,1.0,20.0,2.0,3.54,0.0,0.0,0.0,1620000.0,SYN-0037
+SYN-0038,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,11.729213571327456,0.0,,4.0,8.78,0.0,0.0,1.0,2780000.0,SYN-0038
+SYN-0039,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.396929655216146,2.0,20.0,5.0,0.8,0.0,0.0,0.0,1515000.0,SYN-0039
+SYN-0040,Hubballi,Bhairidevarkoppa,commercial_plot,non_agricultural_commercial,converted_claimed,unknown,8.294049640102028,2.0,50.0,5.0,5.04,1.0,0.0,0.0,11540000.0,SYN-0040
+SYN-0041,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,conversion_in_progress,approved_layout_claimed,8.294049640102028,3.0,50.0,2.0,3.71,0.0,0.0,0.0,9210000.0,SYN-0041
+SYN-0042,Hubballi,Keshwapur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.090076835776092,2.0,30.0,3.0,1.77,0.0,0.0,0.0,6890000.0,SYN-0042
+SYN-0043,Hubballi,Keshwapur,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,7.783224016336037,,40.0,2.0,2.37,0.0,1.0,0.0,17560000.0,SYN-0043
+SYN-0044,Hubballi,Gokul Road,commercial_plot,non_agricultural_commercial,converted_claimed,unapproved_layout,7.781472483297231,4.0,40.0,3.0,3.18,0.0,0.0,0.0,9610000.0,SYN-0044
+SYN-0045,Dharwad,Narayanpur,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313187653221221,2.0,30.0,3.0,2.2,0.0,0.0,0.0,1855000.0,SYN-0045
+SYN-0046,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,10.905038128361106,,200.0,4.0,2.84,0.0,1.0,0.0,2730000.0,SYN-0046
+SYN-0047,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,10.427002327418107,0.0,,4.0,10.41,0.0,0.0,1.0,895000.0,SYN-0047
+SYN-0048,Hubballi,Old Hubballi,residential_plot,unknown,unknown,approved_layout_claimed,7.783224016336037,2.0,40.0,2.0,3.55,0.0,0.0,0.0,3670000.0,SYN-0048
+SYN-0049,Hubballi,Vidyanagar,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.313220387090301,1.0,30.0,4.0,0.59,0.0,0.0,0.0,4280000.0,SYN-0049
+SYN-0050,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,12.122913837856034,3.0,,4.0,2.88,0.0,0.0,1.0,12780000.0,SYN-0050
+SYN-0051,Hubballi,Keshwapur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.396929655216146,1.0,20.0,6.0,2.9,0.0,0.0,0.0,2420000.0,SYN-0051
+SYN-0053,Hubballi,Vidyanagar,commercial_building,non_agricultural_commercial,unknown,not_applicable,7.495541943884256,2.0,,3.0,1.12,0.0,0.0,1.0,12130000.0,SYN-0053
+SYN-0054,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.411855730729558,1.0,,2.0,7.83,0.0,0.0,1.0,3890000.0,SYN-0054
+SYN-0056,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,11.536309905202964,1.0,100.0,4.0,4.07,0.0,0.0,0.0,5650000.0,SYN-0056
+SYN-0057,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.090044085239799,2.0,,6.0,2.3,0.0,0.0,1.0,2430000.0,SYN-0057
+SYN-0058,Dharwad,Mugad,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,1.0,30.0,3.0,11.41,1.0,0.0,0.0,895000.0,SYN-0058
+SYN-0059,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,10.944258841514388,2.0,,2.0,3.92,0.0,0.0,1.0,5150000.0,SYN-0059
+SYN-0060,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.600902459542082,1.0,40.0,6.0,2.78,0.0,0.0,0.0,4660000.0,SYN-0060
+SYN-0061,Hubballi,Old Hubballi,residential_plot,unknown,converted_claimed,unapproved_layout,7.2078598714324755,2.0,,6.0,3.46,0.0,0.0,1.0,1960000.0,SYN-0061
+SYN-0062,Hubballi,Vidyanagar,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,2.0,40.0,4.0,0.37,0.0,0.0,0.0,13980000.0,SYN-0062
+SYN-0063,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,11.447362419186469,0.0,,5.0,6.17,0.0,0.0,1.0,6450000.0,SYN-0063
+SYN-0064,Hubballi,Keshwapur,residential_plot,unknown,converted_claimed,unapproved_layout,7.600902459542082,4.0,40.0,6.0,2.46,0.0,0.0,0.0,5800000.0,SYN-0064
+SYN-0065,Hubballi,Unkal,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.600902459542082,2.0,,4.0,2.63,0.0,0.0,1.0,5530000.0,SYN-0065
+SYN-0066,Dharwad,Saptapur,residential_plot,non_agricultural_residential,converted_claimed,unknown,8.29320678499944,3.0,50.0,6.0,0.23,0.0,0.0,0.0,14140000.0,SYN-0066
+SYN-0067,Dharwad,Malmaddi,residential_plot,unknown,unknown,approved_layout_claimed,7.2078598714324755,4.0,,3.0,1.12,0.0,0.0,1.0,4690000.0,SYN-0067
+SYN-0068,Dharwad,Kalyan Nagar,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.600902459542082,1.0,40.0,3.0,1.17,0.0,0.0,0.0,5240000.0,SYN-0068
+SYN-0069,Hubballi,Gabbur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,8.294049640102028,1.0,50.0,4.0,5.1,0.0,0.0,0.0,3260000.0,SYN-0069
+SYN-0070,Hubballi,Navanagar,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.783224016336037,2.0,40.0,5.0,7.97,0.0,0.0,0.0,6360000.0,SYN-0070
+SYN-0071,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,12.13467867943562,1.0,,4.0,10.02,0.0,0.0,1.0,6950000.0,SYN-0071
+SYN-0072,Hubballi,Bhairidevarkoppa,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.090076835776092,3.0,,2.0,4.45,0.0,0.0,1.0,7590000.0,SYN-0072
+SYN-0073,Dharwad,Malmaddi,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.090076835776092,1.0,30.0,5.0,1.13,0.0,0.0,0.0,5650000.0,SYN-0073
+SYN-0074,Hubballi,Bhairidevarkoppa,commercial_building,non_agricultural_commercial,unknown,not_applicable,7.783224016336037,3.0,40.0,2.0,5.15,0.0,0.0,0.0,13350000.0,SYN-0074
+SYN-0075,Dharwad,Amminabhavi,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.495541943884256,1.0,,2.0,9.69,0.0,0.0,1.0,1870000.0,SYN-0075
+SYN-0076,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,11.458923241587545,1.0,,2.0,11.91,0.0,0.0,1.0,3190000.0,SYN-0076
+SYN-0077,Dharwad,Sattur,commercial_plot,non_agricultural_commercial,converted_claimed,unknown,8.070906088787819,,40.0,2.0,4.06,0.0,1.0,0.0,11080000.0,SYN-0077
+SYN-0078,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,unknown,8.294043815085063,3.0,50.0,2.0,4.36,0.0,0.0,0.0,8660000.0,SYN-0078
+SYN-0079,Hubballi,Bhairidevarkoppa,commercial_building,non_agricultural_commercial,unknown,not_applicable,7.495541943884256,2.0,30.0,2.0,4.73,0.0,0.0,0.0,8430000.0,SYN-0079
+SYN-0080,Hubballi,Navanagar,agricultural_land,unknown,not_applicable,not_applicable,10.489522684399441,4.0,,4.0,7.97,0.0,0.0,1.0,5320000.0,SYN-0080
+SYN-0081,Hubballi,Gokul Road,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.313220387090301,2.0,,3.0,3.2,0.0,0.0,1.0,6570000.0,SYN-0081
+SYN-0082,Hubballi,Kusugal,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.396929655216146,1.0,20.0,4.0,9.85,1.0,0.0,0.0,475000.0,SYN-0082
+SYN-0083,Dharwad,Sattur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.783224016336037,2.0,40.0,3.0,3.62,0.0,0.0,0.0,5260000.0,SYN-0083
+SYN-0084,Dharwad,Mugad,agricultural_land,unknown,not_applicable,not_applicable,11.598185308921051,3.0,,5.0,9.59,0.0,0.0,1.0,5840000.0,SYN-0084
+SYN-0085,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,12.010294959747885,0.0,,2.0,11.82,0.0,0.0,1.0,5160000.0,SYN-0085
+SYN-0086,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,11.813296688537998,1.0,,4.0,5.15,0.0,0.0,1.0,10160000.0,SYN-0086
+SYN-0087,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,unknown,unknown,7.090076835776092,2.0,30.0,3.0,2.78,0.0,0.0,0.0,1960000.0,SYN-0087
+SYN-0088,Dharwad,Mugad,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.315098622102074,2.0,30.0,2.0,12.05,0.0,0.0,0.0,955000.0,SYN-0088
+SYN-0089,Hubballi,Gokul Road,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.396929655216146,2.0,20.0,5.0,3.36,0.0,0.0,0.0,2860000.0,SYN-0089
+SYN-0090,Hubballi,Old Hubballi,residential_plot,agricultural,unknown,approved_layout_claimed,7.2078598714324755,1.0,,6.0,3.65,1.0,0.0,1.0,1895000.0,SYN-0090
+SYN-0092,Hubballi,Navanagar,independent_house,agricultural,not_converted,not_applicable,7.313220387090301,4.0,30.0,2.0,7.7,0.0,0.0,0.0,4030000.0,SYN-0092
+SYN-0093,Hubballi,Old Hubballi,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.3968969880159126,3.0,,5.0,2.42,0.0,0.0,1.0,2230000.0,SYN-0093
+SYN-0094,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,10.799677612703281,0.0,,3.0,10.17,0.0,0.0,1.0,1095000.0,SYN-0094
+SYN-0095,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,11.557363314400797,1.0,,3.0,2.84,0.0,0.0,1.0,6350000.0,SYN-0095
+SYN-0097,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,10.630601282659347,1.0,,5.0,2.66,0.0,0.0,1.0,3130000.0,SYN-0097
+SYN-0098,Dharwad,Malmaddi,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,6.684611727667927,3.0,20.0,2.0,1.78,0.0,0.0,0.0,5760000.0,SYN-0098
+SYN-0099,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,12.514476040795207,1.0,,3.0,7.14,0.0,0.0,1.0,15450000.0,SYN-0099
+SYN-0100,Dharwad,Saptapur,residential_plot,agricultural,conversion_in_progress,approved_layout_claimed,8.294049640102028,2.0,,2.0,0.05,0.0,0.0,1.0,9140000.0,SYN-0100
+SYN-0101,Dharwad,Sattur,residential_plot,non_agricultural_residential,conversion_in_progress,approved_layout_claimed,7.090076835776092,2.0,,5.0,4.18,0.0,0.0,1.0,2020000.0,SYN-0101
+SYN-0102,Hubballi,Gokul Road,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,7.495541943884256,4.0,30.0,5.0,3.64,0.0,0.0,0.0,21510000.0,SYN-0102
+SYN-0103,Dharwad,Sattur,residential_plot,non_agricultural_residential,not_converted,unapproved_layout,6.396929655216146,3.0,20.0,6.0,3.24,0.0,0.0,0.0,980000.0,SYN-0103
+SYN-0104,Dharwad,Lakamanahalli,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.78323614126253,2.0,40.0,3.0,2.49,0.0,0.0,0.0,5310000.0,SYN-0104
+SYN-0105,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.783224016336037,3.0,40.0,3.0,1.92,0.0,0.0,0.0,6160000.0,SYN-0105
+SYN-0106,Hubballi,Gabbur,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,6.396929655216146,3.0,20.0,4.0,5.88,0.0,0.0,0.0,865000.0,SYN-0106
+SYN-0107,Hubballi,Bhairidevarkoppa,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.396929655216146,2.0,20.0,2.0,5.0,0.0,0.0,0.0,2630000.0,SYN-0107
+SYN-0108,Hubballi,Byahatti,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.090076835776092,3.0,30.0,4.0,10.41,0.0,0.0,0.0,1300000.0,SYN-0108
+SYN-0109,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,11.470351937411166,2.0,,4.0,15.3,0.0,0.0,1.0,2920000.0,SYN-0109
+SYN-0110,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,11.890854922883872,2.0,300.0,3.0,11.78,0.0,0.0,0.0,5660000.0,SYN-0110
+SYN-0111,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,11.829297029884438,2.0,,4.0,11.28,0.0,0.0,1.0,5430000.0,SYN-0111
+SYN-0112,Hubballi,Gokul Road,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,7.495541943884256,3.0,,6.0,2.88,0.0,0.0,1.0,14390000.0,SYN-0112
+SYN-0113,Hubballi,Old Hubballi,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.3968969880159126,,,3.0,2.86,0.0,1.0,1.0,1950000.0,SYN-0113
+SYN-0114,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,11.813296688537998,1.0,80.0,2.0,5.58,0.0,0.0,0.0,6840000.0,SYN-0114
+SYN-0115,Hubballi,Gokul Road,residential_plot,agricultural,unknown,unknown,7.2078598714324755,3.0,30.0,2.0,3.15,0.0,0.0,0.0,3350000.0,SYN-0115
+SYN-0116,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,11.829297029884438,1.0,300.0,3.0,10.84,0.0,0.0,0.0,4440000.0,SYN-0116
+SYN-0117,Hubballi,Navanagar,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.600902459542082,2.0,40.0,4.0,8.07,0.0,0.0,0.0,3700000.0,SYN-0117
+SYN-0118,Hubballi,Gokul Road,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.495541943884256,2.0,30.0,5.0,3.04,0.0,0.0,0.0,8890000.0,SYN-0118
+SYN-0119,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,10.884835421043586,1.0,150.0,4.0,6.12,0.0,0.0,0.0,3570000.0,SYN-0119
+SYN-0120,Hubballi,Kusugal,agricultural_land,unknown,not_applicable,not_applicable,11.702545324245294,1.0,100.0,5.0,10.0,0.0,0.0,0.0,6750000.0,SYN-0120
+SYN-0121,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,12.042871130182498,0.0,,3.0,9.22,0.0,0.0,1.0,3360000.0,SYN-0121
+SYN-0122,Dharwad,Malmaddi,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,,40.0,5.0,1.65,0.0,1.0,0.0,9450000.0,SYN-0122
+SYN-0123,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,10.981999169497234,0.0,300.0,3.0,10.78,0.0,0.0,0.0,1620000.0,SYN-0123
+SYN-0124,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.313187653221221,2.0,30.0,4.0,3.1,0.0,0.0,0.0,2770000.0,SYN-0124
+SYN-0125,Hubballi,Gokul Road,commercial_building,unknown,converted_claimed,not_applicable,7.495541943884256,3.0,,3.0,3.71,0.0,0.0,1.0,10300000.0,SYN-0125
+SYN-0126,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,11.447362419186469,1.0,60.0,4.0,1.94,0.0,0.0,0.0,5460000.0,SYN-0126
+SYN-0127,Dharwad,Sattur,independent_house,non_agricultural_residential,not_converted,not_applicable,7.783224016336037,2.0,,6.0,3.94,0.0,0.0,1.0,4530000.0,SYN-0127
+SYN-0128,Dharwad,Malmaddi,commercial_plot,unknown,converted_claimed,unknown,7.783224016336037,3.0,,4.0,1.82,1.0,0.0,1.0,12470000.0,SYN-0128
+SYN-0129,Dharwad,Garag,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.783224016336037,2.0,,2.0,14.13,0.0,0.0,1.0,1235000.0,SYN-0129
+SYN-0130,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,10.981999169497234,0.0,,4.0,4.86,0.0,0.0,1.0,2910000.0,SYN-0130
+SYN-0131,Dharwad,Saptapur,residential_plot,agricultural,not_converted,approved_layout_claimed,8.294049640102028,2.0,50.0,6.0,0.72,0.0,0.0,0.0,8910000.0,SYN-0131
+SYN-0132,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,10.944258841514388,1.0,,4.0,10.46,0.0,0.0,1.0,2130000.0,SYN-0132
+SYN-0133,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.783224016336037,1.0,40.0,6.0,1.52,0.0,0.0,0.0,4440000.0,SYN-0133
+SYN-0134,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,12.344873256409027,1.0,,4.0,11.57,0.0,0.0,1.0,9680000.0,SYN-0134
+SYN-0135,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,,,5.0,2.98,0.0,1.0,1.0,3450000.0,SYN-0135
+SYN-0136,Hubballi,Kusugal,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.090076835776092,2.0,30.0,3.0,9.78,0.0,0.0,0.0,950000.0,SYN-0136
+SYN-0137,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,11.7204029416453,2.0,,4.0,4.71,0.0,0.0,1.0,7150000.0,SYN-0137
+SYN-0138,Hubballi,Old Hubballi,independent_house,unknown,converted_claimed,not_applicable,7.090076835776092,2.0,,6.0,3.57,0.0,0.0,1.0,3940000.0,SYN-0138
+SYN-0139,Hubballi,Old Hubballi,commercial_plot,non_agricultural_commercial,conversion_in_progress,approved_layout_claimed,7.78323614126253,3.0,,2.0,3.24,0.0,0.0,1.0,8010000.0,SYN-0139
+SYN-0140,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,11.77213861604449,1.0,,2.0,11.66,0.0,0.0,1.0,3340000.0,SYN-0140
+SYN-0141,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,11.03606639076751,1.0,200.0,2.0,11.03,0.0,0.0,0.0,2200000.0,SYN-0141
+SYN-0142,Dharwad,Kelgeri,residential_plot,non_agricultural_residential,not_converted,approved_layout_claimed,7.2078598714324755,2.0,30.0,4.0,3.89,1.0,0.0,0.0,1485000.0,SYN-0142
+SYN-0143,Hubballi,Gokul Road,independent_house,non_agricultural_residential,conversion_in_progress,not_applicable,7.313220387090301,1.0,30.0,5.0,2.86,0.0,0.0,0.0,3530000.0,SYN-0143
+SYN-0144,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,not_converted,approved_layout_claimed,7.313187653221221,1.0,30.0,6.0,2.83,0.0,0.0,0.0,1760000.0,SYN-0144
+SYN-0145,Hubballi,Unkal,independent_house,non_agricultural_residential,unknown,not_applicable,7.090076835776092,,30.0,3.0,3.15,0.0,1.0,0.0,13140000.0,SYN-0145
+SYN-0146,Hubballi,Kusugal,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.783224016336037,1.0,,4.0,8.7,0.0,0.0,1.0,2170000.0,SYN-0146
+SYN-0147,Hubballi,Vidyanagar,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.313220387090301,2.0,,4.0,0.66,0.0,0.0,1.0,3470000.0,SYN-0147
+SYN-0148,Hubballi,Old Hubballi,commercial_plot,non_agricultural_commercial,converted_claimed,unknown,8.070906088787819,1.0,40.0,3.0,3.3,0.0,0.0,0.0,8960000.0,SYN-0148
+SYN-0149,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.2078598714324755,2.0,30.0,4.0,4.68,0.0,0.0,0.0,2790000.0,SYN-0149
+SYN-0150,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.3968969880159126,3.0,20.0,2.0,1.3,0.0,0.0,0.0,1915000.0,SYN-0150
+SYN-0151,Dharwad,Sattur,independent_house,non_agricultural_residential,unknown,not_applicable,7.313220387090301,2.0,30.0,5.0,3.97,0.0,0.0,0.0,5030000.0,SYN-0151
+SYN-0152,Dharwad,Sattur,commercial_plot,unknown,converted_claimed,approved_layout_claimed,8.070906088787819,3.0,40.0,3.0,3.87,0.0,0.0,0.0,15430000.0,SYN-0152
+SYN-0153,Hubballi,Navanagar,agricultural_land,unknown,not_applicable,not_applicable,12.62780472610221,3.0,150.0,4.0,8.24,0.0,0.0,0.0,43970000.0,SYN-0153
+SYN-0154,Hubballi,Unkal,independent_house,non_agricultural_residential,unknown,not_applicable,7.783224016336037,3.0,40.0,4.0,3.34,0.0,0.0,0.0,13620000.0,SYN-0154
+SYN-0155,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,10.799677612703281,1.0,,3.0,11.58,0.0,0.0,1.0,2040000.0,SYN-0155
+SYN-0156,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,10.843162724643019,1.0,,2.0,11.08,0.0,0.0,1.0,1175000.0,SYN-0156
+SYN-0157,Dharwad,Sattur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,2.0,,3.0,3.29,0.0,0.0,1.0,11190000.0,SYN-0157
+SYN-0158,Dharwad,Malmaddi,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.78323614126253,1.0,40.0,4.0,1.09,0.0,0.0,0.0,8120000.0,SYN-0158
+SYN-0159,Hubballi,Old Hubballi,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,3.0,40.0,4.0,3.04,0.0,0.0,0.0,7310000.0,SYN-0159
+SYN-0160,Hubballi,Keshwapur,independent_house,non_agricultural_residential,conversion_in_progress,not_applicable,7.783224016336037,2.0,40.0,2.0,1.65,0.0,0.0,0.0,8580000.0,SYN-0160
+SYN-0161,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.600902459542082,2.0,,6.0,2.88,1.0,0.0,1.0,4090000.0,SYN-0161
+SYN-0162,Dharwad,Saptapur,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,7.090076835776092,2.0,30.0,2.0,0.53,0.0,0.0,0.0,10910000.0,SYN-0162
+SYN-0163,Dharwad,Mugad,commercial_plot,non_agricultural_commercial,converted_claimed,unknown,8.294049640102028,,50.0,2.0,9.9,0.0,1.0,0.0,4490000.0,SYN-0163
+SYN-0164,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,12.029967725346589,1.0,60.0,4.0,5.27,0.0,0.0,0.0,11570000.0,SYN-0164
+SYN-0165,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,11.423831921776275,1.0,,2.0,13.01,0.0,0.0,1.0,2760000.0,SYN-0165
+SYN-0166,Dharwad,Garag,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.208126502549906,3.0,30.0,4.0,14.73,0.0,0.0,0.0,970000.0,SYN-0166
+SYN-0167,Dharwad,Malmaddi,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,7.495541943884256,3.0,30.0,2.0,2.11,0.0,0.0,0.0,15070000.0,SYN-0167
+SYN-0168,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.481651492665101,1.0,,2.0,8.57,0.0,0.0,1.0,3720000.0,SYN-0168
+SYN-0169,Hubballi,Old Hubballi,independent_house,non_agricultural_residential,conversion_in_progress,not_applicable,7.313220387090301,4.0,30.0,4.0,2.74,0.0,0.0,0.0,4550000.0,SYN-0169
+SYN-0170,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,2.0,,2.0,4.2,1.0,0.0,1.0,1640000.0,SYN-0170
+SYN-0171,Dharwad,Garag,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.090076835776092,2.0,30.0,2.0,15.49,0.0,0.0,0.0,945000.0,SYN-0171
+SYN-0172,Hubballi,Navanagar,residential_plot,non_agricultural_residential,unknown,unknown,7.090076835776092,3.0,,5.0,7.82,0.0,0.0,1.0,1915000.0,SYN-0172
+SYN-0173,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,11.646975473090484,1.0,100.0,3.0,4.84,0.0,0.0,0.0,8220000.0,SYN-0173
+SYN-0174,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,10.656576769062607,3.0,100.0,3.0,9.2,0.0,0.0,0.0,2820000.0,SYN-0174
+SYN-0175,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.934657545542265,2.0,,4.0,7.72,0.0,0.0,1.0,6570000.0,SYN-0175
+SYN-0176,Hubballi,Vidyanagar,commercial_plot,non_agricultural_commercial,converted_claimed,unknown,7.783224016336037,2.0,40.0,6.0,0.07,1.0,0.0,0.0,12090000.0,SYN-0176
+SYN-0177,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,11.03606639076751,,80.0,3.0,3.11,0.0,1.0,0.0,4960000.0,SYN-0177
+SYN-0178,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,10.924840755657286,,,3.0,9.79,0.0,1.0,1.0,1555000.0,SYN-0178
+SYN-0179,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.60092355931948,2.0,,4.0,5.03,0.0,0.0,1.0,4710000.0,SYN-0179
+SYN-0181,Dharwad,Narayanpur,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,6.396929655216146,2.0,20.0,5.0,1.89,0.0,0.0,0.0,1005000.0,SYN-0181
+SYN-0182,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.396929655216146,2.0,20.0,2.0,4.3,0.0,0.0,0.0,1415000.0,SYN-0182
+SYN-0183,Hubballi,Byahatti,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.495541943884256,1.0,30.0,3.0,10.22,0.0,0.0,0.0,1945000.0,SYN-0183
+SYN-0184,Dharwad,Garag,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.2078598714324755,2.0,30.0,3.0,13.85,0.0,0.0,0.0,930000.0,SYN-0184
+SYN-0185,Dharwad,Narayanpur,commercial_plot,unknown,unknown,approved_layout_claimed,8.294049640102028,2.0,50.0,6.0,1.15,0.0,0.0,0.0,11500000.0,SYN-0185
+SYN-0186,Dharwad,Saptapur,independent_house,unknown,converted_claimed,not_applicable,7.78323614126253,2.0,,3.0,0.53,0.0,0.0,1.0,14870000.0,SYN-0186
+SYN-0187,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,11.423831921776275,0.0,,4.0,10.11,0.0,0.0,1.0,2270000.0,SYN-0187
+SYN-0188,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,11.3874642776054,1.0,,5.0,10.78,0.0,0.0,1.0,3070000.0,SYN-0188
+SYN-0189,Dharwad,Lakamanahalli,independent_house,unknown,not_converted,not_applicable,7.313220387090301,3.0,30.0,3.0,2.39,0.0,0.0,0.0,3790000.0,SYN-0189
+SYN-0190,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,2.0,,3.0,3.57,0.0,0.0,1.0,3240000.0,SYN-0190
+SYN-0191,Dharwad,Kelgeri,agricultural_land,agricultural,not_applicable,not_applicable,12.271129782163477,3.0,100.0,4.0,3.53,0.0,0.0,0.0,16830000.0,SYN-0191
+SYN-0192,Dharwad,Garag,commercial_plot,non_agricultural_commercial,conversion_in_progress,unapproved_layout,7.783224016336037,1.0,40.0,2.0,12.85,0.0,0.0,0.0,1840000.0,SYN-0192
+SYN-0193,Hubballi,Old Hubballi,commercial_building,non_agricultural_commercial,converted_claimed,not_applicable,6.684611727667927,3.0,20.0,3.0,2.72,0.0,0.0,0.0,5020000.0,SYN-0193
+SYN-0194,Dharwad,Kalyan Nagar,independent_house,unknown,converted_claimed,not_applicable,7.090076835776092,2.0,,5.0,1.23,0.0,0.0,1.0,6670000.0,SYN-0194
+SYN-0195,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,8.294049640102028,,,2.0,3.32,0.0,1.0,1.0,6670000.0,SYN-0195
+SYN-0196,Hubballi,Unkal,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.495541943884256,2.0,30.0,3.0,2.96,0.0,0.0,0.0,8210000.0,SYN-0196
+SYN-0197,Dharwad,Narayanpur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.396929655216146,2.0,20.0,4.0,1.67,0.0,0.0,0.0,2970000.0,SYN-0197
+SYN-0198,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.207866982518302,,30.0,2.0,4.89,0.0,1.0,0.0,2960000.0,SYN-0198
+SYN-0199,Dharwad,Lakamanahalli,commercial_plot,unknown,converted_claimed,approved_layout_claimed,8.070906088787819,3.0,40.0,5.0,3.35,0.0,0.0,0.0,9310000.0,SYN-0199
+SYN-0200,Dharwad,Sattur,commercial_building,non_agricultural_commercial,conversion_in_progress,not_applicable,7.78323614126253,2.0,40.0,2.0,3.31,0.0,0.0,0.0,9610000.0,SYN-0200
+SYN-0201,Dharwad,Malmaddi,residential_plot,non_agricultural_residential,converted_claimed,unknown,6.396929655216146,2.0,,3.0,1.83,0.0,0.0,1.0,1205000.0,SYN-0201
+SYN-0202,Hubballi,Unkal,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.783224016336037,2.0,40.0,6.0,2.95,0.0,0.0,0.0,7240000.0,SYN-0202
+SYN-0203,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,12.340122653650429,3.0,300.0,2.0,14.24,0.0,0.0,0.0,10740000.0,SYN-0203
+SYN-0204,Hubballi,Unkal,residential_plot,non_agricultural_residential,not_converted,approved_layout_claimed,7.2078598714324755,1.0,30.0,4.0,3.26,0.0,0.0,0.0,1400000.0,SYN-0204
+SYN-0205,Dharwad,Malmaddi,residential_plot,non_agricultural_residential,unknown,unapproved_layout,7.2078598714324755,2.0,,6.0,1.96,0.0,0.0,1.0,2510000.0,SYN-0205
+SYN-0206,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,10.864216133840852,1.0,60.0,3.0,6.1,0.0,0.0,0.0,3210000.0,SYN-0206
+SYN-0207,Hubballi,Gokul Road,independent_house,unknown,converted_claimed,not_applicable,7.090076835776092,3.0,30.0,6.0,3.52,0.0,0.0,0.0,6050000.0,SYN-0207
+SYN-0208,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.090076835776092,3.0,30.0,4.0,2.1,0.0,0.0,0.0,4920000.0,SYN-0208
+SYN-0209,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,11.746605314039325,2.0,300.0,2.0,5.59,0.0,0.0,0.0,7730000.0,SYN-0209
+SYN-0210,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,10.656576769062607,1.0,,4.0,10.43,0.0,0.0,1.0,1660000.0,SYN-0210
+SYN-0211,Dharwad,Saptapur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,8.294049640102028,2.0,50.0,2.0,0.92,0.0,0.0,0.0,11680000.0,SYN-0211
+SYN-0212,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.492824793263226,1.0,150.0,2.0,9.88,0.0,0.0,0.0,3500000.0,SYN-0212
+SYN-0213,Hubballi,Gabbur,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.2078598714324755,2.0,,2.0,5.7,0.0,0.0,1.0,1565000.0,SYN-0213
+SYN-0214,Hubballi,Byahatti,agricultural_land,unknown,not_applicable,not_applicable,11.3874642776054,1.0,,4.0,10.33,0.0,0.0,1.0,2300000.0,SYN-0214
+SYN-0215,Dharwad,Sattur,residential_plot,unknown,converted_claimed,unapproved_layout,7.090076835776092,2.0,30.0,3.0,4.35,0.0,0.0,0.0,3200000.0,SYN-0215
+SYN-0216,Hubballi,Bhairidevarkoppa,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.090076835776092,3.0,,6.0,4.36,0.0,0.0,1.0,1710000.0,SYN-0216
+SYN-0217,Hubballi,Gokul Road,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.783224016336037,3.0,40.0,6.0,2.91,0.0,0.0,0.0,13950000.0,SYN-0217
+SYN-0218,Dharwad,Sattur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.396929655216146,3.0,20.0,2.0,3.58,0.0,0.0,0.0,2850000.0,SYN-0218
+SYN-0219,Dharwad,Narayanpur,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,8.699514748210191,2.0,60.0,5.0,1.94,0.0,0.0,0.0,17710000.0,SYN-0219
+SYN-0220,Hubballi,Navanagar,agricultural_land,agricultural,not_applicable,not_applicable,11.805199478305378,,150.0,6.0,8.29,0.0,1.0,0.0,12970000.0,SYN-0220
+SYN-0221,Dharwad,Saptapur,commercial_building,non_agricultural_commercial,conversion_in_progress,not_applicable,6.684611727667927,2.0,20.0,6.0,0.63,0.0,0.0,0.0,4270000.0,SYN-0221
+SYN-0222,Dharwad,Sattur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.2078598714324755,2.0,30.0,3.0,3.59,0.0,0.0,0.0,3170000.0,SYN-0222
+SYN-0223,Hubballi,Old Hubballi,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.313220387090301,2.0,30.0,3.0,2.68,0.0,0.0,0.0,3130000.0,SYN-0223
+SYN-0224,Dharwad,Lakamanahalli,agricultural_land,agricultural,not_applicable,not_applicable,11.29708021613713,,80.0,1.0,2.61,0.0,1.0,0.0,7420000.0,SYN-0224
+SYN-0225,Dharwad,Saptapur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.2078598714324755,2.0,30.0,2.0,0.43,0.0,0.0,0.0,3770000.0,SYN-0225
+SYN-0226,Dharwad,Malmaddi,independent_house,non_agricultural_residential,unknown,not_applicable,7.090076835776092,2.0,,3.0,1.29,0.0,0.0,1.0,5200000.0,SYN-0226
+SYN-0227,Dharwad,Saptapur,residential_plot,agricultural,not_converted,approved_layout_claimed,8.29320678499944,,50.0,3.0,0.81,0.0,1.0,0.0,6030000.0,SYN-0227
+SYN-0228,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.600902459542082,2.0,,4.0,1.51,0.0,0.0,1.0,4530000.0,SYN-0228
+SYN-0229,Dharwad,Narayanpur,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.088325302737285,2.0,,4.0,2.71,0.0,0.0,1.0,2250000.0,SYN-0229
+SYN-0230,Dharwad,Amminabhavi,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.090076835776092,2.0,30.0,4.0,10.46,0.0,0.0,0.0,865000.0,SYN-0230
+SYN-0231,Dharwad,Lakamanahalli,residential_plot,non_agricultural_residential,converted_claimed,unknown,8.294049640102028,2.0,50.0,2.0,2.12,0.0,0.0,0.0,6750000.0,SYN-0231
+SYN-0232,Dharwad,Narayanpur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,3.0,40.0,2.0,1.86,0.0,0.0,0.0,7810000.0,SYN-0232
+SYN-0233,Dharwad,Kalyan Nagar,residential_plot,unknown,conversion_in_progress,approved_layout_claimed,8.294043815085063,3.0,50.0,5.0,1.55,0.0,0.0,0.0,11300000.0,SYN-0233
+SYN-0235,Dharwad,Garag,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.313187653221221,1.0,,3.0,13.78,0.0,0.0,1.0,1040000.0,SYN-0235
+SYN-0236,Dharwad,Narayanpur,residential_plot,agricultural,unknown,unknown,6.396929655216146,3.0,,3.0,2.7,0.0,0.0,1.0,1195000.0,SYN-0236
+SYN-0237,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,11.755189057730716,1.0,,3.0,9.62,0.0,0.0,1.0,5380000.0,SYN-0237
+SYN-0238,Hubballi,Unkal,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,2.0,,2.0,2.46,0.0,0.0,1.0,3500000.0,SYN-0238
+SYN-0239,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,11.665843957394866,1.0,,3.0,9.36,0.0,0.0,1.0,3260000.0,SYN-0239
+SYN-0240,Hubballi,Vidyanagar,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.396929655216146,2.0,,2.0,1.12,0.0,0.0,1.0,2120000.0,SYN-0240
+SYN-0241,Dharwad,Amminabhavi,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.783224016336037,1.0,40.0,4.0,9.47,0.0,0.0,0.0,1675000.0,SYN-0241
+SYN-0242,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,10.251111660954443,1.0,,2.0,7.44,0.0,0.0,1.0,2530000.0,SYN-0242
+SYN-0243,Dharwad,Kelgeri,residential_plot,non_agricultural_residential,conversion_in_progress,unknown,7.600902459542082,1.0,40.0,4.0,3.9,0.0,0.0,0.0,2150000.0,SYN-0243
+SYN-0244,Dharwad,Kelgeri,residential_plot,unknown,converted_claimed,approved_layout_claimed,8.29320678499944,1.0,,4.0,3.25,0.0,0.0,1.0,6470000.0,SYN-0244
+SYN-0245,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,11.05345813347938,1.0,150.0,2.0,8.95,0.0,0.0,0.0,2200000.0,SYN-0245
+SYN-0246,Hubballi,Gabbur,agricultural_land,unknown,not_applicable,not_applicable,12.340122653650429,1.0,,5.0,5.91,0.0,0.0,1.0,13190000.0,SYN-0246
+SYN-0247,Hubballi,Navanagar,agricultural_land,agricultural,not_applicable,not_applicable,10.754215238626523,1.0,200.0,5.0,7.99,0.0,0.0,0.0,4220000.0,SYN-0247
+SYN-0248,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,11.103888987106272,0.0,200.0,2.0,5.7,0.0,0.0,0.0,3880000.0,SYN-0248
+SYN-0249,Hubballi,Old Hubballi,residential_plot,unknown,converted_claimed,approved_layout_claimed,7.2078598714324755,3.0,30.0,6.0,3.19,0.0,0.0,0.0,3370000.0,SYN-0249
+SYN-0250,Hubballi,Keshwapur,residential_plot,unknown,unknown,unknown,6.3968969880159126,2.0,,3.0,2.72,0.0,0.0,1.0,1185000.0,SYN-0250
+SYN-0251,Hubballi,Old Hubballi,residential_plot,unknown,converted_claimed,approved_layout_claimed,8.294049640102028,2.0,50.0,2.0,2.74,0.0,0.0,0.0,6580000.0,SYN-0251
+SYN-0253,Hubballi,Bhairidevarkoppa,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.313187653221221,3.0,30.0,2.0,4.34,0.0,0.0,0.0,6920000.0,SYN-0253
+SYN-0254,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.207866982518302,2.0,30.0,3.0,3.09,0.0,0.0,0.0,3530000.0,SYN-0254
+SYN-0256,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.2078598714324755,1.0,30.0,5.0,1.51,0.0,0.0,0.0,3030000.0,SYN-0256
+SYN-0257,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,10.171068953280907,1.0,,3.0,6.89,0.0,0.0,1.0,1620000.0,SYN-0257
+SYN-0258,Dharwad,Narayanpur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,8.294049640102028,2.0,50.0,4.0,1.46,0.0,0.0,0.0,7110000.0,SYN-0258
+SYN-0259,Dharwad,Narayanpur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.313220387090301,3.0,30.0,2.0,1.67,0.0,0.0,0.0,3220000.0,SYN-0259
+SYN-0260,Hubballi,Byahatti,commercial_plot,unknown,conversion_in_progress,approved_layout_claimed,8.699514748210191,2.0,60.0,2.0,10.56,0.0,0.0,0.0,4770000.0,SYN-0260
+SYN-0261,Dharwad,Lakamanahalli,independent_house,non_agricultural_residential,converted_claimed,not_applicable,6.396929655216146,3.0,,2.0,2.38,0.0,0.0,1.0,3030000.0,SYN-0261
+SYN-0263,Hubballi,Gokul Road,residential_plot,non_agricultural_residential,unknown,approved_layout_claimed,7.783224016336037,3.0,,6.0,2.82,0.0,0.0,1.0,5210000.0,SYN-0263
+SYN-0264,Hubballi,Gokul Road,residential_plot,unknown,converted_claimed,unapproved_layout,6.396929655216146,3.0,,4.0,3.76,1.0,0.0,1.0,1890000.0,SYN-0264
+SYN-0266,Hubballi,Byahatti,agricultural_land,agricultural,not_applicable,not_applicable,11.755189057730716,1.0,,4.0,11.96,0.0,0.0,1.0,3850000.0,SYN-0266
+SYN-0267,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,12.152070422147489,1.0,,2.0,10.68,0.0,0.0,1.0,5460000.0,SYN-0267
+SYN-0268,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,11.546892014533501,1.0,,4.0,6.64,0.0,0.0,1.0,6290000.0,SYN-0268
+SYN-0269,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,11.797036167666217,,,3.0,5.47,0.0,1.0,1.0,11310000.0,SYN-0269
+SYN-0270,Hubballi,Unkal,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,2.0,,5.0,2.9,0.0,0.0,1.0,10260000.0,SYN-0270
+SYN-0271,Hubballi,Gabbur,agricultural_land,agricultural,not_applicable,not_applicable,11.182669864959387,,,2.0,4.87,0.0,1.0,1.0,3560000.0,SYN-0271
+SYN-0272,Dharwad,Sattur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.090076835776092,2.0,30.0,6.0,3.68,0.0,0.0,0.0,4500000.0,SYN-0272
+SYN-0273,Dharwad,Garag,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.78323614126253,3.0,40.0,4.0,13.78,1.0,0.0,0.0,2220000.0,SYN-0273
+SYN-0274,Dharwad,Malmaddi,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.090076835776092,,30.0,3.0,1.27,0.0,1.0,0.0,2860000.0,SYN-0274
+SYN-0275,Dharwad,Saptapur,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,7.78323614126253,3.0,40.0,6.0,0.62,0.0,0.0,0.0,18470000.0,SYN-0275
+SYN-0276,Dharwad,Malmaddi,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.600902459542082,2.0,40.0,6.0,2.18,0.0,0.0,0.0,5610000.0,SYN-0276
+SYN-0277,Dharwad,Malmaddi,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,1.0,40.0,5.0,1.94,0.0,0.0,0.0,7800000.0,SYN-0277
+SYN-0278,Dharwad,Kelgeri,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,6.3968969880159126,3.0,,3.0,2.36,1.0,0.0,1.0,1040000.0,SYN-0278
+SYN-0279,Dharwad,Saptapur,independent_house,non_agricultural_residential,converted_claimed,not_applicable,7.783224016336037,2.0,40.0,4.0,0.62,0.0,0.0,0.0,12300000.0,SYN-0279
+SYN-0281,Hubballi,Byahatti,residential_plot,non_agricultural_residential,converted_claimed,unknown,7.600902459542082,3.0,40.0,4.0,11.82,1.0,0.0,0.0,1510000.0,SYN-0281
+SYN-0282,Dharwad,Malmaddi,commercial_plot,non_agricultural_commercial,unknown,unapproved_layout,8.070906088787819,3.0,40.0,4.0,1.65,0.0,0.0,0.0,13270000.0,SYN-0282
+SYN-0283,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,11.283474564081352,1.0,80.0,4.0,11.02,0.0,0.0,0.0,4330000.0,SYN-0283
+SYN-0284,Dharwad,Malmaddi,residential_plot,agricultural,unknown,unapproved_layout,7.313187653221221,1.0,30.0,6.0,2.02,0.0,0.0,0.0,2410000.0,SYN-0284
+SYN-0285,Dharwad,Lakamanahalli,commercial_plot,unknown,converted_claimed,approved_layout_claimed,7.783224016336037,3.0,40.0,3.0,2.16,0.0,0.0,0.0,7070000.0,SYN-0285
+SYN-0286,Dharwad,Garag,agricultural_land,agricultural,not_applicable,not_applicable,11.89828990137139,,,3.0,14.82,0.0,1.0,1.0,4990000.0,SYN-0286
+SYN-0287,Hubballi,Old Hubballi,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,3.0,30.0,6.0,2.75,0.0,0.0,0.0,3050000.0,SYN-0287
+SYN-0288,Hubballi,Kusugal,agricultural_land,agricultural,not_applicable,not_applicable,10.981999169497234,1.0,,3.0,9.65,0.0,0.0,1.0,2790000.0,SYN-0288
+SYN-0289,Hubballi,Gokul Road,commercial_plot,non_agricultural_commercial,converted_claimed,unapproved_layout,7.495541943884256,1.0,,5.0,2.99,0.0,0.0,1.0,4310000.0,SYN-0289
+SYN-0290,Dharwad,Kalyan Nagar,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.313220387090301,2.0,30.0,3.0,0.95,1.0,0.0,0.0,3460000.0,SYN-0290
+SYN-0291,Dharwad,Kalyan Nagar,commercial_plot,non_agricultural_commercial,converted_claimed,approved_layout_claimed,8.070906995037408,3.0,,3.0,1.58,0.0,0.0,1.0,20550000.0,SYN-0291
+SYN-0292,Hubballi,Keshwapur,residential_plot,non_agricultural_residential,converted_claimed,approved_layout_claimed,7.600902459542082,4.0,40.0,6.0,2.71,0.0,0.0,0.0,8840000.0,SYN-0292
+SYN-0293,Dharwad,Saptapur,independent_house,non_agricultural_residential,not_converted,not_applicable,7.783224016336037,2.0,40.0,2.0,0.69,0.0,0.0,0.0,7120000.0,SYN-0293
+SYN-0294,Dharwad,Amminabhavi,agricultural_land,agricultural,not_applicable,not_applicable,11.557363314400797,1.0,100.0,3.0,11.32,0.0,0.0,0.0,3070000.0,SYN-0294
+SYN-0295,Dharwad,Mugad,residential_plot,unknown,converted_claimed,approved_layout_claimed,8.294049640102028,2.0,50.0,4.0,11.13,0.0,0.0,0.0,3250000.0,SYN-0295
+SYN-0296,Dharwad,Mugad,agricultural_land,agricultural,not_applicable,not_applicable,10.037537560656384,2.0,,3.0,10.81,0.0,0.0,1.0,950000.0,SYN-0296
+SYN-0297,Dharwad,Rayapur,agricultural_land,agricultural,not_applicable,not_applicable,11.905670008669013,3.0,,3.0,5.48,0.0,0.0,1.0,10030000.0,SYN-0297
+SYN-0298,Hubballi,Navanagar,residential_plot,non_agricultural_residential,converted_claimed,unapproved_layout,7.2078598714324755,3.0,,4.0,7.89,0.0,0.0,1.0,3150000.0,SYN-0298
+SYN-0299,Hubballi,Unkal,residential_plot,non_agricultural_residential,not_converted,approved_layout_claimed,7.60092355931948,2.0,40.0,4.0,2.82,0.0,0.0,0.0,2790000.0,SYN-0299
+SYN-0300,Hubballi,Vidyanagar,independent_house,non_agricultural_residential,conversion_in_progress,not_applicable,7.78323614126253,2.0,,2.0,0.98,0.0,0.0,1.0,11670000.0,SYN-0300

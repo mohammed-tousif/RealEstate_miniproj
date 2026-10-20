@@ -1,0 +1,662 @@
+{
+  "engine_version": "weighted-v1",
+  "k": 5,
+  "candidates": 275,
+  "scenarios": [
+    {
+      "scenario": "Demo: \u20b925 lakh residential plot, Hubballi or Dharwad, long-term",
+      "matched": 47,
+      "eligible_independent": 47,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 209,
+        "Different property type": 19
+      },
+      "ideal_listings": 4,
+      "pairwise_agreement": 1.0,
+      "pairs": 172,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.8,
+        "avg_doc_completeness": 0.86666,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.833
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.61664,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.731
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.63334,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.6799999999999999
+      },
+      "stability": {
+        "kendall_tau_mean": 0.955781683626272,
+        "kendall_tau_min": 0.9222941720629048,
+        "top5_overlap_mean": 0.97
+      },
+      "knn_top5_violations": 1,
+      "knn_top5_overlap_with_weighted": 0.4,
+      "top_coverage_mean": 0.9742
+    },
+    {
+      "scenario": "\u20b920 lakh plot to build a house in Dharwad",
+      "matched": 19,
+      "eligible_independent": 19,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 225,
+        "Different property type": 12,
+        "Outside your preferred locations": 19
+      },
+      "ideal_listings": 1,
+      "pairwise_agreement": 1.0,
+      "pairs": 18,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.56666,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.92
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.5333399999999999,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.78
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.65,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.66
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9538011695906432,
+        "kendall_tau_min": 0.9064327485380117,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 2,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9592
+    },
+    {
+      "scenario": "\u20b935 lakh house plot, Saptapur or Kalyan Nagar preferred",
+      "matched": 116,
+      "eligible_independent": 116,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 159
+      },
+      "ideal_listings": 0,
+      "pairwise_agreement": null,
+      "pairs": 0,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.81906,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.96
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.6642600000000001,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.672
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.6309400000000001,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.404
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9349475262368815,
+        "kendall_tau_min": 0.906446776611694,
+        "top5_overlap_mean": 0.89
+      },
+      "knn_top5_violations": 2,
+      "knn_top5_overlap_with_weighted": 0.0,
+      "top_coverage_mean": 1.0
+    },
+    {
+      "scenario": "\u20b960 lakh farmland for farming, at least 2 acres",
+      "matched": 28,
+      "eligible_independent": 28,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 103,
+        "Smaller than your minimum area": 28,
+        "Different property type": 116
+      },
+      "ideal_listings": 2,
+      "pairwise_agreement": 0.9807692307692307,
+      "pairs": 52,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.4,
+        "avg_doc_completeness": 0.8,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.96
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.71426,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.96
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.37144,
+        "road_known_share": 0.6,
+        "avg_purpose_score": 0.96
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9820105820105819,
+        "kendall_tau_min": 0.9682539682539683,
+        "top5_overlap_mean": 0.9400000000000001
+      },
+      "knn_top5_violations": 3,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9266
+    },
+    {
+      "scenario": "\u20b940 lakh farmland as long-term investment, flexible budget",
+      "matched": 41,
+      "eligible_independent": 41,
+      "constraint_violations": 0,
+      "excluded": {
+        "More than 10% over your budget": 141,
+        "Different property type": 93
+      },
+      "ideal_listings": 1,
+      "pairwise_agreement": 1.0,
+      "pairs": 40,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.82856,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.75
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.77142,
+        "road_known_share": 0.8,
+        "avg_purpose_score": 0.75
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.82856,
+        "road_known_share": 0.8,
+        "avg_purpose_score": 0.75
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9740243902439024,
+        "kendall_tau_min": 0.948780487804878,
+        "top5_overlap_mean": 0.9400000000000001
+      },
+      "knn_top5_violations": 4,
+      "knn_top5_overlap_with_weighted": 0.0,
+      "top_coverage_mean": 0.9934
+    },
+    {
+      "scenario": "\u20b91 crore commercial plot in Hubballi",
+      "matched": 11,
+      "eligible_independent": 11,
+      "constraint_violations": 0,
+      "excluded": {
+        "Different property type": 213,
+        "Over your maximum budget": 46,
+        "Outside your preferred locations": 5
+      },
+      "ideal_listings": 0,
+      "pairwise_agreement": null,
+      "pairs": 0,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.56668,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.8
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.58334,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.752
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.60002,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.6880000000000001
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9563636363636364,
+        "kendall_tau_min": 0.8181818181818182,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 2,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9694
+    },
+    {
+      "scenario": "\u20b91.5 crore commercial use, any commercial type",
+      "matched": 39,
+      "eligible_independent": 39,
+      "constraint_violations": 0,
+      "excluded": {
+        "Different property type": 223,
+        "Over your maximum budget": 13
+      },
+      "ideal_listings": 3,
+      "pairwise_agreement": 0.9814814814814815,
+      "pairs": 108,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.6,
+        "avg_doc_completeness": 0.87142,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.96
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.63808,
+        "road_known_share": 0.8,
+        "avg_purpose_score": 0.8
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.3333333333333333,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.52382,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.864
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9488529014844804,
+        "kendall_tau_min": 0.9163292847503374,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 3,
+      "knn_top5_overlap_with_weighted": 0.0,
+      "top_coverage_mean": 0.9682
+    },
+    {
+      "scenario": "\u20b980 lakh independent house in Hubballi",
+      "matched": 26,
+      "eligible_independent": 26,
+      "constraint_violations": 0,
+      "excluded": {
+        "Different property type": 176,
+        "Over your maximum budget": 73
+      },
+      "ideal_listings": 0,
+      "pairwise_agreement": null,
+      "pairs": 0,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.87144,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.7200000000000001
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.64286,
+        "road_known_share": 0.8,
+        "avg_purpose_score": 0.7040000000000001
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.57144,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.736
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9384615384615385,
+        "kendall_tau_min": 0.8953846153846154,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 0,
+      "knn_top5_overlap_with_weighted": 0.8,
+      "top_coverage_mean": 0.978
+    },
+    {
+      "scenario": "\u20b915 lakh, anything to build on, documents very important",
+      "matched": 27,
+      "eligible_independent": 27,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 248
+      },
+      "ideal_listings": 1,
+      "pairwise_agreement": 1.0,
+      "pairs": 26,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.75,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.86
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.6642600000000001,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.672
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.61428,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.452
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9304843304843307,
+        "kendall_tau_min": 0.8803418803418804,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 3,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9416
+    },
+    {
+      "scenario": "\u20b930 lakh plot, road access very important",
+      "matched": 55,
+      "eligible_independent": 55,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 189,
+        "Different property type": 31
+      },
+      "ideal_listings": 4,
+      "pairwise_agreement": 1.0,
+      "pairs": 204,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.8,
+        "avg_doc_completeness": 0.9,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.912
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.61664,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.76
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.66666,
+        "road_known_share": 0.8,
+        "avg_purpose_score": 0.6
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9346801346801348,
+        "kendall_tau_min": 0.8976430976430977,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 3,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9704
+    },
+    {
+      "scenario": "\u20b925 lakh plot, location does not matter",
+      "matched": 47,
+      "eligible_independent": 47,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 209,
+        "Different property type": 19
+      },
+      "ideal_listings": 4,
+      "pairwise_agreement": 1.0,
+      "pairs": 172,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.8,
+        "avg_doc_completeness": 0.9,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 1.0
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.61664,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.76
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.63334,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.64
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9543015726179465,
+        "kendall_tau_min": 0.9148936170212767,
+        "top5_overlap_mean": 0.99
+      },
+      "knn_top5_violations": 3,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9962
+    },
+    {
+      "scenario": "\u20b950 lakh, preferred type plot but flexible",
+      "matched": 144,
+      "eligible_independent": 144,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 131
+      },
+      "ideal_listings": 1,
+      "pairwise_agreement": 0.9790209790209791,
+      "pairs": 143,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.6666799999999999,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.8245
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.6642600000000001,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.762
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.6309400000000001,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.691
+      },
+      "stability": {
+        "kendall_tau_mean": 0.948494560994561,
+        "kendall_tau_min": 0.9075369075369075,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 3,
+      "knn_top5_overlap_with_weighted": 0.0,
+      "top_coverage_mean": 0.9658
+    },
+    {
+      "scenario": "Vidyanagar only, house plot, at least 1,200 sq ft",
+      "matched": 5,
+      "eligible_independent": 5,
+      "constraint_violations": 0,
+      "excluded": {
+        "Outside your preferred locations": 269,
+        "Smaller than your minimum area": 1
+      },
+      "ideal_listings": 0,
+      "pairwise_agreement": null,
+      "pairs": 0,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.43334,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.6608
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.43334,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.6608
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": null,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.43334,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.6608
+      },
+      "stability": {
+        "kendall_tau_mean": 0.8699999999999999,
+        "kendall_tau_min": 0.7999999999999999,
+        "top5_overlap_mean": 1.0
+      },
+      "knn_top5_violations": 5,
+      "knn_top5_overlap_with_weighted": 0.0,
+      "top_coverage_mean": 0.9259999999999999
+    },
+    {
+      "scenario": "\u20b92 lakh plot (expected: no results)",
+      "matched": 0,
+      "eligible_independent": 0,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 275
+      },
+      "ideal_listings": 0,
+      "pairwise_agreement": null,
+      "pairs": 0,
+      "weighted_top5": {
+        "n": 0
+      },
+      "cheapest_top5": {
+        "n": 0
+      },
+      "newest_top5": {
+        "n": 0
+      },
+      "stability": null,
+      "knn_top5_violations": 0,
+      "knn_top5_overlap_with_weighted": null,
+      "top_coverage_mean": null
+    },
+    {
+      "scenario": "\u20b910\u201320 lakh, strict range, long-term",
+      "matched": 37,
+      "eligible_independent": 37,
+      "constraint_violations": 0,
+      "excluded": {
+        "Over your maximum budget": 225,
+        "Below your minimum budget": 13
+      },
+      "ideal_listings": 1,
+      "pairwise_agreement": 1.0,
+      "pairs": 36,
+      "weighted_top5": {
+        "n": 5,
+        "ideal_recall": 1.0,
+        "ideal_share": 0.2,
+        "avg_doc_completeness": 0.73332,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.8245
+      },
+      "cheapest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.55714,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.759
+      },
+      "newest_top5": {
+        "n": 5,
+        "ideal_recall": 0.0,
+        "ideal_share": 0.0,
+        "avg_doc_completeness": 0.38096,
+        "road_known_share": 1.0,
+        "avg_purpose_score": 0.742
+      },
+      "stability": {
+        "kendall_tau_mean": 0.9454954954954955,
+        "kendall_tau_min": 0.8888888888888888,
+        "top5_overlap_mean": 0.9
+      },
+      "knn_top5_violations": 2,
+      "knn_top5_overlap_with_weighted": 0.2,
+      "top_coverage_mean": 0.9886
+    }
+  ]
+}
