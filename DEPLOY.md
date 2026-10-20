@@ -10,7 +10,18 @@
 
 Because the frontend proxies the API on the same origin, there is no CORS setting and no API URL baked into the build.
 
-## Steps
+## Current deployment
+
+The project is live from `github.com/mohammed-tousif/RealEstate_miniproj` (branch `main`), Singapore region, free plan.
+The three resources were created one by one (same settings as `render.yaml`) rather than as a Blueprint:
+
+| Resource | URL / note |
+|---|---|
+| `propwise-web` | https://propwise-web.onrender.com (`API_PROXY_URL` points at the API) |
+| `propwise-api` | https://propwise-api-rdoi.onrender.com/api/v1/health |
+| `propwise-db` | Free PostgreSQL 16. Until its **Internal Database URL** is pasted into `propwise-api` → Environment → `DATABASE_URL`, the API uses a SQLite file that is rebuilt from the seed data on every restart, so new accounts and listings do not survive a restart |
+
+## Steps (new Blueprint deployment)
 
 1. Push this folder to a GitHub repository (private is fine). `render.yaml` must be at the repository root.
 2. In the Render Dashboard choose **New → Blueprint**, connect GitHub and pick the repository.
