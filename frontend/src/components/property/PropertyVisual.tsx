@@ -3,11 +3,12 @@ import type { PropertyType } from "@/lib/types";
 import { cx } from "@/components/ui";
 
 const TINT: Record<PropertyType, string> = {
-  residential_plot: "from-brand-100 to-brand-50 text-brand-700",
-  independent_house: "from-sky-100 to-sky-50 text-sky-700",
-  agricultural_land: "from-lime-100 to-lime-50 text-lime-700",
-  commercial_plot: "from-amber-100 to-amber-50 text-amber-700",
-  commercial_building: "from-orange-100 to-orange-50 text-orange-700",
+  // One calm family of tints so a grid of cards reads as a set, with a hint of colour per type.
+  residential_plot: "from-brand-100 via-brand-50 to-white text-brand-600",
+  independent_house: "from-sky-100 via-sky-50 to-white text-sky-600",
+  agricultural_land: "from-emerald-50 via-slate-50 to-white text-emerald-600",
+  commercial_plot: "from-slate-100 via-slate-50 to-white text-slate-500",
+  commercial_building: "from-indigo-50 via-slate-50 to-white text-indigo-500",
 };
 
 /** Line illustration for a property type; also used on the home page category tiles. */
@@ -34,8 +35,8 @@ export function PropertyVisual({ type, image, className }: { type: PropertyType;
   }
   return (
     <div className={cx("flex h-full w-full flex-col items-center justify-center bg-gradient-to-br", TINT[type], className)}>
-      <CategoryIcon type={type} />
-      <span className="mt-1 text-[11px] font-medium opacity-70">No photo provided</span>
+      <CategoryIcon type={type} className="h-12 w-12 opacity-80" />
+      <span className="mt-1.5 text-[11px] font-medium opacity-60">No photo provided</span>
     </div>
   );
 }

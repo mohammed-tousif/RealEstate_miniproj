@@ -23,11 +23,11 @@ function EditInner() {
   }, [id]);
   useEffect(load, [load]);
 
-  if (error) return <div className="mx-auto max-w-3xl px-4 py-8"><ErrorState message={error} onRetry={load} /></div>;
-  if (!p) return <div className="mx-auto max-w-3xl px-4 py-8"><Skeleton className="h-96 w-full" /></div>;
+  if (error) return <div className="mx-auto max-w-3xl px-4 py-10 md:py-14"><ErrorState message={error} onRetry={load} /></div>;
+  if (!p) return <div className="mx-auto max-w-3xl px-4 py-10 md:py-14"><Skeleton className="h-96 w-full" /></div>;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6 px-4 py-8">
+    <div className="mx-auto max-w-3xl space-y-6 px-4 py-10 md:py-14">
       <PageHeader title="Edit listing" subtitle={<>Status: <strong>{p.listing_status}</strong> · <Link className="text-brand-700 underline" href={`/properties/${p.id}`}>View listing</Link></>} />
       {created && <Alert tone="green" title="Listing submitted">It is pending admin review. Add photos below while you wait.</Alert>}
       {p.review_reason && p.listing_status !== "approved" && <Alert tone="red" title={`Reviewer note (${p.listing_status})`}>{p.review_reason}</Alert>}

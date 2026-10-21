@@ -7,7 +7,7 @@ import { loadPreferences } from "@/lib/advisor";
 import { api, ApiError } from "@/lib/api";
 import { formatINRShort } from "@/lib/format";
 import type { ChatResponse, ChatTurn, PropertySummary } from "@/lib/types";
-import { Badge, Button, PageHeader, OriginBadge, Spinner, cx } from "@/components/ui";
+import { Badge, Button, Note, PageHeader, OriginBadge, Spinner } from "@/components/ui";
 import { RichText } from "@/components/chat/RichText";
 
 type Message =
@@ -91,22 +91,26 @@ function ChatInner() {
   }, [params]);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto max-w-4xl px-4 py-10 md:py-14">
       <PageHeader
         title="Property assistant"
-        subtitle="Ask in plain language. Answers come only from PropWise's own listings, price model and approved definitions. Your Advisor preferences, if set, are used to explain rankings."
+        subtitle="Ask in plain language. Answers come only from PropWise's own listings, price model and approved definitions."
       />
-      <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50">
-        <div className="max-h-[65vh] min-h-[320px] space-y-4 overflow-y-auto p-4" aria-live="polite" data-testid="chat-log">
+      <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-card">
+        <div className="max-h-[65vh] min-h-[360px] space-y-5 overflow-y-auto bg-slate-50/60 p-5 md:p-6" aria-live="polite" data-testid="chat-log">
           {messages.length === 0 && (
-            <div className="py-6 text-center">
-              <p className="text-sm text-slate-600">Try one of these:</p>
-              <div className="mt-3 flex flex-wrap justify-center gap-2">
+            <div className="mx-auto max-w-2xl py-10 text-center">
+              <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full bg-brand-50 text-brand-600" aria-hidden="true">
+                <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M4 5h16v11H8l-4 4z" /></svg>
+              </div>
+              <p className="text-base font-medium text-ink-800">What would you like to know?</p>
+              <p className="mt-1 text-sm text-ink-500">Try one of these:</p>
+              <div className="mt-5 flex flex-wrap justify-center gap-2">
                 {SUGGESTIONS.map((s) => (
                   <button
                     key={s}
                     onClick={() => void send(s)}
-                    className="rounded-full border border-brand-200 bg-white px-3 py-1.5 text-sm text-brand-800 hover:bg-brand-50"
+                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-ink-700 transition hover:border-brand-300 hover:bg-brand-50 hover:text-brand-800"
                   >
                     {s}
                   </button>
@@ -117,7 +121,7 @@ function ChatInner() {
           {messages.map((m, i) =>
             m.role === "user" ? (
               <div key={i} className="flex justify-end">
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-brand-700 px-4 py-2 text-sm text-white">{m.content}</div>
+                <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-ink-gradient px-4 py-2.5 text-sm text-white">{m.content}</div>
               </div>
             ) : m.role === "error" ? (
               <div key={i} role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
@@ -155,7 +159,7 @@ function ChatInner() {
           <div ref={endRef} />
         </div>
         <form
-          className="flex gap-2 border-t border-slate-200 bg-white p-3"
+          className="flex gap-2 border-t border-slate-200/70 bg-white p-4"
           onSubmit={(e) => { e.preventDefault(); void send(input); }}
         >
           <label htmlFor="chat-input" className="sr-only">Your question</label>
@@ -165,15 +169,16 @@ function ChatInner() {
             onChange={(e) => setInput(e.target.value)}
             maxLength={1000}
             placeholder="e.g. Plots in Dharwad under 25 lakh"
-            className="min-w-0 flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            className="min-w-0 flex-1 rounded-design border border-slate-200 px-4 py-2.5 text-sm placeholder:text-ink-500 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
           />
           <Button type="submit" loading={busy} disabled={!input.trim()}>Send</Button>
         </form>
       </div>
-      <p className={cx("mt-3 text-xs text-slate-500")}>
-        The assistant can only read listings and run the price model; it cannot change anything. Most listings are synthetic
-        demonstration data; listings marked real are unverified third-party asking prices. Not legal or financial advice.
-      </p>
+      <Note className="mt-4">
+        The assistant can only read listings and run the price model; it cannot change anything. Your Advisor preferences, if set, are used
+        to explain rankings. Most listings are synthetic demonstration data; listings marked real are unverified third-party asking prices.
+        Not legal or financial advice.
+      </Note>
     </div>
   );
 }

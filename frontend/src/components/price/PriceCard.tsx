@@ -18,8 +18,8 @@ export function PriceCard({ propertyId }: { propertyId: string }) {
   }, [propertyId]);
 
   return (
-    <Card className="p-4">
-      <h2 className="text-sm font-semibold text-slate-900">Indicative price estimate</h2>
+    <Card className="p-5">
+      <h2 className="text-base font-semibold text-ink-900">Indicative price estimate</h2>
       <div className="mt-3">
         {error ? (
           <p className="text-sm text-slate-600">

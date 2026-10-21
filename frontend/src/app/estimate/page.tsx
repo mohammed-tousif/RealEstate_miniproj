@@ -6,7 +6,7 @@ import { defaultsForType } from "@/lib/documents";
 import { formatSqft, parseINR, toSqft } from "@/lib/format";
 import { useMeta } from "@/lib/providers";
 import type { AreaUnit, Locality, PriceEstimate, PriceEstimateInput, PropertyType, RoadAccess } from "@/lib/types";
-import { Alert, Button, Card, EmptyState, Field, Input, PageHeader, Select } from "@/components/ui";
+import { Alert, Button, Card, Disclosure, EmptyState, Field, Input, Note, PageHeader, Select } from "@/components/ui";
 import { EstimateResult } from "@/components/price/EstimateResult";
 
 type Form = {
@@ -103,19 +103,14 @@ export default function EstimatePage() {
   const isPlot = f.property_type === "residential_plot" || f.property_type === "commercial_plot";
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
       <PageHeader
         title="Indicative price estimate"
         subtitle="A machine-learning estimate of a typical asking price for a property like this, with a range and comparable listings. It is not a valuation."
       />
-      <Alert tone="blue">
-        The model was trained mostly on synthetic demonstration data (plus a few real asking prices), so it mainly reflects the
-        rules used to generate that data, not the real Hubballi–Dharwad market. See the Methodology page for how it was tested.
-      </Alert>
-
-      <div className="mt-6 grid gap-8 lg:grid-cols-[380px_1fr]">
-        <Card className="p-5">
-          <form onSubmit={submit} className="space-y-4" aria-label="Property details for estimate">
+      <div className="grid gap-10 lg:grid-cols-[380px_1fr]">
+        <Card className="h-fit p-6">
+          <form onSubmit={submit} className="space-y-5" aria-label="Property details for estimate">
             <Field label="Locality" htmlFor="locality" required>
               <Select id="locality" value={f.locality_id} onChange={(e) => set("locality_id", e.target.value)}>
                 <option value="">Choose a locality</option>
@@ -136,36 +131,38 @@ export default function EstimatePage() {
                 </Select>
               </div>
             </Field>
-            <Field label="Land classification (as declared)" htmlFor="landclass">
-              <EnumSelect id="landclass" group="LandClassification" value={f.land_classification} onChange={(v) => set("land_classification", v)} />
-            </Field>
-            {!farmland && (
-              <Field label="Conversion status (as claimed)" htmlFor="conversion">
-                <EnumSelect id="conversion" group="ConversionStatus" value={f.conversion_status} onChange={(v) => set("conversion_status", v)} />
+            <Disclosure summary="Land, legal and road details (optional)">
+              <Field label="Land classification (as declared)" htmlFor="landclass">
+                <EnumSelect id="landclass" group="LandClassification" value={f.land_classification} onChange={(v) => set("land_classification", v)} />
               </Field>
-            )}
-            {isPlot && (
-              <Field label="Layout approval (as claimed)" htmlFor="layout">
-                <EnumSelect id="layout" group="LayoutApprovalStatus" value={f.layout_approval_status} onChange={(v) => set("layout_approval_status", v)} />
-              </Field>
-            )}
-            <Field label="Road access" htmlFor="road">
-              <EnumSelect id="road" group="RoadAccess" value={f.road_access} onChange={(v) => set("road_access", v as RoadAccess)} />
-            </Field>
-            <div className="grid grid-cols-2 gap-2">
-              <Field label="Road frontage (ft)" htmlFor="frontage">
-                <Input id="frontage" inputMode="decimal" placeholder="optional" value={f.road_frontage_ft} onChange={(e) => set("road_frontage_ft", e.target.value)} />
-              </Field>
-              {isPlot && (
-                <Field label="Corner plot" htmlFor="corner">
-                  <Select id="corner" value={f.is_corner_plot} onChange={(e) => set("is_corner_plot", e.target.value as Form["is_corner_plot"])}>
-                    <option value="">Not stated</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </Select>
+              {!farmland && (
+                <Field label="Conversion status (as claimed)" htmlFor="conversion">
+                  <EnumSelect id="conversion" group="ConversionStatus" value={f.conversion_status} onChange={(v) => set("conversion_status", v)} />
                 </Field>
               )}
-            </div>
+              {isPlot && (
+                <Field label="Layout approval (as claimed)" htmlFor="layout">
+                  <EnumSelect id="layout" group="LayoutApprovalStatus" value={f.layout_approval_status} onChange={(v) => set("layout_approval_status", v)} />
+                </Field>
+              )}
+              <Field label="Road access" htmlFor="road">
+                <EnumSelect id="road" group="RoadAccess" value={f.road_access} onChange={(v) => set("road_access", v as RoadAccess)} />
+              </Field>
+              <div className="grid grid-cols-2 gap-2">
+                <Field label="Road frontage (ft)" htmlFor="frontage">
+                  <Input id="frontage" inputMode="decimal" placeholder="optional" value={f.road_frontage_ft} onChange={(e) => set("road_frontage_ft", e.target.value)} />
+                </Field>
+                {isPlot && (
+                  <Field label="Corner plot" htmlFor="corner">
+                    <Select id="corner" value={f.is_corner_plot} onChange={(e) => set("is_corner_plot", e.target.value as Form["is_corner_plot"])}>
+                      <option value="">Not stated</option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </Select>
+                  </Field>
+                )}
+              </div>
+            </Disclosure>
             <Field label="Quoted price to compare (optional)" htmlFor="quoted" hint="e.g. 25 lakh">
               <Input id="quoted" value={f.quoted} onChange={(e) => set("quoted", e.target.value)} />
             </Field>
@@ -185,12 +182,16 @@ export default function EstimatePage() {
               </Alert>
             )
           ) : result ? (
-            <Card className="p-5"><EstimateResult e={result} /></Card>
+            <Card className="p-6"><EstimateResult e={result} /></Card>
           ) : (
             <EmptyState title="Enter the property details">
               The estimate, an indicative range, comparable listings and any warnings about the input will appear here.
             </EmptyState>
           )}
+          <Note className="mt-6">
+            The model was trained mostly on synthetic demonstration data (plus a few real asking prices), so it mainly reflects the
+            rules used to generate that data, not the real Hubballi–Dharwad market. See the Methodology page for how it was tested.
+          </Note>
         </div>
       </div>
     </div>

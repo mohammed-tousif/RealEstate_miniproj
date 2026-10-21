@@ -31,9 +31,9 @@ function LoginInner() {
   };
 
   return (
-    <div className="mx-auto max-w-md px-4 py-16">
-      <Card className="p-6">
-        <h1 className="text-xl font-semibold">Sign in</h1>
+    <div className="mx-auto max-w-md px-4 py-16 md:py-24">
+      <Card className="p-8">
+        <h1 className="text-2xl font-semibold tracking-tight text-ink-900">Sign in</h1>
         <form onSubmit={submit} className="mt-6 space-y-4">
           <Field label="Email" htmlFor="email" required>
             <Input id="email" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} />

@@ -8,6 +8,7 @@ test("price estimate from entered details, with quoted-price comparison and comp
 
   await page.locator("#locality").selectOption({ label: "Saptapur (Dharwad)" });
   await page.locator("#area").fill("1200");
+  await page.getByText("Land, legal and road details (optional)").click();
   await page.locator("#conversion").selectOption("converted_claimed");
   await page.locator("#layout").selectOption("approved_layout_claimed");
   await page.locator("#road").selectOption("paved_internal");

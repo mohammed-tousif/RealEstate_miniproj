@@ -29,7 +29,8 @@ test("seller submits a listing, admin approves it, guest finds it", async ({ pag
   await expect(guest.getByText("No listings match these filters")).toBeVisible();
 
   // Admin approves.
-  await page.getByRole("button", { name: /Sign out/ }).click();
+  await page.getByRole("button", { name: /Account menu/ }).click();
+  await page.getByRole("menuitem", { name: "Sign out" }).click();
   await page.goto("/login");
   await page.getByLabel("Email").fill("admin@demo.propwise.example");
   await page.getByLabel("Password").fill(PASSWORD);

@@ -9,7 +9,7 @@ export default function NewListingPage() {
   const router = useRouter();
   return (
     <RequireRole roles={["seller", "admin"]}>
-      <div className="mx-auto max-w-3xl px-4 py-8">
+      <div className="mx-auto max-w-3xl px-4 py-10 md:py-14">
         <PageHeader title="Add a listing" subtitle="You can add photos after the listing is saved." />
         <ListingForm onSaved={(p) => router.push(`/seller/${p.id}/edit?created=1`)} />
       </div>

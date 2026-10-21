@@ -29,7 +29,7 @@ export function Button({
       disabled={rest.disabled || loading}
       className={cx(
         "inline-flex items-center justify-center gap-2 rounded-design font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60",
-        size === "sm" ? "px-3 py-1.5 text-sm" : "px-5 py-2.5 text-sm",
+        size === "sm" ? "px-3.5 py-2 text-sm" : "px-5 py-2.5 text-sm",
         VARIANTS[variant],
         className,
       )}
@@ -118,7 +118,32 @@ export function Spinner({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 export function Card({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cx("rounded-design border border-slate-200/80 bg-white shadow-card", className)}>{children}</div>;
+  return <div className={cx("rounded-2xl border border-slate-200/70 bg-white shadow-card", className)}>{children}</div>;
+}
+
+/** A quiet one-line notice (data disclaimers and the like): readable, but it does not compete with the content. */
+export function Note({ children, className, role = "note" }: { children: ReactNode; className?: string; role?: string }) {
+  return (
+    <p role={role} className={cx("flex gap-2 text-xs leading-5 text-ink-500", className)}>
+      <svg viewBox="0 0 20 20" className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" fill="currentColor" aria-hidden="true">
+        <path fillRule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a1 1 0 0 0 0 2v3a1 1 0 0 0 1 1h1a1 1 0 1 0 0-2v-3a1 1 0 0 0-1-1H9Z" clipRule="evenodd" />
+      </svg>
+      <span>{children}</span>
+    </p>
+  );
+}
+
+/** Collapsible group for secondary options, so forms show the essentials first. */
+export function Disclosure({ summary, children, defaultOpen, className }: { summary: ReactNode; children: ReactNode; defaultOpen?: boolean; className?: string }) {
+  return (
+    <details open={defaultOpen} className={cx("group rounded-xl border border-slate-200 bg-slate-50/60", className)}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-sm font-medium text-ink-800 [&::-webkit-details-marker]:hidden">
+        {summary}
+        <svg viewBox="0 0 20 20" className="h-4 w-4 text-ink-500 transition group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 8 5 5 5-5" /></svg>
+      </summary>
+      <div className="space-y-5 border-t border-slate-200 px-4 py-4">{children}</div>
+    </details>
+  );
 }
 
 export function Alert({ tone = "amber", title, children }: { tone?: "amber" | "red" | "blue" | "green"; title?: string; children: ReactNode }) {
@@ -129,7 +154,7 @@ export function Alert({ tone = "amber", title, children }: { tone?: "amber" | "r
     green: "border-emerald-200 bg-emerald-50 text-emerald-900",
   }[tone];
   return (
-    <div role={tone === "red" ? "alert" : "status"} className={cx("rounded-design border px-4 py-3 text-sm", t)}>
+    <div role={tone === "red" ? "alert" : "status"} className={cx("rounded-xl border px-4 py-3 text-sm leading-6", t)}>
       {title && <p className="font-semibold">{title}</p>}
       <div className={title ? "mt-1" : ""}>{children}</div>
     </div>
@@ -138,10 +163,13 @@ export function Alert({ tone = "amber", title, children }: { tone?: "amber" | "r
 
 export function EmptyState({ title, children, action }: { title: string; children?: ReactNode; action?: ReactNode }) {
   return (
-    <div className="rounded-design border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
-      <p className="text-base font-semibold text-slate-800">{title}</p>
-      {children && <div className="mx-auto mt-2 max-w-md text-sm text-slate-600">{children}</div>}
-      {action && <div className="mt-4">{action}</div>}
+    <div className="rounded-2xl border border-dashed border-slate-300 bg-white/60 px-6 py-16 text-center">
+      <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full bg-brand-50 text-brand-600" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+      </div>
+      <p className="text-base font-semibold text-ink-800">{title}</p>
+      {children && <div className="mx-auto mt-2 max-w-md text-sm leading-6 text-ink-500">{children}</div>}
+      {action && <div className="mt-5">{action}</div>}
     </div>
   );
 }
@@ -164,12 +192,12 @@ export function Skeleton({ className }: { className?: string }) {
 }
 
 const inputBase =
-  "block w-full rounded-design border border-slate-300 bg-white px-3 py-2 text-sm text-ink-900 placeholder:text-ink-500 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/30 disabled:bg-slate-50";
+  "block w-full rounded-design border border-slate-200 bg-white px-3 py-2.5 text-sm text-ink-900 placeholder:text-ink-500 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/30 disabled:bg-slate-50";
 
 export function Field({ label, htmlFor, hint, error, children, required }: { label: string; htmlFor: string; hint?: string; error?: string; children: ReactNode; required?: boolean }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-1 block text-sm font-medium text-slate-700">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-ink-700">
         {label}
         {required && <span className="text-red-600"> *</span>}
       </label>
@@ -221,10 +249,10 @@ export function Pagination({ page, totalPages, onPage }: { page: number; totalPa
 
 export function PageHeader({ title, subtitle, actions }: { title: string; subtitle?: ReactNode; actions?: ReactNode }) {
   return (
-    <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-      <div>
-        <h1 className="text-3xl font-semibold tracking-tight text-ink-900">{title}</h1>
-        {subtitle && <p className="mt-1 text-sm text-ink-500">{subtitle}</p>}
+    <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div className="max-w-2xl">
+        <h1 className="text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">{title}</h1>
+        {subtitle && <p className="mt-3 text-base leading-7 text-ink-500">{subtitle}</p>}
       </div>
       {actions}
     </div>

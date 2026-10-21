@@ -48,24 +48,32 @@ export function EstimateResult({ e, compact = false }: { e: PriceEstimate; compa
   const cov = Math.round(e.indicative_range_inr.measured_test_coverage * 100);
   const nominal = Math.round(e.indicative_range_inr.nominal_coverage * 100);
   const pct = e.quoted_vs_estimate_pct;
+  const explain = (
+    <p className="mt-3 text-xs leading-5 text-ink-500">
+      The range is meant to hold about {nominal}% of asking prices; on the held-out test listings it held {cov}%.
+      It comes from the model&apos;s past errors, not from a guaranteed confidence level.
+      {" "}≈ {formatINR(e.predicted_price_per_sqft)} per sq ft for {formatSqft(e.normalized_area_sqft)}.
+    </p>
+  );
+  const warnings = e.warnings.length > 0 && (
+    <Alert title="Read before relying on this">
+      <ul className="list-disc space-y-1 pl-5">{e.warnings.map((w) => <li key={w}>{w}</li>)}</ul>
+    </Alert>
+  );
   return (
     <div className="space-y-4" data-testid="estimate-result">
       <div>
-        <p className="text-sm text-slate-500">Model estimate of a typical asking price</p>
-        <p className="text-3xl font-semibold text-slate-900">{formatINRShort(e.predicted_asking_price_inr)}</p>
+        <p className="text-sm text-ink-500">Model estimate of a typical asking price</p>
+        <p className="mt-1 text-3xl font-semibold text-ink-900">{formatINRShort(e.predicted_asking_price_inr)}</p>
         <p className="text-sm text-slate-600">
           Indicative range {formatINRShort(e.indicative_range_inr.low)} – {formatINRShort(e.indicative_range_inr.high)}
         </p>
         <RangeBar e={e} />
-        <p className="mt-2 text-xs text-slate-500">
-          The range is meant to hold about {nominal}% of asking prices; on the held-out test listings it held {cov}%.
-          It comes from the model&apos;s past errors, not from a guaranteed confidence level.
-          {" "}≈ {formatINR(e.predicted_price_per_sqft)} per sq ft for {formatSqft(e.normalized_area_sqft)}.
-        </p>
+        {!compact && explain}
       </div>
 
       {e.quoted_price_inr && pct !== null && e.quoted_position && (
-        <div className={cx("rounded-lg border p-3 text-sm",
+        <div className={cx("rounded-xl border p-3 text-sm leading-6",
           e.quoted_position === "within_range" ? "border-slate-200 bg-slate-50" : "border-amber-300 bg-amber-50")}>
           Quoted {formatINRShort(e.quoted_price_inr)} is {Math.abs(pct).toFixed(1)}% {pct >= 0 ? "above" : "below"} the
           estimate, {POSITION_TEXT[e.quoted_position]}.
@@ -73,10 +81,20 @@ export function EstimateResult({ e, compact = false }: { e: PriceEstimate; compa
         </div>
       )}
 
-      {e.warnings.length > 0 && (
-        <Alert title="Read before relying on this">
-          <ul className="list-disc space-y-1 pl-5">{e.warnings.map((w) => <li key={w}>{w}</li>)}</ul>
-        </Alert>
+      {compact ? (
+        <details className="group rounded-xl border border-slate-200 text-sm">
+          <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2.5 font-medium text-ink-800 [&::-webkit-details-marker]:hidden">
+            How reliable is this?
+            <svg viewBox="0 0 20 20" className="h-4 w-4 text-ink-500 transition group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 8 5 5 5-5" /></svg>
+          </summary>
+          <div className="space-y-3 border-t border-slate-200 px-3 pb-3">
+            {explain}
+            {warnings}
+            <p className="text-xs text-ink-500">Model version {e.model.version}</p>
+          </div>
+        </details>
+      ) : (
+        warnings
       )}
 
       {!compact && e.comparables.length > 0 && (
@@ -115,7 +133,7 @@ export function EstimateResult({ e, compact = false }: { e: PriceEstimate; compa
       <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
         <Badge tone="slate">{e.model.label}</Badge>
         {e.model.trained_on_synthetic && <Badge tone="amber">Trained on synthetic data</Badge>}
-        <span>Version {e.model.version}</span>
+        {!compact && <span>Version {e.model.version}</span>}
       </div>
       <p className="text-xs text-slate-500">{e.disclaimer}</p>
     </div>

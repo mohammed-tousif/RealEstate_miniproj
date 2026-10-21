@@ -6,7 +6,7 @@ import { api, ApiError } from "@/lib/api";
 import { formatINRShort, parseINR } from "@/lib/format";
 import { useAuth, useMeta } from "@/lib/providers";
 import type { AreaUnit, FactorName, Importance, Locality, Objective, Preferences, PropertyType, RecommendationResponse } from "@/lib/types";
-import { Alert, Button, Card, EmptyState, Field, Input, PageHeader, Select, Skeleton } from "@/components/ui";
+import { Button, Card, Disclosure, EmptyState, Field, Input, Note, PageHeader, Select, Skeleton } from "@/components/ui";
 import { RecommendationCard } from "@/components/advisor/RecommendationCard";
 
 const OBJECTIVES: Record<Objective, string> = {
@@ -127,17 +127,17 @@ export default function AdvisorPage() {
   const shownLocalities = localities.filter((l) => p.cities.length === 0 || p.cities.includes(l.city as "Hubballi" | "Dharwad") || p.locality_ids.includes(l.id));
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
       <PageHeader
         title="Property advisor"
         subtitle="Tell us what you need. Strict requirements filter listings out; everything else is weighed into a suitability score you can inspect."
         actions={<Button variant="secondary" size="sm" onClick={() => { adopt(DEMO); run(DEMO); }}>Try the demo: ₹25 lakh plot</Button>}
       />
-      <div className="grid gap-8 lg:grid-cols-[360px_1fr]">
-        <Card className="h-fit p-5">
-          <form className="space-y-5" aria-label="Advisor preferences" onSubmit={(e) => { e.preventDefault(); run(); }}>
+      <div className="grid gap-10 lg:grid-cols-[360px_1fr]">
+        <Card className="h-fit p-6 lg:sticky lg:top-24">
+          <form className="space-y-6" aria-label="Advisor preferences" onSubmit={(e) => { e.preventDefault(); run(); }}>
             <fieldset className="space-y-2">
-              <legend className="text-sm font-semibold text-slate-900">Budget</legend>
+              <legend className="mb-1 text-sm font-semibold text-ink-900">Budget</legend>
               <div className="grid grid-cols-2 gap-2">
                 <Field label="Minimum" htmlFor="adv-min"><Input id="adv-min" placeholder="optional" value={budgetMin} onChange={(e) => setBudgetMin(e.target.value)} /></Field>
                 <Field label="Maximum" htmlFor="adv-max"><Input id="adv-max" placeholder="e.g. 25 lakh" value={budgetMax} onChange={(e) => setBudgetMax(e.target.value)} /></Field>
@@ -153,7 +153,7 @@ export default function AdvisorPage() {
             </Field>
 
             <fieldset className="space-y-1">
-              <legend className="text-sm font-semibold text-slate-900">Property type</legend>
+              <legend className="mb-1 text-sm font-semibold text-ink-900">Property type</legend>
               {Object.entries(meta?.enums.PropertyType ?? {}).map(([k, v]) => (
                 <Check key={k} checked={p.property_types.includes(k as PropertyType)} onChange={(on) => set("property_types", toggle(p.property_types, k as PropertyType, on))}>{v}</Check>
               ))}
@@ -161,14 +161,14 @@ export default function AdvisorPage() {
             </fieldset>
 
             <fieldset className="space-y-1">
-              <legend className="text-sm font-semibold text-slate-900">Location</legend>
+              <legend className="mb-1 text-sm font-semibold text-ink-900">Location</legend>
               <div className="flex gap-4">
                 {(["Hubballi", "Dharwad"] as const).map((c) => (
                   <Check key={c} checked={p.cities.includes(c)} onChange={(on) => set("cities", toggle(p.cities, c, on))}>{c}</Check>
                 ))}
               </div>
-              <details className="rounded-md border border-slate-200 p-2">
-                <summary className="cursor-pointer text-sm text-slate-700">Preferred localities ({p.locality_ids.length})</summary>
+              <details className="rounded-design border border-slate-200 px-3 py-2">
+                <summary className="cursor-pointer text-sm text-ink-700">Preferred localities ({p.locality_ids.length})</summary>
                 <div className="mt-2 max-h-48 space-y-1 overflow-y-auto">
                   {shownLocalities.map((l) => (
                     <Check key={l.id} checked={p.locality_ids.includes(l.id)} onChange={(on) => set("locality_ids", toggle(p.locality_ids, l.id, on))}>
@@ -181,7 +181,7 @@ export default function AdvisorPage() {
             </fieldset>
 
             <fieldset className="space-y-2">
-              <legend className="text-sm font-semibold text-slate-900">Minimum area</legend>
+              <legend className="mb-1 text-sm font-semibold text-ink-900">Minimum area</legend>
               <div className="grid grid-cols-[1fr_100px] gap-2">
                 <Input aria-label="Minimum area" inputMode="decimal" placeholder="optional" value={p.min_area_value ?? ""} onChange={(e) => set("min_area_value", e.target.value)} />
                 <Select aria-label="Minimum area unit" value={p.min_area_unit} onChange={(e) => set("min_area_unit", e.target.value as AreaUnit)}>
@@ -191,8 +191,9 @@ export default function AdvisorPage() {
               <Check checked={p.area_strict} onChange={(v) => set("area_strict", v)}>Strict</Check>
             </fieldset>
 
-            <fieldset className="space-y-2">
-              <legend className="text-sm font-semibold text-slate-900">How much does each matter?</legend>
+            <Disclosure summary="Fine-tune what matters most">
+              <fieldset className="space-y-2">
+              <legend className="sr-only">How much does each matter?</legend>
               {FACTORS.map(([f, text]) => (
                 <div key={f} className="grid grid-cols-[1fr_140px] items-center gap-2">
                   <label htmlFor={`imp-${f}`} className="text-sm text-slate-700">{text}</label>
@@ -201,7 +202,8 @@ export default function AdvisorPage() {
                   </Select>
                 </div>
               ))}
-            </fieldset>
+              </fieldset>
+            </Disclosure>
 
             {error && <p className="text-sm text-red-600" role="alert">{error}</p>}
             <div className="flex flex-wrap gap-2">
@@ -213,7 +215,7 @@ export default function AdvisorPage() {
           </form>
         </Card>
 
-        <section aria-label="Recommendations" className="space-y-4">
+        <section aria-label="Recommendations" className="min-w-0 space-y-6">
           {busy && !res ? (
             <Skeleton className="h-64 w-full" />
           ) : !res ? (
@@ -222,7 +224,7 @@ export default function AdvisorPage() {
             </EmptyState>
           ) : (
             <>
-              <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+              <div className="rounded-2xl border border-slate-200/70 bg-white p-5 text-sm leading-6 text-ink-700 shadow-card">
                 <p>
                   <span className="font-semibold">{res.matched}</span> of {res.candidates_considered} approved listings meet your strict requirements
                   {res.matched > res.results.length && `; showing the top ${res.results.length}`}.
@@ -234,7 +236,7 @@ export default function AdvisorPage() {
                 {res.notes.length > 0 && <ul className="mt-1 list-disc pl-5 text-slate-500">{res.notes.map((n) => <li key={n}>{n}</li>)}</ul>}
                 <p className="mt-2 text-xs text-slate-500">{res.score_label} Engine {res.engine_version}.</p>
               </div>
-              {res.is_synthetic_data && <Alert tone="blue">Listings marked synthetic are demonstration data, so matches among them illustrate the method, not real opportunities. Listings marked real are unverified third-party asking prices.</Alert>}
+              {res.is_synthetic_data && <Note>Listings marked synthetic are demonstration data, so matches among them illustrate the method, not real opportunities. Listings marked real are unverified third-party asking prices.</Note>}
               {res.results.length === 0 ? (
                 <EmptyState title="No listings meet all of your strict requirements">
                   Relax the requirement with the most exclusions above, or untick its &ldquo;strict&rdquo; box so it is weighed instead of enforced.

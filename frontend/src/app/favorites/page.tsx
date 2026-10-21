@@ -14,7 +14,7 @@ function Favourites() {
     api.favorites().then(setItems).catch((e: ApiError) => setError(e.message));
   }, []);
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
       <PageHeader title="Saved properties" />
       {error ? <ErrorState message={error} /> : items === null ? <Skeleton className="h-64 w-full" /> : items.length === 0 ? (
         <EmptyState title="No saved properties" action={<LinkButton href="/properties">Explore listings</LinkButton>}>Use &ldquo;Save to favourites&rdquo; on a listing page.</EmptyState>

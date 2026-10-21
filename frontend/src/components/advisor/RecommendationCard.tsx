@@ -12,8 +12,8 @@ export function RecommendationCard({ r }: { r: Recommendation }) {
   const compare = useCompare();
   const p = r.property;
   return (
-    <Card className="p-5">
-      <article className="grid gap-5 md:grid-cols-[1fr_240px]" aria-label={`Recommendation ${r.rank}`}>
+    <Card className="p-6">
+      <article className="grid gap-6 md:grid-cols-[1fr_240px] md:gap-8" aria-label={`Recommendation ${r.rank}`}>
         <div className="min-w-0 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <Badge tone="slate">#{r.rank}</Badge>
@@ -21,15 +21,15 @@ export function RecommendationCard({ r }: { r: Recommendation }) {
             <OriginBadge p={p} />
           </div>
           <div>
-            <Link href={`/properties/${p.id}`} className="text-lg font-semibold text-slate-900 hover:text-brand-700">{p.title}</Link>
-            <p className="text-sm text-slate-600">
+            <Link href={`/properties/${p.id}`} className="text-lg font-semibold text-ink-900 hover:text-brand-700">{p.title}</Link>
+            <p className="mt-1 text-sm text-ink-500">
               {p.locality.locality_name}, {p.locality.city} · {formatArea(p.area_value, p.area_unit)}{p.area_unit !== "sqft" && ` (${formatSqft(p.normalized_area_sqft)})`} ·{" "}
               <span className="font-semibold text-slate-900">{formatINRShort(p.asking_price_inr)}</span>
             </p>
           </div>
           <Explanations r={r} />
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4 md:border-l md:border-slate-100 md:pl-8">
           <ScoreBadge score={r.score} coverage={r.data_coverage} />
           <FactorBars r={r} />
           <Button size="sm" variant={compare.has(p.id) ? "primary" : "secondary"} onClick={() => compare.toggle(p.id)} className="w-full">

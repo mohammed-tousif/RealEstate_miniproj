@@ -1,28 +1,34 @@
 import Link from "next/link";
 
+const LINKS = [
+  { href: "/properties", label: "Explore" },
+  { href: "/advisor", label: "Advisor" },
+  { href: "/chat", label: "Assistant" },
+  { href: "/estimate", label: "Price estimate" },
+  { href: "/compare", label: "Compare" },
+  { href: "/about", label: "Methodology" },
+];
+
 export function Footer() {
   return (
-    <footer className="mt-16 rounded-tl-[60px] bg-ink-gradient text-white md:rounded-tl-[108px]">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 text-sm text-ink-400 md:grid-cols-3">
-        <div>
-          <p className="text-base font-medium text-white">PropWise AI</p>
-          <p className="mt-1">An academic prototype for property research in Hubballi–Dharwad, Karnataka.</p>
+    <footer className="mt-24 rounded-tl-[60px] bg-ink-gradient text-white md:rounded-tl-[108px]">
+      <div className="mx-auto max-w-7xl px-4 pb-10 pt-14">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-sm">
+            <p className="text-lg font-semibold">PropWise <span className="text-brand-200">AI</span></p>
+            <p className="mt-2 text-sm leading-6 text-ink-400">Explainable property research for Hubballi–Dharwad, Karnataka. An academic prototype.</p>
+          </div>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm sm:grid-cols-3">
+            {LINKS.map((l) => (
+              <Link key={l.href} href={l.href} className="text-ink-400 transition hover:text-white">{l.label}</Link>
+            ))}
+          </nav>
         </div>
-        <div>
-          <p className="text-base font-medium text-white">About the data</p>
-          <p className="mt-1">
-            Most listings in this demo are <strong className="text-white">synthetic</strong>: not real properties, and their prices are not market
-            data. A few are marked <strong className="text-white">real</strong>: land listings copied from a public website with their source link,
-            not verified by PropWise.
-          </p>
-        </div>
-        <div>
-          <p className="text-base font-medium text-white">Disclaimer</p>
-          <p className="mt-1">
-            Not legal or financial advice. Document statuses reflect seller declarations; verify independently.{" "}
-            <Link href="/about" className="text-white underline">Methodology</Link>
-          </p>
-        </div>
+        <p className="mt-12 border-t border-white/10 pt-6 text-xs leading-5 text-ink-500">
+          Most listings are <strong className="font-medium text-ink-400">synthetic</strong> demo data, not real properties or market prices. Listings marked{" "}
+          <strong className="font-medium text-ink-400">real</strong> are copied from a public website and unverified. Document statuses are seller declarations.
+          Not legal or financial advice.
+        </p>
       </div>
     </footer>
   );

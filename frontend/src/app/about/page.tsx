@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Methodology" };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-xl border border-slate-200 bg-white p-6">
+    <section className="rounded-2xl border border-slate-200/70 bg-white p-6 shadow-card md:p-8">
       <h2 className="text-lg font-semibold text-slate-900">{title}</h2>
       <div className="mt-3 space-y-3 text-sm leading-6 text-slate-700">{children}</div>
     </section>
@@ -15,7 +15,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
+    <div className="mx-auto max-w-4xl space-y-8 px-4 py-10 md:py-14">
       <div>
         <h1 className="text-3xl font-semibold tracking-tight">Methodology and limitations</h1>
         <p className="mt-2 text-slate-600">

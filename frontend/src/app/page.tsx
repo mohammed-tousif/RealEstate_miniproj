@@ -7,7 +7,7 @@ import { api, toQueryString } from "@/lib/api";
 import { parseINR } from "@/lib/format";
 import { useMeta } from "@/lib/providers";
 import type { PropertySummary, PropertyType } from "@/lib/types";
-import { Alert, Button, Input, Select } from "@/components/ui";
+import { Button, Input, Note, Select } from "@/components/ui";
 import { PropertyCard, PropertyCardSkeleton } from "@/components/property/PropertyCard";
 import { CategoryIcon } from "@/components/property/PropertyVisual";
 
@@ -34,7 +34,7 @@ export default function Home() {
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
-    api.searchProperties({ sort: "newest", page_size: 6 }).then((r) => setFeatured(r.items)).catch(() => setFeatured([]));
+    api.searchProperties({ sort: "newest", page_size: 3 }).then((r) => setFeatured(r.items)).catch(() => setFeatured([]));
     Promise.all(CATEGORIES.map((c) => api.searchProperties({ property_type: [c.type], page_size: 1 }).then((r) => [c.type, r.total] as const)))
       .then((pairs) => setCounts(Object.fromEntries(pairs)))
       .catch(() => setCounts({}));
@@ -92,61 +92,68 @@ export default function Home() {
       </section>
 
       <section className="relative -mt-28 rounded-tl-[60px] bg-ink-gradient text-white shadow-float md:-mt-40 md:rounded-tl-[108px]">
-        <div className="mx-auto max-w-7xl px-4 pb-14 pt-10">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-[28px] font-medium">Browse by category</h2>
-            <Link href="/about" className="text-sm text-ink-400 hover:text-white">How it works</Link>
-          </div>
-          <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mx-auto max-w-7xl px-4 pb-20 pt-14">
+          <SectionHeading eyebrow="Categories" title="Browse by category" dark link={{ href: "/properties", text: "All listings" }} />
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
             {CATEGORIES.map((c) => (
-              <Link key={c.type} href={`/properties?property_type=${c.type}`} className="group">
-                <div className="flex aspect-[186/190] items-center justify-center rounded-design bg-gradient-to-br from-brand-400/90 to-brand-800 text-white ring-1 ring-white/10 transition group-hover:from-brand-300 group-hover:ring-white/40">
-                  <CategoryIcon type={c.type} className="h-16 w-16 md:h-20 md:w-20" />
+              <Link key={c.type} href={`/properties?property_type=${c.type}`} title={c.blurb} className="group">
+                <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400/90 to-brand-800 text-white ring-1 ring-white/10 transition duration-200 group-hover:-translate-y-1 group-hover:from-brand-300 group-hover:ring-white/40">
+                  <CategoryIcon type={c.type} className="h-12 w-12 md:h-14 md:w-14" />
                 </div>
                 <p className="mt-4 text-base font-medium text-white">{meta?.enums.PropertyType?.[c.type] ?? c.type}</p>
-                <p className="mt-1 text-sm text-ink-400">{c.blurb}</p>
-                <p className="mt-1 text-sm font-medium text-brand-200">{counts[c.type] !== undefined ? `${counts[c.type]} listings` : "\u00a0"}</p>
+                <p className="mt-1 text-sm text-ink-400">{counts[c.type] !== undefined ? `${counts[c.type]} listings` : "\u00a0"}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
-        <div className="flex items-end justify-between">
-          <h2 className="text-[28px] font-medium text-ink-900">Latest listings</h2>
-          <Link href="/properties" className="text-sm font-medium text-brand-700 hover:underline">See all</Link>
-        </div>
-        <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 py-20 md:py-24">
+        <SectionHeading eyebrow="New on PropWise" title="Latest listings" link={{ href: "/properties", text: "See all listings" }} />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured === null
             ? Array.from({ length: 3 }, (_, i) => <PropertyCardSkeleton key={i} />)
             : featured.map((p) => <PropertyCard key={p.id} p={p} />)}
         </div>
-        {featured?.length === 0 && <p className="mt-4 text-sm text-slate-500">No listings yet. Is the backend running and seeded?</p>}
+        {featured?.length === 0 && <p className="mt-6 text-sm text-ink-500">No listings yet. Is the backend running and seeded?</p>}
       </section>
 
-      <section className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12">
-          <h2 className="text-[28px] font-medium text-ink-900">How PropWise works</h2>
-          <ol className="mt-6 grid gap-6 md:grid-cols-3">
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-20 md:py-24">
+          <SectionHeading eyebrow="How it works" title="Research a property in three steps" link={{ href: "/about", text: "Read the methodology" }} />
+          <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
             {STEPS.map((s, i) => (
-              <li key={s.title} className="rounded-design border border-slate-200 p-6">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-ink-gradient text-sm font-semibold text-white">{i + 1}</span>
-                <p className="mt-3 font-semibold">{s.title}</p>
-                <p className="mt-1 text-sm text-slate-600">{s.text}</p>
+              <li key={s.title}>
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-base font-semibold text-brand-700">{i + 1}</span>
+                <p className="mt-5 text-lg font-semibold text-ink-900">{s.title}</p>
+                <p className="mt-2 text-[15px] leading-7 text-ink-500">{s.text}</p>
               </li>
             ))}
           </ol>
+          <Note className="mt-16 max-w-3xl">
+            Most listings on this site are synthetic, generated for a college project. A few, marked &ldquo;Real listing&rdquo;, are land
+            listings copied from a public website with a link to the source; PropWise has not verified them. Nothing here is a valuation,
+            or legal or investment advice.
+          </Note>
         </div>
       </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-10">
-        <Alert tone="blue" title="Demonstration data">
-          Most listings on this site are synthetic, generated for a college project. A few, marked &ldquo;Real listing&rdquo;,
-          are land listings copied from a public website with a link to the source; PropWise has not verified them and does
-          not represent their sellers. Nothing here is a valuation, or legal or investment advice.
-        </Alert>
-      </section>
     </>
+  );
+}
+
+function SectionHeading({ eyebrow, title, link, dark }: { eyebrow: string; title: string; link?: { href: string; text: string }; dark?: boolean }) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p className={dark ? "text-xs font-semibold uppercase tracking-[0.18em] text-brand-200" : "text-xs font-semibold uppercase tracking-[0.18em] text-brand-600"}>{eyebrow}</p>
+        <h2 className={dark ? "mt-2 text-3xl font-medium text-white" : "mt-2 text-3xl font-medium text-ink-900"}>{title}</h2>
+      </div>
+      {link && (
+        <Link href={link.href} className={dark ? "group flex items-center gap-1 text-sm font-medium text-ink-400 hover:text-white" : "group flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900"}>
+          {link.text}
+          <svg viewBox="0 0 20 20" className="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M4 10h12m-4-4 4 4-4 4" /></svg>
+        </Link>
+      )}
+    </div>
   );
 }

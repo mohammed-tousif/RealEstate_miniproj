@@ -33,15 +33,18 @@ export function Navbar() {
   }, [overHero]);
   const solid = !overHero || scrolled || open;
 
-  const links = [
-    ...LINKS,
+  // Personal pages live in the account menu so the main bar stays short.
+  const accountLinks = [
     ...(user ? [{ href: "/favorites", label: "Favourites" }] : []),
     ...(user && (user.role === "seller" || user.role === "admin") ? [{ href: "/seller", label: "My listings" }] : []),
     ...(user?.role === "admin" ? [{ href: "/admin", label: "Admin" }] : []),
   ];
+  const [menu, setMenu] = useState(false);
+  useEffect(() => setMenu(false), [pathname]);
+  const signOut = () => { setMenu(false); setOpen(false); logout(); router.push("/"); };
 
   const nav = (mobile: boolean) =>
-    links.map((l) => {
+    (mobile ? [...LINKS, ...accountLinks] : LINKS).map((l) => {
       const active = pathname === l.href || pathname.startsWith(l.href + "/");
       return (
         <Link
@@ -83,8 +86,8 @@ export function Navbar() {
           </svg>
           <span>PropWise <span className="font-semibold text-brand-200">AI</span></span>
         </Link>
-        <nav className="ml-4 hidden items-center gap-1 xl:flex">{nav(false)}</nav>
-        <div className="ml-auto hidden items-center gap-3 xl:flex">
+        <nav className="ml-6 hidden items-center gap-1 lg:flex">{nav(false)}</nav>
+        <div className="ml-auto hidden items-center gap-3 lg:flex">
           {ready && !user && (
             <>
               <Link href="/login" className="flex items-center gap-1.5 px-2 py-2 text-[15px] font-medium hover:text-brand-100">
@@ -98,22 +101,36 @@ export function Navbar() {
             </>
           )}
           {user && (
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-white/90">
-                {user.name} <span className="text-xs text-white/60">({user.role})</span>
-              </span>
-              <button onClick={() => { logout(); router.push("/"); }} className="rounded-design border border-white/70 px-3 py-1.5 text-sm transition hover:bg-white hover:text-ink-900">
-                Sign out
+            <div className="relative">
+              <button
+                onClick={() => setMenu(!menu)}
+                aria-expanded={menu}
+                aria-haspopup="menu"
+                aria-label={`Account menu for ${user.name}`}
+                className="flex items-center gap-2 rounded-full border border-white/30 py-1 pl-1 pr-3 text-sm transition hover:border-white/70"
+              >
+                <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-xs font-semibold text-ink-900">{user.name.slice(0, 1).toUpperCase()}</span>
+                <span className="max-w-[10rem] truncate">{user.name}</span>
+                <svg viewBox="0 0 20 20" className="h-4 w-4 opacity-70" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 8 5 5 5-5" /></svg>
               </button>
+              {menu && (
+                <div role="menu" className="absolute right-0 mt-2 w-56 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 text-sm text-ink-800 shadow-lg">
+                  <p className="border-b border-slate-100 px-4 py-2.5 text-xs text-ink-500">Signed in as <span className="font-medium capitalize text-ink-800">{user.role}</span></p>
+                  {accountLinks.map((l) => (
+                    <Link key={l.href} role="menuitem" href={l.href} className="block px-4 py-2 hover:bg-slate-50">{l.label}</Link>
+                  ))}
+                  <button role="menuitem" onClick={signOut} className="block w-full border-t border-slate-100 px-4 py-2 text-left hover:bg-slate-50">Sign out</button>
+                </div>
+              )}
             </div>
           )}
         </div>
-        <button className="ml-auto rounded-md p-2 xl:hidden" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <button className="ml-auto rounded-md p-2 lg:hidden" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 px-4 py-3 xl:hidden">
+        <div className="border-t border-white/10 px-4 py-3 lg:hidden">
           {nav(true)}
           <div className="mt-2 border-t border-white/10 pt-2">
             {!user ? (
@@ -122,7 +139,7 @@ export function Navbar() {
                 <Link href="/register" onClick={() => setOpen(false)} className="block rounded-md px-3 py-2 text-sm">Create account</Link>
               </>
             ) : (
-              <button onClick={() => { logout(); setOpen(false); router.push("/"); }} className="block w-full rounded-md px-3 py-2 text-left text-sm">
+              <button onClick={signOut} className="block w-full rounded-md px-3 py-2 text-left text-sm">
                 Sign out ({user.name})
               </button>
             )}

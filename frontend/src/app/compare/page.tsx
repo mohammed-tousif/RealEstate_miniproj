@@ -79,7 +79,7 @@ export default function ComparePage() {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
       <PageHeader
         title="Compare properties"
         subtitle="Pick up to three listings with the Compare checkbox on any card."

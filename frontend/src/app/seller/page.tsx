@@ -33,7 +33,7 @@ function MyListings() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
       <PageHeader title="My listings" subtitle="New and edited listings are reviewed by an admin before they appear in search." actions={<LinkButton href="/seller/new">Add a listing</LinkButton>} />
       {error && <ErrorState message={error} onRetry={load} />}
       {!data ? <Skeleton className="h-64 w-full" /> : data.items.length === 0 ? (

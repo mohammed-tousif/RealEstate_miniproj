@@ -47,7 +47,7 @@ function Admin() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl space-y-8 px-4 py-8">
+    <div className="mx-auto max-w-7xl space-y-8 px-4 py-10 md:py-14">
       <PageHeader title="Admin dashboard" subtitle="Review submitted listings. Approved listings become publicly searchable." />
 
       {stats ? (

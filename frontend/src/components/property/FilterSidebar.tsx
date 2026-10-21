@@ -5,7 +5,7 @@ import { api } from "@/lib/api";
 import { parseINR, toSqft } from "@/lib/format";
 import { useMeta } from "@/lib/providers";
 import type { Locality } from "@/lib/types";
-import { Button, Field, Input, Select } from "@/components/ui";
+import { Button, Disclosure, Field, Input, Select } from "@/components/ui";
 
 export type Filters = Record<string, string | string[]>;
 
@@ -14,8 +14,8 @@ const KEY_DOCS = ["rtc_pahani", "encumbrance_certificate", "sale_deed", "khata",
 function CheckGroup({ name, options, value, onChange }: { name: string; options: Record<string, string>; value: string[]; onChange: (v: string[]) => void }) {
   return (
     <fieldset>
-      <legend className="mb-1.5 text-sm font-medium text-slate-700">{name}</legend>
-      <div className="space-y-1">
+      <legend className="mb-2 text-sm font-medium text-ink-700">{name}</legend>
+      <div className="space-y-1.5">
         {Object.entries(options).map(([code, text]) => (
           <label key={code} className="flex items-center gap-2 text-sm text-slate-700">
             <input
@@ -55,6 +55,7 @@ export function FilterSidebar({ initial, onApply, onReset }: { initial: Filters;
   const set = (k: string, v: string | string[]) => setF((prev) => ({ ...prev, [k]: v }));
   const enums = meta?.enums ?? {};
   const city = str(f.city);
+  const moreCount = ["is_synthetic", "land_classification", "layout_approval_status", "road_access", "intended_land_use", "has_document", "min_area_sqft", "max_area_sqft"].filter((k) => arr(f[k]).filter(Boolean).length).length;
 
   function apply(e: React.FormEvent) {
     e.preventDefault();
@@ -78,7 +79,7 @@ export function FilterSidebar({ initial, onApply, onReset }: { initial: Filters;
   }
 
   return (
-    <form onSubmit={apply} className="space-y-5" aria-label="Filters">
+    <form onSubmit={apply} className="space-y-6" aria-label="Filters">
       <Field label="Search" htmlFor="q">
         <Input id="q" placeholder="Locality, title…" value={str(f.q)} onChange={(e) => set("q", e.target.value)} />
       </Field>
@@ -90,13 +91,6 @@ export function FilterSidebar({ initial, onApply, onReset }: { initial: Filters;
           <Input id="bmax" placeholder="e.g. 25 lakh" value={budgetMax} onChange={(e) => setBudgetMax(e.target.value)} />
         </Field>
       </div>
-      <Field label="Data origin" htmlFor="origin">
-        <Select id="origin" value={str(f.is_synthetic)} onChange={(e) => set("is_synthetic", e.target.value)}>
-          <option value="">All listings</option>
-          <option value="false">Real listings only</option>
-          <option value="true">Synthetic demo listings only</option>
-        </Select>
-      </Field>
       <Field label="City" htmlFor="city">
         <Select id="city" value={city} onChange={(e) => setF((p) => ({ ...p, city: e.target.value, locality_id: "" }))}>
           <option value="">Hubballi and Dharwad</option>
@@ -113,31 +107,40 @@ export function FilterSidebar({ initial, onApply, onReset }: { initial: Filters;
         </Select>
       </Field>
       {enums.PropertyType && <CheckGroup name="Property category" options={enums.PropertyType} value={arr(f.property_type)} onChange={(v) => set("property_type", v)} />}
-      <div>
-        <p className="mb-1.5 text-sm font-medium text-slate-700">Plot area</p>
-        <div className="grid grid-cols-[1fr_1fr_96px] gap-2">
-          <Input aria-label="Minimum area" placeholder="Min" inputMode="decimal" value={areaMin} onChange={(e) => setAreaMin(e.target.value)} />
-          <Input aria-label="Maximum area" placeholder="Max" inputMode="decimal" value={areaMax} onChange={(e) => setAreaMax(e.target.value)} />
-          <Select aria-label="Area unit" value={areaUnit} onChange={(e) => setAreaUnit(e.target.value)}>
-            <option value="sqft">sq ft</option>
-            <option value="sqm">sq m</option>
-            <option value="gunta">gunta</option>
-            <option value="acre">acre</option>
+      <Disclosure summary={<span>More filters{moreCount ? <span className="ml-1.5 rounded-full bg-brand-100 px-1.5 py-0.5 text-xs text-brand-800">{moreCount}</span> : null}</span>} defaultOpen={moreCount > 0}>
+        <Field label="Data origin" htmlFor="origin">
+          <Select id="origin" value={str(f.is_synthetic)} onChange={(e) => set("is_synthetic", e.target.value)}>
+            <option value="">All listings</option>
+            <option value="false">Real listings only</option>
+            <option value="true">Synthetic demo listings only</option>
           </Select>
+        </Field>
+        <div>
+          <p className="mb-2 text-sm font-medium text-ink-700">Plot area</p>
+          <div className="grid grid-cols-[1fr_1fr_96px] gap-2">
+            <Input aria-label="Minimum area" placeholder="Min" inputMode="decimal" value={areaMin} onChange={(e) => setAreaMin(e.target.value)} />
+            <Input aria-label="Maximum area" placeholder="Max" inputMode="decimal" value={areaMax} onChange={(e) => setAreaMax(e.target.value)} />
+            <Select aria-label="Area unit" value={areaUnit} onChange={(e) => setAreaUnit(e.target.value)}>
+              <option value="sqft">sq ft</option>
+              <option value="sqm">sq m</option>
+              <option value="gunta">gunta</option>
+              <option value="acre">acre</option>
+            </Select>
+          </div>
         </div>
-      </div>
-      {enums.LandClassification && <CheckGroup name="Land classification (as declared)" options={enums.LandClassification} value={arr(f.land_classification)} onChange={(v) => set("land_classification", v)} />}
-      {enums.LayoutApprovalStatus && <CheckGroup name="Layout approval (as declared)" options={enums.LayoutApprovalStatus} value={arr(f.layout_approval_status)} onChange={(v) => set("layout_approval_status", v)} />}
-      {enums.RoadAccess && <CheckGroup name="Road access" options={enums.RoadAccess} value={arr(f.road_access)} onChange={(v) => set("road_access", v)} />}
-      {enums.IntendedLandUse && <CheckGroup name="Intended use" options={enums.IntendedLandUse} value={arr(f.intended_land_use)} onChange={(v) => set("intended_land_use", v)} />}
-      {enums.DocumentType && (
-        <CheckGroup
-          name="Seller has declared"
-          options={Object.fromEntries(KEY_DOCS.map((d) => [d, enums.DocumentType[d] ?? d]))}
-          value={arr(f.has_document)}
-          onChange={(v) => set("has_document", v)}
-        />
-      )}
+        {enums.LandClassification && <CheckGroup name="Land classification (as declared)" options={enums.LandClassification} value={arr(f.land_classification)} onChange={(v) => set("land_classification", v)} />}
+        {enums.LayoutApprovalStatus && <CheckGroup name="Layout approval (as declared)" options={enums.LayoutApprovalStatus} value={arr(f.layout_approval_status)} onChange={(v) => set("layout_approval_status", v)} />}
+        {enums.RoadAccess && <CheckGroup name="Road access" options={enums.RoadAccess} value={arr(f.road_access)} onChange={(v) => set("road_access", v)} />}
+        {enums.IntendedLandUse && <CheckGroup name="Intended use" options={enums.IntendedLandUse} value={arr(f.intended_land_use)} onChange={(v) => set("intended_land_use", v)} />}
+        {enums.DocumentType && (
+          <CheckGroup
+            name="Seller has declared"
+            options={Object.fromEntries(KEY_DOCS.map((d) => [d, enums.DocumentType[d] ?? d]))}
+            value={arr(f.has_document)}
+            onChange={(v) => set("has_document", v)}
+          />
+        )}
+      </Disclosure>
       {error && <p className="text-sm text-red-600" role="alert">{error}</p>}
       <div className="flex gap-2">
         <Button type="submit" className="flex-1">Apply filters</Button>
